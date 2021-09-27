@@ -7,17 +7,18 @@ import retrofit2.http.*
 
 val retrofit: Retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
-    .baseUrl("https://enigma-api.ieeevit.org/")
+    .baseUrl(Constants.BASE_URL)
     .build()
 
 interface ApiClient {
-//    @PATCH("api/v1/users/me/edit/") @Headers("Content-Type: application/json")
-//    fun editUsername(@Header("Authorization") authToken: String, @Body username: EditUsernameRequest): Call<EditUsernameResponse>
-//
-//
-//    @POST("api/v1/users/auth/google/")
-//    @FormUrlEncoded
-//    fun getAccessToken(@Field("code") code: String, @Field("callback_url") callBackUrl: String): Call<AccessToken>
+
+
+    @POST(Constants.LOGIN_URL)
+    @FormUrlEncoded
+    fun getAccessToken(@Field("id_token") code:String): Call<AccessToken>
+
+//    @POST("api/v1/users/logout/")
+//    fun logOut(@Header("Authorization") authToken: String): Call<LogoutResponse>
 
 }
 
