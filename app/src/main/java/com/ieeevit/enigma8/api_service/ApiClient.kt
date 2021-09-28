@@ -14,8 +14,8 @@ interface ApiClient {
 
 
     @POST(Constants.LOGIN_URL)
-    @FormUrlEncoded
-    fun getAccessToken(@Field("id_token") code:String): Call<AccessToken>
+//    @FormUrlEncoded
+    fun getAccessToken(@Body authRequest:AuthRequest): Call<AccessTokenResponse>
 
 //    @POST("api/v1/users/logout/")
 //    fun logOut(@Header("Authorization") authToken: String): Call<LogoutResponse>

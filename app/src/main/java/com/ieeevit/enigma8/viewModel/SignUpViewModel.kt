@@ -1,5 +1,6 @@
 package com.ieeevit.enigma8.viewModel
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,14 +10,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.Scopes
 import com.google.android.gms.common.api.Scope
 import com.ieeevit.enigma8.api_service.Api
-import com.ieeevit.enigma8.model.AccessToken
+import com.ieeevit.enigma8.model.AccessTokenResponse
+import com.ieeevit.enigma8.model.AuthRequest
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.concurrent.TimeUnit
+import kotlin.coroutines.coroutineContext
 
 class SignUpViewModel : ViewModel() {
     private val _authStatus = MutableLiveData<Int>()
@@ -48,23 +48,26 @@ class SignUpViewModel : ViewModel() {
 
 
     fun getAuthCode(code: String) {
-        Api.retrofitService.getAccessToken(code)
-            .enqueue(object : Callback<AccessToken> {
+
+        Api.retrofitService.getAccessToken(AuthRequest(code))
+            .enqueue(object : Callback<AccessTokenResponse> {
                 override fun onResponse(
-                    call: Call<AccessToken>,
-                    response: Response<AccessToken>
+                    call: Call<AccessTokenResponse>,
+                    response: Response<AccessTokenResponse>
                 ) {
                     if (response.body() != null) {
                         Log.i("AUthKEY", response.body().toString())
-                        val result: AccessToken? = response.body()
-                        _authCode.value = result?.authorizationKey
+                        val result: AccessTokenResponse? = response.body()
+                        _authCode.value = result?.success.toString()
 //                        _userStatus.value = result?.usernameExist
                         _authStatus.value = 1
+                        Log.e("success",result!!.data.JWT.jwt.toString())
                     }
                 }
 
-                override fun onFailure(call: Call<AccessToken>, t: Throwable) {
+                override fun onFailure(call: Call<AccessTokenResponse>, t: Throwable) {
                     _authStatus.value = 0
+                    Log.e("Fail","${t.message}")
                 }
             })
     }

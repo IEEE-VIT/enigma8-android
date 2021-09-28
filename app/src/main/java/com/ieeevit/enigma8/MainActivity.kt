@@ -4,6 +4,7 @@ package com.ieeevit.enigma8
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -66,7 +67,16 @@ class MainActivity :AppCompatActivity() {
             val authToken = account?.idToken
 
             viewModel.getAuthCode(authToken.toString())
-            Toast.makeText(this,"Sign in successful",Toast.LENGTH_LONG).show()
+//            Toast.makeText(this,"Sign in",Toast.LENGTH_LONG).show()
+            Log.e("AuthCode",authToken!!)
+
+            viewModel.authCode.observe(this,{
+                Toast.makeText(this,it,Toast.LENGTH_LONG).show()
+//                Log.e("result",it)
+
+            })
+
+
 //            val intent = Intent(this,CountdownActivity::class.java)
 //            startActivity(intent)
 //            finish()
