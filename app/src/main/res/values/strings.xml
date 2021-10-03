@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Enigma8</string>
+    <string name="default_notification_channel_name" translatable="true">Weather</string>
+    <string name="fcm_message">FCM Message</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 </resources>

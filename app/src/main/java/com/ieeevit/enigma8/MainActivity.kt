@@ -2,6 +2,7 @@ package com.ieeevit.enigma8
 
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -15,8 +16,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 import com.ieeevit.enigma8.viewModel.SignUpViewModel
 import org.jetbrains.annotations.Nullable
 
@@ -29,12 +33,14 @@ class MainActivity :AppCompatActivity() {
     private lateinit var viewModel: SignUpViewModel
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         g_button = findViewById(R.id.google)
+
 
 
 
@@ -53,6 +59,23 @@ class MainActivity :AppCompatActivity() {
         }
 
 
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            // Log and toast
+//            val msg = getString(R.string., token)
+            Log.d(TAG,token.toString())
+//            Toast.makeText(baseContext, token.toString(), Toast.LENGTH_SHORT).show()
+        })
+
+
     }
 
     private fun signIn() {
@@ -69,12 +92,13 @@ class MainActivity :AppCompatActivity() {
             viewModel.getAuthCode(authToken.toString())
 //            Toast.makeText(this,"Sign in",Toast.LENGTH_LONG).show()
             Log.e("AuthCode",authToken!!)
+            Toast.makeText(this,"Sign in sucessful",Toast.LENGTH_LONG).show()
 
-            viewModel.authCode.observe(this,{
-                Toast.makeText(this,it,Toast.LENGTH_LONG).show()
-//                Log.e("result",it)
-
-            })
+//            viewModel.authCode.observe(this,{
+//
+////                Log.e("result",it)
+//
+//            })
 
 
 //            val intent = Intent(this,CountdownActivity::class.java)
@@ -94,4 +118,7 @@ class MainActivity :AppCompatActivity() {
 
         }
     }
+
+
+
 }

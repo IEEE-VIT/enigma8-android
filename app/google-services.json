@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "485828193401",
+    "project_id": "enigma-8",
+    "storage_bucket": "enigma-8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485828193401:android:b63f4c6a02669c048a38a8",
+        "android_client_info": {
+          "package_name": "com.ieeevit.enigma8"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485828193401-3fumkdcqnl3be892017sgrog1f7p32hq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtwvOc4uctiiMvjXrAylnGhCoky7dBHVI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485828193401-3fumkdcqnl3be892017sgrog1f7p32hq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "485828193401-2lev0d7s3ktqqu6ie7jthjadmftppfbv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ak.Enigma"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
