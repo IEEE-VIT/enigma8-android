@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="platforms">
+        <item>Twitter</item>
+        <item>Instagram</item>
+        <item>Facebook</item>
+        <item>Reddit</item>
+        <item>E-Mail</item>
+        <item>WhatsApp</item>
+        <item>Word of mouth</item>
+        <item>Other</item>
+    </string-array>
+</resources>

@@ -1,0 +1,125 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="android:textColor">@color/enigmaColor</item>
+    </style>
+
+    <style name="BottomButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">80dp</item>
+        <item name="android:backgroundTint">@color/bottomButton</item>
+    </style>
+
+    <style name="BottomButtonBack">
+        <item name="android:layout_height">70dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <style name="simpleTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#1DB818</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">26sp</item>
+        <item name="fontFamily">@font/ibm</item>
+    </style>
+
+    <style name="headerTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#26DF21</item>
+        <item name="android:textSize">26sp</item>
+        <item name="lineHeight">34sp</item>
+        <item name="fontFamily">@font/ibm</item>
+    </style>
+
+    <style name="hintButtonStyle" parent="Widget.AppCompat.ImageButton">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">75dp</item>
+        <item name="android:background">@drawable/hint_button_back</item>
+        <item name="android:layout_marginEnd">15dp</item>
+    </style>
+
+    <style name="questionTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorQuestionText</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="fontFamily">@font/ibm</item>
+    </style>
+
+    <style name="dialogTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorDialogText</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">26sp</item>
+        <item name="fontFamily">@font/ibm</item>
+    </style>
+
+    <style name="primaryButtonStyle2" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/buttonTextColor</item>
+        <item name="android:radius">0dp</item>
+        <item name="android:background">@drawable/sign_in_button_background</item>
+    </style>
+
+    <style name="editTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:textCursorDrawable">@drawable/edit_text_cursor</item>
+        <item name="fontFamily">@font/ibm_plex_mono_regular</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/enigmaColor</item>
+        <item name="android:inputType">textVisiblePassword</item>
+
+    </style>
+
+    <style name="countdown" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">62dp</item>
+        <item name="android:layout_height">54dp</item>
+        <item name="android:textSize">38sp</item>
+        <item name="android:textColor">@color/buttonTextColor</item>
+    </style>
+
+    <style name="semicolon" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">21dp</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">@color/buttonTextColor</item>
+    </style>
+
+
+    <style name="leaderboardTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorQuestionText</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/ibm</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
+
+    <style name="leaderboardTextStyleEntry" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/colorButtonText</item>
+        <item name="fontFamily">@font/ibm</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="mySpinnerItemStyle" parent="Widget.AppCompat.TextView.SpinnerItem">
+        <item name="android:textColor">@color/enigmaColor</item>
+        <item name="rippleColor">@color/editTextBackground</item>
+    </style>
+
+</resources>
