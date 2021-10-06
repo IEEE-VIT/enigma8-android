@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+
+    <RelativeLayout
+        android:id="@+id/game_back"
+        style="@style/BottomButtonBack"
+        android:background="@drawable/bottom_button_back">
+
+        <ImageButton
+            android:id="@+id/game"
+            style="@style/BottomButton"
+            android:background="@drawable/bottom_button"
+            android:src="@drawable/play_icon1"
+            android:contentDescription="@string/play" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/leaderboard_back"
+        style="@style/BottomButtonBack"
+        android:layout_toEndOf="@id/game_back"
+        android:background="@drawable/bottom_button_back">
+
+        <ImageButton
+            android:id="@+id/leaderboard"
+            style="@style/BottomButton"
+            android:background="@drawable/bottom_button"
+            android:src="@drawable/leaderboard_icon"
+            android:contentDescription="@string/leaderboard" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/story_back"
+        style="@style/BottomButtonBack"
+        android:layout_toEndOf="@+id/leaderboard_back"
+        android:background="@drawable/bottom_button_back">
+
+        <ImageButton
+            android:id="@+id/story"
+            style="@style/BottomButton"
+            android:background="@drawable/bottom_button"
+            android:src="@drawable/story_icon"
+            android:contentDescription="@string/story" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/BottomButtonBack"
+        android:layout_toEndOf="@+id/story_back"
+        android:background="@drawable/bottom_button_back">
+
+        <ImageButton
+            android:id="@+id/profile"
+            style="@style/BottomButton"
+            android:background="@drawable/bottom_button"
+            android:src="@drawable/profile_icon"
+            android:contentDescription="@string/profile" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
