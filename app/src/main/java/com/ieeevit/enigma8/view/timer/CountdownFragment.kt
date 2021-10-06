@@ -20,7 +20,7 @@ import com.ieeevit.enigma8.viewModel.CountdownViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CountdownFragment : Fragment() {
+class   CountdownFragment : Fragment() {
     private lateinit var startButton: TextView
     private lateinit var sharedPreference: PrefManager
     private lateinit var currentCalendar: Calendar
