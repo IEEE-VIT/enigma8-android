@@ -30,14 +30,12 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
 
         Log.d(TAG, "From: ${remoteMessage.from}")
 
-
         if (remoteMessage.data.isNotEmpty())
         {
             val title = remoteMessage.data["title"]
             val body = remoteMessage.data["body"]
             sendNotification(body.toString())
             Log.d(TAG, "Message data payload: ${remoteMessage.data}")
-
 
         }
         else

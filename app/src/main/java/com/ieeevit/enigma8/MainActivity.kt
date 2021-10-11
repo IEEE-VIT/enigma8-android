@@ -55,7 +55,6 @@ class MainActivity :AppCompatActivity() {
 //                })
         g_button.setOnClickListener {
             signIn()
-
         }
 
 
@@ -68,7 +67,6 @@ class MainActivity :AppCompatActivity() {
 
             // Get new FCM registration token
             val token = task.result
-
             // Log and toast
 //            val msg = getString(R.string., token)
             Log.d(TAG,token.toString())
