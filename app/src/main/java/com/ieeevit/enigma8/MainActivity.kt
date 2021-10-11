@@ -32,6 +32,7 @@ class MainActivity :AppCompatActivity() {
     private lateinit var viewModel: SignUpViewModel
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
 

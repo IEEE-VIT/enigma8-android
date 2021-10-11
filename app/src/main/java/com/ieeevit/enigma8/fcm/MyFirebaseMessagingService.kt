@@ -110,6 +110,7 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build())
     }
 
+
     companion object {
 
         private const val TAG = "MyFirebaseMsgService"
