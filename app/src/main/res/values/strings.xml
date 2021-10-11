@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Enigma 7.0</string>
+    <string name="app_name">Enigma8</string>
     <string name="instructions_n">Instructions\n</string>
     <string name="q1">Q1.</string>
     <string name="submit">Submit</string>
@@ -71,4 +71,7 @@
     <string name="no_internet_connection">Please check your Internet connection!</string>
     <string name="title_sponsor">Title Sponsor</string>
     <string name="sponsors">Sponsors</string>
+    <string name="default_notification_channel_name" translatable="true">Weather</string>
+    <string name="fcm_message">FCM Message</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 </resources>

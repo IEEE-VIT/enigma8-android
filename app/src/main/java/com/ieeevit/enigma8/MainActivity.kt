@@ -2,6 +2,7 @@ package com.ieeevit.enigma8
 
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -15,8 +16,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.messaging.FirebaseMessaging
 import com.ieeevit.enigma8.viewModel.SignUpViewModel
 import org.jetbrains.annotations.Nullable
 
@@ -27,6 +30,7 @@ class MainActivity :AppCompatActivity() {
     private val RC_SIGN_IN = 0
     private lateinit var g_button: Button
     private lateinit var viewModel: SignUpViewModel
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +55,20 @@ class MainActivity :AppCompatActivity() {
             signIn()
 
         }
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+            // Log and toast
+//            val msg = getString(R.string., token)
+            Log.d(TAG,token.toString())
+//            Toast.makeText(baseContext, token.toString(), Toast.LENGTH_SHORT).show()
+        })
 
 
     }
@@ -60,6 +78,7 @@ class MainActivity :AppCompatActivity() {
         startActivityForResult(signInIntent, RC_SIGN_IN)
 
     }
+
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount?>) {
         try {
