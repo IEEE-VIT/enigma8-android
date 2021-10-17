@@ -19,7 +19,11 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
+import com.ieeevit.enigma8.utils.PrefManager
+import com.ieeevit.enigma8.view.main.ProfileActivity
+import com.ieeevit.enigma8.view.timer.CountdownActivity
 import com.ieeevit.enigma8.viewModel.SignUpViewModel
 import org.jetbrains.annotations.Nullable
 
@@ -28,8 +32,10 @@ import org.jetbrains.annotations.Nullable
 class MainActivity :AppCompatActivity() {
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private val RC_SIGN_IN = 0
+    private lateinit var sharedPreference: PrefManager
     private lateinit var g_button: Button
     private lateinit var viewModel: SignUpViewModel
+
 
 
 
@@ -39,6 +45,8 @@ class MainActivity :AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         g_button = findViewById(R.id.google)
+        sharedPreference = PrefManager(this)
+        FirebaseApp.initializeApp(applicationContext)
 
 
 
@@ -53,6 +61,9 @@ class MainActivity :AppCompatActivity() {
 //                })
         g_button.setOnClickListener {
             signIn()
+            val intent = Intent(this,CountdownActivity::class.java)
+            startActivity(intent)
+            finish()
 
         }
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
@@ -77,6 +88,7 @@ class MainActivity :AppCompatActivity() {
         val signInIntent: Intent = mGoogleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
 
+
     }
 
 
@@ -86,22 +98,24 @@ class MainActivity :AppCompatActivity() {
             val authToken = account?.idToken
 
             viewModel.getAuthCode(authToken.toString())
-//            Toast.makeText(this,"Sign in",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"Sign in",Toast.LENGTH_LONG).show()
             Log.e("AuthCode",authToken!!)
 
             viewModel.authCode.observe(this,{
-                Toast.makeText(this,it,Toast.LENGTH_LONG).show()
-//                Log.e("result",it)
+                if(it!=null) {
+                    sharedPreference.setAuthCode(it.toString())
+                    Log.e("result",it)
+
+                }
+//
 
             })
 
 
-//            val intent = Intent(this,CountdownActivity::class.java)
-//            startActivity(intent)
-//            finish()
 
         } catch (e: ApiException) {
            Toast.makeText(this,"Sign In Failed",Toast.LENGTH_LONG).show()
+            Log.e("fail","Failed")
         }
     }
 
