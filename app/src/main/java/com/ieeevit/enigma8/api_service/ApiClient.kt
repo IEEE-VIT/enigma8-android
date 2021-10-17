@@ -1,4 +1,5 @@
 package com.ieeevit.enigma8.api_service
+
 import com.ieeevit.enigma8.model.*
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -19,8 +20,12 @@ interface ApiClient {
 
 //    @POST("api/v1/users/logout/")
 //    fun logOut(@Header("Authorization") authToken: String): Call<LogoutResponse>
-@GET("api/v1/game/status/")
-fun getEnigmaStatus(@Header("Authorization") authToken: String): Call<StatusResponse>
+    @GET(Constants.TIMER_URL)
+    fun getEnigmaStatus(@Header("Authorization") authToken: String): Call<StatusResponse>
+
+    @POST(Constants.USER_URL)
+    fun getUserDetails(@Body userRequest: UserRequest) : Call<User>
+
 
 }
 

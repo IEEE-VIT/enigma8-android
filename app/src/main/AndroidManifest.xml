@@ -37,6 +37,8 @@
                     android:host="github.com" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.main.ProfileActivity"/>
+        <activity android:name=".view.timer.CountdownActivity"/>
         <service
             android:name=".fcm.MyFirebaseMessagingService"
 

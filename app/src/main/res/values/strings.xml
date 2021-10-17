@@ -74,4 +74,16 @@
     <string name="default_notification_channel_name" translatable="true">Weather</string>
     <string name="fcm_message">FCM Message</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="enter_usern">Enter Username</string>
+    <string name="this_cannot">(This cannot be changed later)</string>
+    <string name="are_you_a_c">Are you a college student?</string>
+    <string name="how_did_you">How did you hear about Enigma ?</string>
+    <string name="minimum_8_c">*minimum 8 characters</string>
+    <string-array name="platform">
+        <item>Social Media</item>
+        <item>Friends</item>
+        <item>Other</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
