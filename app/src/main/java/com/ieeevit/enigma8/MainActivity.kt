@@ -61,11 +61,8 @@ class MainActivity :AppCompatActivity() {
 //                })
         g_button.setOnClickListener {
             signIn()
-            val intent = Intent(this,CountdownActivity::class.java)
-            startActivity(intent)
-            finish()
-
         }
+
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
 
             if (!task.isSuccessful) {
@@ -110,11 +107,15 @@ class MainActivity :AppCompatActivity() {
 //
 
             })
+            val intent = Intent(this,CountdownActivity::class.java)
+            startActivity(intent)
+            finish()
+
 
 
 
         } catch (e: ApiException) {
-           Toast.makeText(this,"Sign In Failed",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"Sign In Failed",Toast.LENGTH_LONG).show()
             Log.e("fail","Failed")
         }
     }

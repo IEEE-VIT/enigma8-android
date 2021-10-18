@@ -38,13 +38,13 @@
         style="@style/BottomButtonBack"
         android:layout_toEndOf="@+id/leaderboard_back"
         android:background="@drawable/bottom_button_back">
-
+        <!--
         <ImageButton
             android:id="@+id/story"
             style="@style/BottomButton"
             android:background="@drawable/bottom_button"
             android:src="@drawable/story_icon"
-            android:contentDescription="@string/story" />
+            android:contentDescription="@string/story" /> -->
 
     </RelativeLayout>
 
