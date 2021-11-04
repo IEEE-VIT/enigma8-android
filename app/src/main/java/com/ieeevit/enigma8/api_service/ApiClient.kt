@@ -24,7 +24,10 @@ interface ApiClient {
     fun getEnigmaStatus(@Header("Authorization") authToken: String): Call<StatusResponse>
 
     @POST(Constants.USER_URL)
-    fun getUserDetails(@Body userRequest: UserRequest) : Call<User>
+    fun sendUserDetails(@Header("Authorization") authToken: String,@Body userRequest: UserRequest) : Call<User>
+
+    @GET(Constants.ROOMS_URL)
+    fun getRoomDetails(@Header("Authorization") authToken: String): Call<RoomResponse>
 
 
 }

@@ -8,6 +8,7 @@ object Constants {
     const val LOGIN_URL = "auth/app/google"
     const val TIMER_URL="static/timer"
     const val USER_URL="user/create"
+    const val ROOMS_URL="room/allRooms"
     const val POSTS_URL = "posts"
 }
 

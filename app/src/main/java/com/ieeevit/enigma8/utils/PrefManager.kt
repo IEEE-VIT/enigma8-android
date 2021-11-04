@@ -2,6 +2,7 @@ package com.ieeevit.enigma8.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.ieeevit.enigma8.viewModel.RoomViewModel
 
 class PrefManager(val context: Context) {
     private val prefName = "com.ieeevit.enigma8"

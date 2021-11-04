@@ -43,7 +43,6 @@
             android:id="@+id/story"
             style="@style/BottomButton"
             android:background="@drawable/bottom_button"
-            android:src="@drawable/story_icon"
             android:contentDescription="@string/story" />
 
     </RelativeLayout>
