@@ -67,7 +67,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
-        app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -172,6 +171,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/nxt_bt"
         android:layout_width="110dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"

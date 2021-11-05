@@ -4,5 +4,7 @@ package com.ieeevit.enigma8.model
 
 data class Data (
 
-	val JWT : JWT
+	val JWT : String,
+	val isNew : Boolean
+
 )

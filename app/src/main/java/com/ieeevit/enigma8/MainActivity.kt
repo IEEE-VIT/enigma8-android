@@ -1,16 +1,13 @@
 package com.ieeevit.enigma8
 
 
-import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -18,14 +15,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
 import com.ieeevit.enigma8.utils.PrefManager
-import com.ieeevit.enigma8.view.main.ProfileActivity
-import com.ieeevit.enigma8.view.timer.CountdownActivity
+import com.ieeevit.enigma8.view.main.FirstActivity
+import com.ieeevit.enigma8.viewModel.RoomViewModel
 import com.ieeevit.enigma8.viewModel.SignUpViewModel
-import org.jetbrains.annotations.Nullable
 
 
 @Suppress("DEPRECATION")
@@ -63,6 +58,7 @@ class MainActivity :AppCompatActivity() {
             signIn()
         }
 
+
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
 
             if (!task.isSuccessful) {
@@ -94,20 +90,22 @@ class MainActivity :AppCompatActivity() {
             val account = completedTask.getResult(ApiException::class.java)
             val authToken = account?.idToken
 
+
             viewModel.getAuthCode(authToken.toString())
             Toast.makeText(this,"Sign in",Toast.LENGTH_LONG).show()
-            Log.e("AuthCode",authToken!!)
-
-            viewModel.authCode.observe(this,{
-                if(it!=null) {
-                    sharedPreference.setAuthCode(it.toString())
-                    Log.e("result",it)
-
-                }
+            Log.e("AuthCode",sharedPreference.getAuthCode().toString())
+//            viewModel.authCode.observe(this,{
+//                if(it!=null) {
+//                    Log.e("Token",it.data.JWT)
 //
+//                }
+//                Log.e("Fail","fail")
+//
+//
+//            })
 
-            })
-            val intent = Intent(this,CountdownActivity::class.java)
+
+            val intent = Intent(this,FirstActivity::class.java)
             startActivity(intent)
             finish()
 
@@ -119,6 +117,7 @@ class MainActivity :AppCompatActivity() {
             Log.e("fail","Failed")
         }
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

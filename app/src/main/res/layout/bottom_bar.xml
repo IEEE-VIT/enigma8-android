@@ -46,6 +46,7 @@
             android:src="@drawable/story_icon"
             android:contentDescription="@string/story" /> -->
 
+
     </RelativeLayout>
 
     <RelativeLayout

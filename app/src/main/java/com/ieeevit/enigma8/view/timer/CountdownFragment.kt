@@ -13,13 +13,10 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.ieeevit.enigma8.MainActivity
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.view.main.ProfileActivity
 import com.ieeevit.enigma8.viewModel.CountdownViewModel
-import java.time.LocalDate
-import java.time.LocalDateTime
 import java.util.*
 
 class   CountdownFragment : Fragment() {

@@ -1,5 +1,4 @@
 package com.ieeevit.enigma8.model
-import com.google.gson.annotations.SerializedName
 
 
 
