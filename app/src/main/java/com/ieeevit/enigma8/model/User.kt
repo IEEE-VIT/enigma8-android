@@ -8,4 +8,5 @@ data class User(
 	val success : Boolean?,
 	val data : UserData?,
 	val message:String?
+
 )

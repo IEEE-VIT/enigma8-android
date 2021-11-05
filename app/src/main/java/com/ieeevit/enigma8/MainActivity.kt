@@ -113,7 +113,7 @@ class MainActivity :AppCompatActivity() {
 
 
         } catch (e: ApiException) {
-           Toast.makeText(this,"Sign In Failed",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"Sign In Failed",Toast.LENGTH_LONG).show()
             Log.e("fail","Failed")
         }
     }
