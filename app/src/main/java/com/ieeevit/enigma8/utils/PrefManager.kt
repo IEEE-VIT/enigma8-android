@@ -18,12 +18,24 @@ class PrefManager(val context: Context) {
     private val loggedIN = "IsLoggedIn"
     private val enigmaStatus = "EnigmaStatus"
     private val canShowHintDialog = "CanShowHintDialog"
+    private val roomId : String = "RoomID"
+    private val powerupId : String = "PowerupID"
 
 
     fun setAuthCode(text: String) {
         editor.putString(authorizationCode, text)
         editor.apply()
     }
+    fun setRoomid(text: String) {
+        editor.putString(roomId,text)
+        editor.apply()
+    }
+
+    fun setPowerupid(text: String) {
+        editor.putString(powerupId,text)
+        editor.apply()
+    }
+
 
 //    fun setUserStatus(text: Boolean) {
 //        editor.putBoolean(userNameExist, text)
@@ -60,6 +72,15 @@ class PrefManager(val context: Context) {
     fun getAuthCode(): String? {
         return sharedPref.getString(authorizationCode, null)
     }
+
+    fun getRoomid(): String? {
+        return sharedPref.getString(roomId,null)
+    }
+    fun getPowerupid(): String? {
+        return sharedPref.getString(powerupId,null)
+    }
+
+
 
     fun getUserStatus(): Boolean? {
         return sharedPref.getBoolean(userNameExist, false)

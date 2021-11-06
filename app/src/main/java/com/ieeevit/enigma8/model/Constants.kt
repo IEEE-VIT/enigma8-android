@@ -10,6 +10,8 @@ object Constants {
     const val USER_URL="user/create"
     const val ROOMS_URL="room/allRooms"
     const val POSTS_URL = "posts"
+    const val PowerUp_URL = "user/getPowerups"
+    const val SendPowerUp_URL = "user/selectPowerup"
 }
 
 

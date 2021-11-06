@@ -54,7 +54,8 @@ class RoomFragment : Fragment() {
                             R.drawable.room_fire_black,
                             R.drawable.room_torch,
                             R.drawable.room_torch,
-                            R.drawable.room_torch
+                            R.drawable.room_torch,
+                                item.room._id
                         )
                     )
 

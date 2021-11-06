@@ -28,6 +28,12 @@ interface ApiClient {
 
     @GET(Constants.ROOMS_URL)
     fun getRoomDetails(@Header("Authorization") authToken: String): Call<RoomResponse>
+    @GET(Constants.PowerUp_URL)
+    fun getPowerUpDeatils(@Header("Authorization") authToken: String): Call<com.ieeevit.enigma8.model.PowerUpResponse>
+    @POST(Constants.SendPowerUp_URL)
+    fun sendPowerupDetails(@Header("Authorization") authToken: String,@Body powerupRequest: PowerupRequest) : Call<SendPowerupResponse>
+
+
 
 
 }

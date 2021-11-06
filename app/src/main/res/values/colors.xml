@@ -28,4 +28,6 @@
     <color name="timerTextColor">#1DB818</color>
     <color name="rippleBackColor">#99182F24</color>
     <color name="loadingOverlay">#732B2A2A</color>
+    <color name ="dialogbackground">#DEDCDC</color>
+    <color name ="powerupdialogbackground">#AFA9A9</color>
 </resources>
