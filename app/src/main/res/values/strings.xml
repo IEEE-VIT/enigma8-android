@@ -86,4 +86,6 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Powerup_confirm">Are you sure you want to choose this powerup?</string>
+    <string name="Powerup_warning">The powerup can be used only once in this room only. It cannot be changed later.</string>
 </resources>

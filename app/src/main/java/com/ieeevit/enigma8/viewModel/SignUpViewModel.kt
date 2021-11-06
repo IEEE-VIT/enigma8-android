@@ -62,6 +62,7 @@ class SignUpViewModel(application: Application) : AndroidViewModel(application){
 
 
                     }
+                    Log.e("Response","$response")
                 }
 
                 override fun onFailure(call: Call<AccessTokenResponse>, t: Throwable) {

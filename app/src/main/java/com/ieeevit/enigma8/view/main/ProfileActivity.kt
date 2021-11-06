@@ -11,9 +11,11 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.ieeevit.enigma8.R
+import com.ieeevit.enigma8.model.PowerupRequest
 import com.ieeevit.enigma8.model.UserRequest
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.viewModel.ProfileSetupViewModel
+import com.ieeevit.enigma8.viewModel.SendPowerupViewModel
 
 class ProfileActivity:AppCompatActivity() {
     private lateinit var sharedPreference: PrefManager
@@ -24,6 +26,7 @@ class ProfileActivity:AppCompatActivity() {
     var usernameExist:Boolean = false
     lateinit var autoCompletePlatform: AutoCompleteTextView
     lateinit var viewModel: ProfileSetupViewModel
+    lateinit var sviewModel: SendPowerupViewModel
     var isCollegeStudent: Boolean = false
     var outreach: String = ""
     var platformPos: Int = 0
@@ -41,6 +44,16 @@ class ProfileActivity:AppCompatActivity() {
         autoCompletePlatform = findViewById(R.id.option)
         nextButton = findViewById(R.id.nxt_bt)
         viewModel = ViewModelProvider(this).get(ProfileSetupViewModel::class.java)
+        sviewModel = ViewModelProvider(this).get(SendPowerupViewModel::class.java)
+        val authCode: String? = sharedPreference.getAuthCode()
+        val sendPowerupRequest = PowerupRequest(sharedPreference.getRoomid().toString(),sharedPreference.getPowerupid().toString())
+        sviewModel.sendPowerupDetails("Bearer ${authCode.toString()}",sendPowerupRequest)
+        sviewModel.sPowerupResponse.observe(this,{
+            if(it!=null) {
+                Log.e("SendPowerupResponse","$it")
+            }
+        })
+
 
 
         val items = resources.getStringArray(R.array.platform)
@@ -83,9 +96,9 @@ class ProfileActivity:AppCompatActivity() {
                 }
                 else -> {
                     val userRequest = UserRequest(
-                            username, isCollegeStudent, outreach
+                            username,outreach
                     )
-                    val authCode: String? = sharedPreference.getAuthCode()
+
 
                     viewModel.sendUserDetails( "Bearer ${authCode.toString()}", userRequest)
                     viewModel.userResponse.observe(this,{
@@ -103,6 +116,7 @@ class ProfileActivity:AppCompatActivity() {
             Log.e("U",username)
             Log.e("I",isCollegeStudent.toString())
             Log.e("O",outreach)
+
 
 
 

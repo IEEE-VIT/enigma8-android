@@ -11,5 +11,6 @@ data class RoomsOuter (
      val left: Int,
      val right: Int,
      val center: Int,
+     val roomid: String
 
 )

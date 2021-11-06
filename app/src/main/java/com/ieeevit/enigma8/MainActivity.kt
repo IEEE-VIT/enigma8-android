@@ -19,6 +19,7 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.view.main.FirstActivity
+import com.ieeevit.enigma8.view.main.ProfileActivity
 import com.ieeevit.enigma8.viewModel.RoomViewModel
 import com.ieeevit.enigma8.viewModel.SignUpViewModel
 
