@@ -83,7 +83,7 @@ class ProfileActivity:AppCompatActivity() {
                 }
                 else -> {
                     val userRequest = UserRequest(
-                            username, isCollegeStudent, outreach
+                            username,outreach
                     )
                     val authCode: String? = sharedPreference.getAuthCode()
 
