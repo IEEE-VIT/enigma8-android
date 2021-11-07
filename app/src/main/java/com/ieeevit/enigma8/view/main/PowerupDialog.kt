@@ -48,7 +48,7 @@ class PowerupDialog : DialogFragment(){
         val authToken = sharedPreferences.getAuthCode()
         powerupView = rootView.findViewById(R.id.powerups)
         Log.e("Token","$authToken")
-        viewModel.getPowerupDetails("Bearer ${authToken.toString()}")
+        viewModel.getPowerupDetails("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuczI5aHVsQGdtYWlsLmNvbSIsImlhdCI6MTYzNDQ4NDU1MX0.GS_wtFw-bMjAM_50VhfmJAb-aq2ReHMXrALAPcTOxYQ")
 
         var dataList : MutableList<Powerups> = mutableListOf()
         viewModel.powerupStatus.observe(viewLifecycleOwner, {
@@ -82,7 +82,7 @@ class PowerupDialog : DialogFragment(){
         })
 
         rootView.findViewById<Button>(R.id.continue_btn).setOnClickListener {
-            val intent = Intent(context,ProfileActivity::class.java)
+            val intent = Intent(context,StoryActivity::class.java)
             startActivity(intent)
         }
         return rootView

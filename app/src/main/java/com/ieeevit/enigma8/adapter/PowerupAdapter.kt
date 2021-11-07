@@ -16,6 +16,7 @@ import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.model.Powerups
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.view.main.ProfileActivity
+import com.ieeevit.enigma8.view.main.StoryActivity
 import com.squareup.picasso.Picasso
 
 
@@ -61,7 +62,7 @@ class PowerupAdapter(var context: Context, var dataList: List<Powerups>):Recycle
             val mAlertDialog = mBuilder.show()
 
             Dialogview.findViewById<Button>(R.id.confirm_button).setOnClickListener {
-                val intent = Intent(context, ProfileActivity::class.java)
+                val intent = Intent(context,StoryActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 context.startActivity(intent)
 

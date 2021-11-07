@@ -70,7 +70,7 @@ class RoomsAdapter(var context: Context, var dataList: List<RoomsOuter>):Recycle
 
 
 //        holder.roomImage.setImageURI(data.media.toUri())
-        Picasso.get().load("https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200x200-min.png").into(holder.roomImage)
+//        Picasso.get().load("https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200x200-min.png").into(holder.roomImage)
         holder.leftLamp.setImageResource(data.leftLamp)
         holder.rightLamp.setImageResource(data.rightLamp)
         holder.centerLamp.setImageResource(data.centerLamp)

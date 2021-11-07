@@ -42,6 +42,7 @@
         <activity android:name=".view.main.ProfileActivity"/>
         <activity android:name=".view.timer.CountdownActivity"/>
         <activity android:name=".view.main.FirstActivity"/>
+        <activity android:name=".view.main.StoryActivity"/>
         <service
             android:name=".fcm.MyFirebaseMessagingService"
 

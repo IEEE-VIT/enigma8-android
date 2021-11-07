@@ -37,7 +37,7 @@ class RoomFragment : Fragment() {
         roomView = root.findViewById(R.id.roomView)
         Log.e("Token","$authToken")
 
-        viewModel.getRoomDetails("Bearer ${authToken.toString()}")
+        viewModel.getRoomDetails("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuczI5aHVsQGdtYWlsLmNvbSIsImlhdCI6MTYzNDQ4NDU1MX0.GS_wtFw-bMjAM_50VhfmJAb-aq2ReHMXrALAPcTOxYQ")
         var dataList : MutableList<RoomsOuter> = mutableListOf()
 
 
@@ -48,7 +48,7 @@ class RoomFragment : Fragment() {
                     dataList.add(
                         RoomsOuter(
                             item.room.title,
-                            item.room.media,
+                                item.room.media,
                             R.drawable.room_fire_black,
                             R.drawable.room_fire_black,
                             R.drawable.room_fire_black,
