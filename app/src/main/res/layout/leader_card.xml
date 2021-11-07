@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:id="@+id/Leader_card"
+    card_view:cardBackgroundColor="#000"
+    card_view:cardCornerRadius="0dp"
+    card_view:contentPadding="0dp"
+    android:foreground="?selectableItemBackground"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textAlignment="center"
+                android:id="@+id/Sl"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="rank"
+                />
+
+
+            <TextView
+                android:textAlignment="center"
+                android:id="@+id/nameld"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="username"
+                />
+
+            <TextView
+                android:textAlignment="center"
+                android:id="@+id/score"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="score"
+                />
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
