@@ -1,5 +1,6 @@
 package com.ieeevit.enigma8.model
 
+import android.provider.MediaStore
 
 
 data class RoomsOuter (

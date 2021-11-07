@@ -47,7 +47,7 @@ class ProfileActivity:AppCompatActivity() {
         sviewModel = ViewModelProvider(this).get(SendPowerupViewModel::class.java)
         val authCode: String? = sharedPreference.getAuthCode()
         val sendPowerupRequest = PowerupRequest(sharedPreference.getRoomid().toString(),sharedPreference.getPowerupid().toString())
-        sviewModel.sendPowerupDetails("Bearer ${authCode.toString()}",sendPowerupRequest)
+        sviewModel.sendPowerupDetails("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuczI5aHVsQGdtYWlsLmNvbSIsImlhdCI6MTYzNDQ4NDU1MX0.GS_wtFw-bMjAM_50VhfmJAb-aq2ReHMXrALAPcTOxYQ",sendPowerupRequest)
         sviewModel.sPowerupResponse.observe(this,{
             if(it!=null) {
                 Log.e("SendPowerupResponse","$it")

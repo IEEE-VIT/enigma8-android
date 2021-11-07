@@ -12,6 +12,7 @@ object Constants {
     const val POSTS_URL = "posts"
     const val PowerUp_URL = "user/getPowerups"
     const val SendPowerUp_URL = "user/selectPowerup"
+    const val CurrentStory_URL = "story/currentStory"
 }
 
 
