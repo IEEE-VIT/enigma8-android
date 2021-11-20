@@ -293,7 +293,7 @@
         android:id="@+id/minimum_characters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="8dp"
         android:visibility="invisible"
         android:text="*Minimum 8 characters"

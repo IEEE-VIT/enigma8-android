@@ -34,7 +34,6 @@ class ProfileActivity:AppCompatActivity() {
     var isCollegeStudent: Boolean = false
     var outreach: String = ""
     lateinit var enterusername: TextView
-    var platformPos: Int = 0
     lateinit var option:TextView
     lateinit var end:ImageView
     var message = ""
