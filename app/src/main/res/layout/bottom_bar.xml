@@ -1,66 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/navBar"
     android:layout_height="wrap_content"
+    android:orientation="horizontal"
     android:gravity="center_horizontal">
 
     <RelativeLayout
-        android:id="@+id/game_back"
-        style="@style/BottomButtonBack"
-        android:background="@drawable/bottom_button_back">
+        android:id="@+id/home"
+        android:layout_width="0dp"
+        android:padding="5dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <ImageButton
-            android:id="@+id/game"
-            style="@style/BottomButton"
-            android:background="@drawable/bottom_button"
-            android:src="@drawable/play_icon1"
-            android:contentDescription="@string/play" />
+            android:id="@+id/homeBtn"
+            android:layout_width="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/home"/>
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_below="@+id/homeBtn"
+            android:src="@drawable/hometxt"/>
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/leaderboard_back"
-        style="@style/BottomButtonBack"
-        android:layout_toEndOf="@id/game_back"
-        android:background="@drawable/bottom_button_back">
+        android:id="@+id/leaderboard"
+        android:layout_width="0dp"
+        android:padding="5dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <ImageButton
-            android:id="@+id/leaderboard"
-            style="@style/BottomButton"
-            android:background="@drawable/bottom_button"
-            android:src="@drawable/leaderboard_icon"
-            android:contentDescription="@string/leaderboard" />
+            android:id="@+id/leaderboardBtn"
+            android:layout_width="50dp"
+            android:background="@android:color/transparent"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_round_leaderboard"/>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/leaderboardBtn"
+            android:src="@drawable/leaderboard"/>
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/story_back"
-        style="@style/BottomButtonBack"
-        android:layout_toEndOf="@+id/leaderboard_back"
-        android:background="@drawable/bottom_button_back">
-        <!--
-        <ImageButton
-            android:id="@+id/story"
-            style="@style/BottomButton"
-            android:background="@drawable/bottom_button"
-            android:src="@drawable/story_icon"
-            android:contentDescription="@string/story" /> -->
+        android:id="@+id/story"
+        android:layout_width="0dp"
+        android:padding="5dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
+        <ImageButton
+            android:id="@+id/storyBtn"
+            android:layout_width="50dp"
+            android:background="@android:color/transparent"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_stroryimg"/>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="4dp"
+            android:layout_below="@+id/storyBtn"
+            android:src="@drawable/story"/>
 
     </RelativeLayout>
+
 
     <RelativeLayout
-        style="@style/BottomButtonBack"
-        android:layout_toEndOf="@+id/story_back"
-        android:background="@drawable/bottom_button_back">
+        android:id="@+id/profile"
+        android:layout_width="0dp"
+        android:padding="5dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <ImageButton
-            android:id="@+id/profile"
-            style="@style/BottomButton"
-            android:background="@drawable/bottom_button"
-            android:src="@drawable/profile_icon"
-            android:contentDescription="@string/profile" />
+            android:id="@+id/profileBtn"
+            android:layout_width="50dp"
+            android:background="@android:color/transparent"
+            android:layout_height="30dp"
+
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/healthicons_ui_user_profile"/>
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/profileBtn"
+            android:src="@drawable/profile"/>
 
     </RelativeLayout>
 
-</RelativeLayout>
+
+
+</LinearLayout>
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:background="@color/background"
+    tools:context=".view.onboarding.OnboardingFragmentOne">
+
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="257dp"
+        android:layout_height="306dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/pharoah"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="303dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="21dp"
+        android:fontFamily="@font/mulish_regular"
+        android:text="Join Jones and Ali in their adventure through Egypt "
+        android:textAlignment="center"
+        android:textColor="#FFCA61"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="303dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/mulish_regular"
+        android:text="Things take a turn for the worse when Jones and Ali wander through the depths of Egypt. "
+        android:textAlignment="center"
+        android:textColor="#FFCA61"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

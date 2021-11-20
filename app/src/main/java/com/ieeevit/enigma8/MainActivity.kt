@@ -3,24 +3,28 @@ package com.ieeevit.enigma8
 
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
+import com.ieeevit.enigma8.model.FullStory
 import com.ieeevit.enigma8.utils.PrefManager
-import com.ieeevit.enigma8.view.main.FirstActivity
-import com.ieeevit.enigma8.view.main.ProfileActivity
-import com.ieeevit.enigma8.viewModel.RoomViewModel
+import com.ieeevit.enigma8.view.demoQuestion.DemoQuestionActivity
+import com.ieeevit.enigma8.view.story.StoryActivity
+import com.ieeevit.enigma8.view.profile.ProfileActivity
+import com.ieeevit.enigma8.view.question.QuestionActivity
+import com.ieeevit.enigma8.view.rooms.RoomsActvity
+import com.ieeevit.enigma8.view.story.CharacterActivity
 import com.ieeevit.enigma8.viewModel.SignUpViewModel
 
 
@@ -44,6 +48,13 @@ class MainActivity :AppCompatActivity() {
         sharedPreference = PrefManager(this)
         FirebaseApp.initializeApp(applicationContext)
 
+        val text1 : TextView = findViewById(R.id.heading)
+
+
+        val paint1 = text1.paint
+        val shader1 : Shader = LinearGradient(0f, 0f,0f,text1.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f), Shader.TileMode.REPEAT)
+        paint1.shader = shader1
+
 
 
         viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
@@ -59,6 +70,24 @@ class MainActivity :AppCompatActivity() {
             signIn()
         }
 
+            viewModel.authCode.observe(this,{
+                if(it!=null) {
+                    sharedPreference.setAuthCode(it.data.JWT)
+
+                    if(it.data.isNew) {
+                        sharedPreference.setCount(1)
+                        val intent = Intent(this, ProfileActivity::class.java)
+                        startActivity(intent)
+                        finish()
+
+                    }
+                    else {
+                        val intent = Intent(this,RoomsActvity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+            })
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
 
@@ -71,7 +100,10 @@ class MainActivity :AppCompatActivity() {
             val token = task.result
             // Log and toast
 //            val msg = getString(R.string., token)
-            Log.d(TAG,token.toString())
+            Log.e("Fcmtoken","$token")
+            sharedPreference.setFcm(token.toString())
+
+
 //            Toast.makeText(baseContext, token.toString(), Toast.LENGTH_SHORT).show()
         })
 
@@ -81,51 +113,43 @@ class MainActivity :AppCompatActivity() {
     private fun signIn() {
         val signInIntent: Intent = mGoogleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
-
-
+        sharedPreference.setisNew(1)
     }
-
-
-    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount?>) {
-        try {
-            val account = completedTask.getResult(ApiException::class.java)
-            val authToken = account?.idToken
-
-
-            viewModel.getAuthCode(authToken.toString())
-            Toast.makeText(this,"Sign in",Toast.LENGTH_LONG).show()
-            Log.e("AuthCode",sharedPreference.getAuthCode().toString())
-//            viewModel.authCode.observe(this,{
-//                if(it!=null) {
-//                    Log.e("Token",it.data.JWT)
-//
-//                }
-//                Log.e("Fail","fail")
-//
-//
-//            })
-
-
-            val intent = Intent(this,FirstActivity::class.java)
-            startActivity(intent)
-            finish()
-
-
-
-
-        } catch (e: ApiException) {
-            Toast.makeText(this,"Sign In Failed",Toast.LENGTH_LONG).show()
-            Log.e("fail","Failed")
-        }
-    }
-
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN) {
+
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            handleSignInResult(task)
+            task.addOnSuccessListener {
+                Log.e("token","${it.idToken}")
+                viewModel.getAuthCode(it.idToken.toString())
+
+            }.addOnFailureListener{
+                Toast.makeText(this,"Sign In Failed",Toast.LENGTH_LONG).show()
+                Log.e("fail","Failed")
+
+            }
+//            handleSignInResult(task)
 
         }
     }
+
+
+//    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount?>) {
+//        try {
+//            val account = completedTask.getResult(ApiException::class.java)
+//            val authToken = account?.idToken
+//
+//
+//
+//            Toast.makeText(this,"Sign in",Toast.LENGTH_LONG).show()
+////            Log.e("AuthCode",sharedPreference.getAuthCode().toString())
+//
+//        } catch (e: ApiException) {
+//
+//        }
+//    }
+
+
+
 }

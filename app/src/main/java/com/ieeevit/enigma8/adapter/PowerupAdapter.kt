@@ -4,24 +4,29 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.ieeevit.enigma8.R
-import com.ieeevit.enigma8.model.Powerups
+import com.ieeevit.enigma8.model.powerup.PowerupRequest
+import com.ieeevit.enigma8.model.powerup.Powerups
 import com.ieeevit.enigma8.utils.PrefManager
-import com.ieeevit.enigma8.view.main.ProfileActivity
-import com.ieeevit.enigma8.view.main.StoryActivity
+import com.ieeevit.enigma8.view.story.CharacterActivity
+import com.ieeevit.enigma8.view.story.StoryActivity
+import com.ieeevit.enigma8.viewModel.PowerUpViewModel
 import com.squareup.picasso.Picasso
 
 
 @Suppress("DEPRECATION")
-class PowerupAdapter(var context: Context, var dataList: List<Powerups>):RecyclerView.Adapter<PowerupAdapter.ViewHolder>() {
+class PowerupAdapter(var context: Context, var dataList: List<Powerups>, val viewModel: PowerUpViewModel, val authToken:String):RecyclerView.Adapter<PowerupAdapter.ViewHolder>() {
     private lateinit var sharedPreferences: PrefManager
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var name: TextView
@@ -49,30 +54,51 @@ class PowerupAdapter(var context: Context, var dataList: List<Powerups>):Recycle
 
         holder.name.text = data.name
         holder.detail.text = data.detail
+        Picasso.get().load(data.icon).into(holder.icon)
+        Picasso.get().load(Uri.parse(data.icon)).into(holder.icon)
 
         if(!data.available_to_use)
         {
             holder.itemView.setBackgroundColor(Color.parseColor("#FF5349"))
         }
         holder.itemView.setOnClickListener {
-            sharedPreferences.setPowerupid(dataList[holder.adapterPosition]._id)
-            val Dialogview = LayoutInflater.from(context).inflate(R.layout.confirm_powerup, null)
-            val mBuilder = AlertDialog.Builder(context).setView(Dialogview)
+            val sendPowerupRequest = PowerupRequest(sharedPreferences.getRoomid().toString(),dataList[holder.adapterPosition]._id)
+            Log.e("Powerupid","${dataList[holder.adapterPosition]._id}")
 
-            val mAlertDialog = mBuilder.show()
+            val Dialogview = View.inflate(context, R.layout.confirm_powerup, null)
+            val builder = AlertDialog.Builder(context)
+            builder.setView(Dialogview)
+            val dialog = builder.create()
+            val lp = dialog.window!!.attributes
+            lp.dimAmount = 0.0f
+            dialog.getWindow()!!.setBackgroundDrawable( ColorDrawable(Color.TRANSPARENT));
+            dialog.window!!.attributes = lp
+            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+            dialog.show()
+           viewModel.sendPowerupDetails("Bearer ${authToken}",sendPowerupRequest)
+            sharedPreferences.setPowerupName(dataList[position].name)
+            sharedPreferences.setRoomid(sharedPreferences.getRoomid().toString())
 
-            Dialogview.findViewById<Button>(R.id.confirm_button).setOnClickListener {
-                val intent = Intent(context,StoryActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                context.startActivity(intent)
+            Dialogview.findViewById<Button>(R.id.confirm_btn).setOnClickListener {
+                if(sharedPreferences.getRoomid() == sharedPreferences.getRoomOneid()) {
+                    val intent = Intent(context, CharacterActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    context.startActivity(intent)
+                }
+                else {
+                    val intent = Intent(context, StoryActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    context.startActivity(intent)
+
+                }
 
             }
-            Dialogview.findViewById<Button>(R.id.cancel_button).setOnClickListener {
-                mAlertDialog.dismiss()
+            Dialogview.findViewById<ImageView>(R.id.close).setOnClickListener {
+                dialog.dismiss()
             }
         }
 
-        Picasso.get().load("https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200x200-min.png").into(holder.icon)
+
 
     }
 

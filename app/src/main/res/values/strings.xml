@@ -12,23 +12,48 @@
     <string name="profileSetup">Profile setup</string>
     <string name="enterUsername">How you want to be known as\n[this can’t be edited later]</string>
     <string name="next">Next</string>
-    <string name="countdownString">The ultimate cryptic hunt starts in</string>
     <string name="semicolon">:</string>
     <string name="_01">01</string>
     <string name="profile">Profile</string>
     <string name="user_name">User Name:</string>
+    <string name="ins1a">Enigma 8 is an online cryptic hunt where players solve exciting riddles and puzzles to win amazing prizes.</string>
+    <string name="ins1b">There are eight rooms in total and each room has three questions.</string>
+    <string name="ins1c"> On solving a question, the player will receive a key.</string>
+    <string name="ins1d">A particular amount of keys are required to unlock a room.</string>
+    <string name="ins1e">Solve every question to be the first one to solve Enigma.</string>
+    <string name="ins2a">Upon solving a question, a player shall receive a particular amount of points relative to the competition the earlier you solve a question, the higher your score will be. </string>
+    <string name="ins2b">These points determine your position on the leaderboard.</string>
+    <string name="ins2c">Upon using a hint, X points will be deducted from the score earned on solving that particular question.</string>
+    <string name="ins3a">Every player gets eight power ups at the start of the game.</string>
+    <string name="ins3b"> Before a player enters the room, they have to choose a powerup and the powerup chosen can only be used in that particular room.</string>
+    <string name="ins3c">Only one powerup can be chosen per room and can only be used \n only for one question in that room.</string>
+    <string name="ins3d">No points will be deducted for using a powerup.</string>
+    <string name="ins3e">Each powerup can be used only once, during the entire game. </string>
+    <string name="ins4a">A room can either be locked, unlocked, or solved. </string>
+    <string name="ins4b">A room is locked when the player does not have the minimum amount of keys to unlock it else if the player hasn’t yet chosen a powerup for that room.</string>
+    <string name="ins4c"> A room is unlocked when the player has sufficient keys and has chosen a powerup for that room.</string>
+    <string name="ins4d">A room is solved only when a player solves all three questions in that room.</string>
+    <string name="ins5a">To smoothen your experience during Enigma, please enable the notifications for this app/website to receive important updates.</string>
+    <string name="ins5b">Malpractice in any form will be dealt with seriously. Players are requested to report us of any such practices.</string>
+    <string name="ins5c">Enigma is an individual player game and the players are requested to maintain the integrity of the game and not to divulge the solutions anywhere.</string>
+    <string name="Powerup_confirm">This powerup can be used only once in this room. Are you sure you want to use it for this question?</string>
+    <string name = "right_first_answer">Wohoo! You got the right answer.</string>
+    <string name = "first_key">You’ve earned a key!</string>
     <string name="email_id">Email ID:</string>
+    <string name="enigma">ENIGMA</string>
+    <string name="enigma_description">An Online Cryptic Hunt</string>
     <string name="questions_solved">Questions Solved:</string>
     <string name="rank">Rank:</string>
     <string name="score">Score:</string>
     <string name="sign_out">Sign out</string>
     <string name="angular">&lt; &gt;</string>
     <string name="anglur_cryptic">&lt; Online cryptic hunt &gt;</string>
+    <string name="close_answer_text">You are close to the answer!</string>
+    <string name="keep_trying">Keep trying!</string>
     <string name="days">Days</string>
     <string name="sec">Sec</string>
     <string name="min">Min</string>
     <string name="hrs">Hrs</string>
-    <string name="use_hint">Use Hint</string>
     <string name="response_is_close_to_the_answer">Response is close to the answer</string>
     <string name="cancel">Cancel</string>
     <string name="correct_response">Correct response</string>
@@ -41,6 +66,7 @@
     <string name="story">Story</string>
     <string name="closeanswer">closeanswer</string>
     <string name="skip">skip</string>
+    <string name="right_answer_text">Wohoo! You got the right answer! You have earned 1 Star</string>
     <string name="title">title</string>
     <string name="instructions">instructions</string>
     <string name="are_you_sure_you_want_to_use_this_power">Are you sure you want to use this power?</string>
@@ -79,13 +105,26 @@
     <string name="are_you_a_c">Are you a college student?</string>
     <string name="how_did_you">How did you hear about Enigma ?</string>
     <string name="minimum_8_c">*minimum 8 characters</string>
+    <string name="privacy_heading">Privacy Policy</string>
+    <string name="countdownString">The Ultimate Cryptic Hunt Begins in </string>
     <string-array name="platform">
-        <item>Social Media</item>
-        <item>Friends</item>
-        <item>Other</item>
+        <item>Instagram</item>
+        <item>Reddit</item>
+        <item>Discord</item>
+        <item>LinkedIn</item>
+        <item>Facebook</item>
+        <item>Word of mouth</item>
+        <item>Others</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="Powerup_confirm">Are you sure you want to choose this powerup?</string>
+
     <string name="Powerup_warning">The powerup can be used only once in this room only. It cannot be changed later.</string>
+    <string name="hometxt">Hometxt</string>
+    <string name="leaderboardtxt">Leaderboardtxt</string>
+    <string name="storytxt">storytxt</string>
+    <string name="profiletxt">profiletxt</string>
+    <string name="wrong_answer">*Oops!Wrong answer. Try again</string>
+    <string name="use_hint">Using hint will deduct points from your score.</string>
+    <string name="confirm_hint">Are you sure you want to use hint?</string>
 </resources>
