@@ -110,7 +110,7 @@ class LeaderboardFragment : Fragment() {
             }
         })
 
-        val shader3 : Shader= LinearGradient(0f, 0f,0f,days1.lineHeight.toFloat(), intArrayOf(requireContext().getColor(R.color.light_yellow), requireContext().getColor(R.color.dark_yellow)), floatArrayOf(0.6f,0.4f),Shader.TileMode.REPEAT)
+        val shader3 : Shader= LinearGradient(0f, 0f,0f,days1.lineHeight.toFloat(), intArrayOf(requireContext().getColor(R.color.light_yellow), requireContext().getColor(R.color.dark_yellow)), floatArrayOf(0.4f,0.6f),Shader.TileMode.REPEAT)
         days1.paint.shader = shader3
         days2.paint.shader = shader3
         hours1.paint.shader = shader3
@@ -134,16 +134,16 @@ class LeaderboardFragment : Fragment() {
         val ranktt = root.findViewById<TextView>(R.id.ranktable)
         val usertt = root.findViewById<TextView>(R.id.usernametable)
         val solvedtt = root.findViewById<TextView>(R.id.solvedtable)
-        val scorett = root.findViewById<TextView>(R.id.scoretext)
+        val scorett = root.findViewById<TextView>(R.id.scoretable)
         textView.text = ""
 
-        val shader2 : Shader= LinearGradient(0f, 0f,0f,ranktt.lineHeight.toFloat(), intArrayOf(requireContext().getColor(R.color.light_yellow), requireContext().getColor(R.color.dark_yellow)), floatArrayOf(0.6f,0.4f),Shader.TileMode.REPEAT)
+        val shader2 : Shader= LinearGradient(0f, 0f,0f,ranktt.lineHeight.toFloat(), intArrayOf(requireContext().getColor(R.color.light_yellow), requireContext().getColor(R.color.dark_yellow)), floatArrayOf(0.4f,0.6f),Shader.TileMode.REPEAT)
         ranktt.paint.shader = shader2
         usertt.paint.shader = shader2
         solvedtt.paint.shader = shader2
         scorett.paint.shader = shader2
 
-        val shader4 : Shader= LinearGradient(0f, 0f,0f,userRank.lineHeight.toFloat(), intArrayOf(requireContext().getColor(R.color.light_yellow), requireContext().getColor(R.color.dark_yellow)), floatArrayOf(0.6f,0.4f),Shader.TileMode.REPEAT)
+        val shader4 : Shader= LinearGradient(0f, 0f,0f,userRank.lineHeight.toFloat(), intArrayOf(requireContext().getColor(R.color.light_yellow), requireContext().getColor(R.color.dark_yellow)), floatArrayOf(0.4f,0.6f),Shader.TileMode.REPEAT)
         userRank.paint.shader = shader4
         userName.paint.shader = shader4
         userSolved.paint.shader = shader4
