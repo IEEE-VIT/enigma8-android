@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/powerupsonboard"
         android:layout_width="308dp"
-        android:layout_height="380dp"
+        android:layout_height="360dp"
         android:layout_marginTop="28dp"
         android:src="@drawable/group_1990"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
         android:text="Everyone needs help once in a while, use Power Ups and hints to solve questions whenever stuck :)"
         android:textAlignment="center"
         android:textColor="#FFCA61"
-        android:textSize="10sp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
