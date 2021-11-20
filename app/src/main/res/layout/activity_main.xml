@@ -4,40 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/background">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/heading"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:text="ENIGMA"
-        android:textColor="@color/black"
-        android:textSize="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/google"
+        android:layout_marginTop="180dp"
+        android:fontFamily="@font/cinzeldecorative_bold"
+        android:gravity="center"
+        android:text="@string/enigma"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/light_yellow"
+        android:textSize="48dp"
+        android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.421"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </TextView>
+    <ImageView
+        android:id="@+id/feather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heading"
+        app:srcCompat="@drawable/ic_feather" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/result_drawable"
         android:drawableLeft="@drawable/ic_gogle"
-        android:drawablePadding="2dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:drawablePadding="8dp"
+        android:paddingLeft="35dp"
+        android:gravity="center"
+        android:layout_marginStart="5dp"
+        android:paddingRight="25dp"
+        android:layout_marginEnd="5dp"
         android:text="Continue with Google"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#FFCA61"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/feather"></androidx.appcompat.widget.AppCompatButton>
 
-    </Button>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

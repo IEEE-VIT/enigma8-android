@@ -1,41 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relative"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="200dp"
-    android:layout_marginTop="10dp"
     android:padding="8dp"
-    android:layout_height="wrap_content"
-    android:background="@drawable/character1_background">
+    android:background="@android:color/transparent"
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/show_messag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:background="@drawable/character1_background"
-        android:fontFamily="@font/roboto"
-        android:padding="10dp"
-        android:text="Hello"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
+        android:id="@+id/relative"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:fontFamily="@font/roboto"
-        android:text="Character1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="left"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/show_messag"
+            android:minWidth="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/character1_background"
+            android:fontFamily="@font/mulish_regular"
+            android:padding="10dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam, velit ullamcorper arcu."
+            android:textColor="@color/notification_time"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/cinzel_bold"
+            android:text="JONES"
+            android:textSize="10dp"
+            android:textColor="@color/light_yellow"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/show_messag"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

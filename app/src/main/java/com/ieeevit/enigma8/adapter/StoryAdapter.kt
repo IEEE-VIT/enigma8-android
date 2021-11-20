@@ -1,21 +1,13 @@
 package com.ieeevit.enigma8.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
 import com.ieeevit.enigma8.R
-import com.ieeevit.enigma8.model.CurrentStory
-import com.ieeevit.enigma8.model.Story
-import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
-import java.text.SimpleDateFormat
-import java.util.*
+import com.ieeevit.enigma8.model.story.Story
 
 class StoryAdapter (
         var context: Context?,

@@ -3,146 +3,226 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.main.ProfileActivity">
+    android:background="@color/background">
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
 
+        >
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="invisible"
+            android:src="@drawable/ic_bell_notification" />
+
+        <TextView
+            android:id="@+id/tabHeading"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cinzeldecorative_bold"
+            android:text="ENIGMA"
+            android:layout_marginHorizontal="80dp"
+            android:textColor="@color/light_yellow"
+            android:textSize="26dp" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:visibility="invisible"
+            android:layout_marginBottom="10dp"
+            android:baselineAligned="false"
+            android:src="@drawable/ic_info"/>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear" />
+
+    <ImageView
+        android:id="@+id/illustration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_profile_illustration" />
 
     <TextView
         android:id="@+id/setup"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:fontFamily="@font/roboto"
-        android:text="Setup your Profile"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/cinzeldecorative_bold"
+        android:text="SETUP YOUR PROFILE"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="28dp"
-        android:textStyle="bold|italic"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/light_yellow"
+        android:textSize="24dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/illustration" />
 
-    <TextView
-        android:id="@+id/enter_usern"
+
+    <RelativeLayout
+        android:id="@+id/relative"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="192dp"
-        android:fontFamily="@font/roboto"
-        android:gravity="top"
-        android:text="@string/enter_usern"
-        android:textAppearance="@style/enter_usern"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_height="70dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setup" />
-
-    <TextView
-        android:id="@+id/this_cannot"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="2dp"
-        android:fontFamily="@font/roboto"
-        android:gravity="top"
-        android:text="@string/this_cannot"
-        android:textAppearance="@style/this_cannot"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enter_usern"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/rectangle"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/this_cannot">
-
-
-        <com.google.android.material.textfield.TextInputEditText
+        app:layout_constraintTop_toBottomOf="@+id/setup">
+        <EditText
             android:id="@+id/username"
-            android:layout_width="240dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/result_drawable"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/light_yellow"
+            android:fontFamily="@font/mulish_regular"/>
+        <TextView
+            android:id="@+id/enter_username"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/rectangle"
-            android:digits="0123456789qwertyuiopasdfghjklzxcvbnmWERTYUIOPASDFGHJKLZXCVBNM" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="7dp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            android:textSize="15dp"
+            android:textColor="@color/light_yellow"
+            android:fontFamily="@font/mulish_regular"
+            android:background="@color/background"
+            android:text="Enter Username" />
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/are_you_a_c"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/roboto"
-        android:gravity="top"
-        android:text="@string/are_you_a_c"
-        android:textAppearance="@style/are_you_a_c"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rectangle" />
 
-    <CheckBox
-        android:id="@+id/checkBoxN"
-        style="@style/CustomCheckbox02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="144dp"
-        android:fontFamily="@font/roboto"
-        android:text="No"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/are_you_a_c" />
 
-    <CheckBox
-        android:id="@+id/checkBoxY"
-        style="@style/CustomCheckbox02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/roboto"
-        android:text="Yes"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/checkBoxN"
-        app:layout_constraintHorizontal_bias="0.409"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/are_you_a_c" />
 
-    <TextView
-        android:id="@+id/how_did_you"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto"
-        android:gravity="top"
-        android:text="@string/how_did_you"
-        android:textAppearance="@style/how_did_you"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxY" />
+
+
+
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/textInputLayout"-->
+<!--        style="@style/mySpinnerItemStyle"-->
+<!--        android:layout_width="310dp"-->
+<!--        app:boxBackgroundMode="filled"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/how_did_you">-->
+
+<!--        <AutoCompleteTextView-->
+<!--            android:id="@+id/option"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:text="-Select-"-->
+<!--            android:inputType="none"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textAlignment="gravity"-->
+<!--            tools:ignore="HardcodedText" />-->
+
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/textInputLayout"-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:background="#00000000"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/how_did_you">-->
+
+<!--        <AutoCompleteTextView-->
+<!--            android:id="@+id/option"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="#00000000"-->
+<!--            android:inputType="none"-->
+<!--            android:text="Social Media"-->
+<!--            android:textAlignment="gravity"-->
+<!--            tools:ignore="HardcodedText" />-->
+
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:layout_marginTop="56dp"-->
+<!--        android:layout_marginEnd="40dp"-->
+<!--        android:layout_weight=".28"-->
+<!--        android:background="@drawable/ic_dropdown_rectangle"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/how_did_you">-->
+
+<!--        <Spinner-->
+<!--            android:id="@+id/spinner2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:gravity="center"-->
+<!--            android:spinnerMode="dropdown" />-->
+
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/option"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:textSize="15dp"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:text="-Select-"/>-->
+
+
+<!--    </RelativeLayout>-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -150,45 +230,109 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="#00000000"
+        android:layout_marginTop="36dp"
+        app:endIconMode="dropdown_menu"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_dropdown_rectangle"
+        app:endIconTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/how_did_you">
+        app:layout_constraintTop_toBottomOf="@+id/how_did_you"
+        app:layout_constraintVertical_bias="0.0">
 
-        <AutoCompleteTextView
-            android:id="@+id/option"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#00000000"
-            android:inputType="none"
-            android:text="Social Media"
-            android:textAlignment="gravity"
-            tools:ignore="HardcodedText" />
+                <AutoCompleteTextView
+                    android:id="@+id/option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:dropDownHeight="200dp"
+                    android:background="@drawable/dropdown_back"
+                    android:backgroundTint="@android:color/transparent"
+                    android:inputType="none"
+                    android:padding="10dp"
+                    android:text="-Select-"
+                    android:textColor="@color/white"
+                    tools:ignore="HardcodedText" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/nxt_bt"
-        android:layout_width="110dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="#C4C4C4"
-        android:bottomLeftRadius="20dp"
-        android:bottomRightRadius="20dp"
-        android:text="Next"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+
+    <TextView
+        android:id="@+id/notAvailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/mulish_regular"
+        android:text="*Username not available"
+        android:textColor="#E14A4A"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.213" />
+        app:layout_constraintTop_toBottomOf="@+id/relative" />
+
+    <TextView
+        android:id="@+id/how_did_you"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/mulish_regular"
+        android:gravity="top"
+        android:text="@string/how_did_you"
+        android:textColor="@color/light_yellow"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minimum_characters" />
+
+    <TextView
+        android:id="@+id/minimum_characters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        android:text="*Minimum 8 characters"
+        android:textColor="@color/notification_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relative" />
+
+
+
+    <TextView
+        android:id="@+id/nooutreach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Select a outreach option"
+        android:visibility="invisible"
+        android:textColor="@color/notification_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submit"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#0FA3B1"
+        android:fontFamily="@font/mulish_regular"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
