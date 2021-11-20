@@ -4,23 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/background"
+   >
+
+
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginEnd="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/head_leaderboard"
-        app:layout_constraintTop_toBottomOf="@id/linear">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/days1"
-            style="@style/countdown_leaderboard"
+            style="@style/leaderboard_countdown"
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
@@ -29,7 +32,7 @@
 
         <TextView
             android:id="@+id/days2"
-            style="@style/countdown_leaderboard"
+            style="@style/leaderboard_countdown"
             android:layout_marginLeft="3dp"
             android:layout_weight="1"
             android:background="@drawable/leaderboardcountdown_background"
@@ -53,7 +56,7 @@
 
         <TextView
             android:id="@+id/hours1"
-            style="@style/countdown_leaderboard"
+            style="@style/leaderboard_countdown"
             android:layout_marginLeft="3dp"
             android:layout_weight="1"
             android:background="@drawable/leaderboardcountdown_background"
@@ -64,7 +67,7 @@
 
         <TextView
             android:id="@+id/hours2"
-            style="@style/countdown_leaderboard"
+            style="@style/leaderboard_countdown"
             android:layout_marginLeft="3dp"
             android:layout_weight="1"
             android:background="@drawable/leaderboardcountdown_background"
@@ -87,7 +90,7 @@
 
         <TextView
             android:id="@+id/minutes1"
-            style="@style/countdown_leaderboard"
+            style="@style/leaderboard_countdown"
             android:layout_marginLeft="3dp"
             android:layout_weight="1"
             android:background="@drawable/leaderboardcountdown_background"
@@ -99,7 +102,7 @@
 
         <TextView
             android:id="@+id/minutes2"
-            style="@style/countdown_leaderboard"
+            style="@style/leaderboard_countdown"
             android:layout_marginLeft="3dp"
             android:layout_weight="1"
             android:background="@drawable/leaderboardcountdown_background"
@@ -113,16 +116,16 @@
 
     <TextView
         android:id="@+id/head_leaderboard"
-        android:layout_width="180dp"
+        android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/cinzel_decorative_bold"
+        android:fontFamily="@font/cinzel_bold"
         android:text="LeaderBoard"
         android:textColor="@color/light_yellow"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -139,15 +142,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/rectangle_733" />
+            android:src="@drawable/ic_leaderboard_tableheader_bg" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="5dp">
 
+
+
             <TextView
+                android:id="@+id/ranktable"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
@@ -159,7 +165,10 @@
 
             </TextView>
 
+
+
             <TextView
+                android:id="@+id/usernametable"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
@@ -172,6 +181,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/solvedtable"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
@@ -184,6 +194,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/scoretable"
                 android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
@@ -202,8 +213,9 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="342dp"
-        android:layout_height="558dp"
+        android:layout_width="347dp"
+        android:layout_height="506dp"
+        android:background="@drawable/ic_scrollview_bg"
         app:layout_constraintBottom_toTopOf="@+id/UserRankView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
@@ -220,7 +232,7 @@
                 android:id="@+id/Leaderboard_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#1E1E1E">
+                android:backgroundTint="@android:color/transparent">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -229,48 +241,50 @@
                 style="?android:attr/progressBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:indeterminateTint="@color/light_yellow"
                 tools:layout_editor_absoluteX="18dp"
                 tools:layout_editor_absoluteY="113dp" />
 
         </LinearLayout>
     </ScrollView>
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:src="@drawable/line_10"
-        app:layout_constraintStart_toEndOf="@+id/scrollView2"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView8"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="50dp"-->
+<!--        android:src="@drawable/line_10"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/scrollView2"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/scrollView2"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cardView" />-->
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:src="@drawable/line_10"
-        app:layout_constraintStart_toEndOf="@+id/scrollView2"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView10"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="200dp"-->
+<!--        android:src="@drawable/line_10"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/scrollView2"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/scrollView2"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cardView" />-->
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="265dp"
-        android:src="@drawable/line_10"
-        app:layout_constraintStart_toEndOf="@+id/scrollView2"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView11"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="265dp"-->
+<!--        android:src="@drawable/line_10"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/scrollView2"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/scrollView2"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cardView" />-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/UserRankView"
-        android:layout_width="353dp"
-        android:layout_height="37dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         app:cardBackgroundColor="#B8B8B8"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -280,11 +294,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/result_drawable" />
+            android:src="@drawable/leaderboard_usercard_bg" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:padding="5dp">
 
@@ -294,6 +308,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Rank"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -307,6 +322,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Username"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -320,6 +336,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Solved"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -333,6 +350,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Score"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -356,10 +374,11 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:iconifiedByDefault="false"
-        android:searchHintIcon="@color/background"
-        android:searchIcon="@drawable/search_icon"
+        app:searchHintIcon="@null"
+        app:searchIcon="@drawable/search_icon"
+        app:closeIcon="@drawable/ic_seacrh_closebtn"
         android:theme="@style/AppSearchView"
-        app:defaultQueryHint="Search by username"
+        app:defaultQueryHint=" "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/head_leaderboard" >
 

@@ -1,23 +1,15 @@
 package com.ieeevit.enigma8.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.LinearGradient
 import android.graphics.Shader
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
 import com.ieeevit.enigma8.R
-import com.ieeevit.enigma8.model.story.CurrentStory
 import com.ieeevit.enigma8.model.Full_Story
-import com.ieeevit.enigma8.model.story.Story
-import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
-import java.text.SimpleDateFormat
 import java.util.*
 
 class FullStoryAdapter (

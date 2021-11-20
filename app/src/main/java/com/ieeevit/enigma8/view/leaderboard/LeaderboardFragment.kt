@@ -1,9 +1,10 @@
-package com.ieeevit.enigma8.view.main
+package com.ieeevit.enigma8.view.leaderboard
 
 import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Shader
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Handler
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,11 +24,22 @@ import com.ieeevit.enigma8.model.leaderboard.Leaderboard
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.viewModel.LeaderboardViewModel
 import androidx.appcompat.widget.SearchView
-
-
+import java.util.*
 
 
 class LeaderboardFragment : Fragment() {
+    private lateinit var days1: TextView
+    private lateinit var days2: TextView
+    private lateinit var hours1: TextView
+    private lateinit var hours2: TextView
+    private lateinit var minutes1: TextView
+    private lateinit var minutes2: TextView
+    private lateinit var currentCalendar: Calendar
+    private lateinit var eventCalendar: Calendar
+    private  var timeLeft:Long = 0
+    private var currentTime: Long = 0
+    private var eventStartTime: Long = 0
+
 
 
     private lateinit var sharedPreferences: PrefManager
@@ -50,24 +63,91 @@ class LeaderboardFragment : Fragment() {
     ): View? {
         var page = 1
 
-        dataList.clear()
+
         adapter = LeaderboardAdapter(requireContext(), dataList)
 
         val root = inflater.inflate(R.layout.fragment_leadeboard, container , false)
+        var scrollView = root.findViewById<ScrollView>(R.id.scrollView2)
 
         sharedPreferences = PrefManager(requireContext())
         val authToken = sharedPreferences.getAuthCode()
         leaderboardView = root.findViewById(R.id.Leaderboard_view)
-        leaderboardView.visibility = View.INVISIBLE
-        Handler().postDelayed({
-            leaderboardView.visibility = View.VISIBLE
-        }, 1000)
+//        leaderboardView.visibility = View.INVISIBLE
+//        Handler().postDelayed({
+//            leaderboardView.visibility = View.VISIBLE
+//        }, 1000)
+        days1 = root.findViewById(R.id.days1)
+        hours1 = root.findViewById(R.id.hours1)
+        minutes1 = root.findViewById(R.id.minutes1)
+        days2 = root.findViewById(R.id.days2)
+        hours2 = root.findViewById(R.id.hours2)
+        minutes2 = root.findViewById(R.id.minutes2)
+
+        init()
+        viewModel.getEnigmaStatus("Token $authToken")
+
+        viewModel.enigmaStatus.observe(viewLifecycleOwner, {
+            if (it != null) {
+
+                Log.e("ResponseCounter","$it")
+
+                if(it.data.date > 0 && it.data.enigmaStarted == true) {
+                    currentTime = currentCalendar.timeInMillis
+                    eventStartTime = currentTime + (it.data.date) * 1000.toLong()
+
+                    Log.e("eventstart", eventStartTime.toString())
+                    Log.e("current", currentTime.toString())
+
+                    timeLeft = eventStartTime - currentTime
+
+                    startTimer(timeLeft)
+                }
+                else {
+
+                }
+
+
+            }
+        })
+
+        val shader3 : Shader= LinearGradient(0f, 0f,0f,days1.lineHeight.toFloat(), intArrayOf(requireContext().getColor(R.color.light_yellow), requireContext().getColor(R.color.dark_yellow)), floatArrayOf(0.4f,0.6f),Shader.TileMode.REPEAT)
+        days1.paint.shader = shader3
+        days2.paint.shader = shader3
+        hours1.paint.shader = shader3
+        hours2.paint.shader = shader3
+        minutes1.paint.shader = shader3
+        minutes2.paint.shader = shader3
+
+
+
+
+
+
         val userRank = root.findViewById<TextView>(R.id.user_rankvar)
         val userName = root.findViewById<TextView>(R.id.user_namevar)
         val userSolved = root.findViewById<TextView>(R.id.user_solvedvar)
         val userScore = root.findViewById<TextView>(R.id.user_scorevar)
         val headtext = root.findViewById<TextView>(R.id.head_leaderboard)
         val search = root.findViewById<SearchView>(R.id.user_Search)
+        val cancelIcon = search.findViewById<ImageView>(R.id.search_close_btn)
+        val textView = search.findViewById<TextView>(R.id.search_src_text)
+        val ranktt = root.findViewById<TextView>(R.id.ranktable)
+        val usertt = root.findViewById<TextView>(R.id.usernametable)
+        val solvedtt = root.findViewById<TextView>(R.id.solvedtable)
+        val scorett = root.findViewById<TextView>(R.id.scoretable)
+        textView.text = ""
+
+        val shader2 : Shader= LinearGradient(0f, 0f,0f,ranktt.lineHeight.toFloat(), intArrayOf(requireContext().getColor(R.color.light_yellow), requireContext().getColor(R.color.dark_yellow)), floatArrayOf(0.4f,0.6f),Shader.TileMode.REPEAT)
+        ranktt.paint.shader = shader2
+        usertt.paint.shader = shader2
+        solvedtt.paint.shader = shader2
+        scorett.paint.shader = shader2
+
+        val shader4 : Shader= LinearGradient(0f, 0f,0f,userRank.lineHeight.toFloat(), intArrayOf(requireContext().getColor(R.color.light_yellow), requireContext().getColor(R.color.dark_yellow)), floatArrayOf(0.4f,0.6f),Shader.TileMode.REPEAT)
+        userRank.paint.shader = shader4
+        userName.paint.shader = shader4
+        userSolved.paint.shader = shader4
+        userScore.paint.shader = shader4
 
         val painthead = headtext.paint
         val shader1 : Shader = LinearGradient(0f, 0f,0f,headtext.lineHeight.toFloat(), intArrayOf(requireContext().getColor(R.color.light_yellow), requireContext().getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),Shader.TileMode.REPEAT)
@@ -77,16 +157,36 @@ class LeaderboardFragment : Fragment() {
             viewModel.getLeaderboardDetails(
                 page,
                 10,
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imphc3NpbXNoYW1pbUBnbWFpbC5jb20iLCJpYXQiOjE2MzYzOTM2NTN9.K2Va3dAa5DIPGqt-ENTlzoulLcB-_IYE5ApqaaOlH4c",
+                "Bearer $authToken",
                 null
             )
 
 
 
             val progressBar = root.findViewById<ProgressBar>(R.id.progressBar)
+        viewModel.eleaderboardResponse.observe(viewLifecycleOwner,{
+            if(it == "Please set a username first!"){
 
+                userRank.text = "0"
+                userName.text = "no username"
+                userSolved.text = "0"
+                userScore.text = "0"
+
+            }
+            else if (it == "page number not valid"){
+                dataList.clear()
+                scrollView.background = resources.getDrawable(R.drawable.nouserexists_leaderboard)
+                adapter = LeaderboardAdapter(requireContext(), dataList)
+                leaderboardView.layoutManager = LinearLayoutManager(context)
+                leaderboardView.adapter = adapter
+                adapter.notifyDataSetChanged()
+            }
+
+
+        })
         viewModel.leaderboardResponse.observe(viewLifecycleOwner, {
 
+            scrollView.background = resources.getDrawable(R.drawable.ic_scrollview_bg)
             if (it != null) {
                 userRank.text = it.data?.userRank?.rank.toString()
                 userName.text = it.data?.userRank?.username.toString()
@@ -100,9 +200,11 @@ class LeaderboardFragment : Fragment() {
                 }
                 Log.e("datalist1","$dataList")
 //-------------------------------------------------------------------------------------------------------------------------------------------
+                Log.e("page inside if", "$page $totalPage")
                 if (page <= totalPage) {
                     for (item in it.data!!.leaderboard) {
-                        if (item !in dataList) {
+                        if (item !in dataList  ) {
+                            Log.e("hih","$datam")
                             datam.add(
                                 Leaderboard(
                                     item.username,
@@ -122,6 +224,7 @@ class LeaderboardFragment : Fragment() {
 //                Log.e("dat")
 
                 Log.e("datalist2","$dataList")
+                Log.e("datam","$datam")
                 adapter = LeaderboardAdapter(requireContext(), dataList)
                 leaderboardView.layoutManager = LinearLayoutManager(context)
                 leaderboardView.adapter = adapter
@@ -133,7 +236,7 @@ class LeaderboardFragment : Fragment() {
             Log.e("Response","$it")
 
 //    ----------------------------------------------------------------------------------------------------------------------------------------
-            })
+
 
 
 
@@ -152,21 +255,21 @@ class LeaderboardFragment : Fragment() {
                     val visibleItemCount = leaderboardView.layoutManager?.childCount
                     val pastVisibleItem = 1
 //                          LinearLayoutManager(context).findFirstVisibleItemPosition()
-                    val total = adapter.itemCount
+//                    val total = adapter.itemCount
 
                     if (!isLoading) {
                         if (visibleItemCount != null) {
-                            if ((visibleItemCount + pastVisibleItem) >= total) {
+                            if (page <= totalPage) {
 //                                        page++
                                 isLoading = true
                                 if (progressBar != null) {
                                     progressBar.visibility = View.VISIBLE
                                 }
-                                Log.e("b4 getfunc", "leaderboard")
+
                                 viewModel.getLeaderboardDetails(
                                     page,
                                     10,
-                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imphc3NpbXNoYW1pbUBnbWFpbC5jb20iLCJpYXQiOjE2MzYzOTM2NTN9.K2Va3dAa5DIPGqt-ENTlzoulLcB-_IYE5ApqaaOlH4c",
+                                    "Bearer $authToken",
                                     null
                                 )
 
@@ -196,46 +299,48 @@ class LeaderboardFragment : Fragment() {
 
         search.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
+                dataList.clear()
+                page = 1
                 viewModel.getLeaderboardDetails(
                     1,
-                    10,
-                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imphc3NpbXNoYW1pbUBnbWFpbC5jb20iLCJpYXQiOjE2MzYzOTM2NTN9.K2Va3dAa5DIPGqt-ENTlzoulLcB-_IYE5ApqaaOlH4c",
+                    30,
+                    "Bearer $authToken",
                     query
                 )
 
 
-                 var newList: MutableList<Leaderboard> = mutableListOf()
-            viewModel.leaderboardResponse.observe(viewLifecycleOwner, {
-
-
-
-                    for (item in it.data!!.leaderboard) {
-                        Log.e("item", "$item")
-                        Log.e("que1","$query")
-                        if (query != null) {
-                            Log.e("que2","$query")
-                            if (query in item.username && item !in newList) {
-                                newList.add(
-                                    Leaderboard(
-                                        item.username,
-                                        item.score,
-                                        item.questionsSolved,
-                                        item.rank
-                                    )
-                                )
-
-                            }
-                        }
-                    }
-                Log.e("newList","$newList")
-
-                dataList = newList
-                Log.e("datalist3","$dataList")
-                    adapter = LeaderboardAdapter(requireContext(), newList)
-                    leaderboardView.layoutManager = LinearLayoutManager(context)
-                    leaderboardView.adapter = adapter
-
-            })
+//                 var newList: MutableList<Leaderboard> = mutableListOf()
+//            viewModel.leaderboardResponse.observe(viewLifecycleOwner, {
+//
+//
+//
+//                    for (item in it.data!!.leaderboard) {
+//                        Log.e("item", "$item")
+//                        Log.e("que1","$query")
+//                        if (query != null) {
+//                            Log.e("que2","$query")
+//                            if (query in item.username && item !in newList) {
+//                                newList.add(
+//                                    Leaderboard(
+//                                        item.username,
+//                                        item.score,
+//                                        item.questionsSolved,
+//                                        item.rank
+//                                    )
+//                                )
+//
+//                            }
+//                        }
+//                    }
+//                Log.e("newList","$newList")
+//
+//                dataList = newList
+//                Log.e("datalist3","$dataList")
+//                    adapter = LeaderboardAdapter(requireContext(), newList)
+//                    leaderboardView.layoutManager = LinearLayoutManager(context)
+//                    leaderboardView.adapter = adapter
+//
+//            })
 
 
 
@@ -253,17 +358,65 @@ class LeaderboardFragment : Fragment() {
 
 
         })
+            //        cancelIcon.setColorFilter(getResources().getColor(R.color.light_yellow))
+//        textView.setTextColor(
+//            getResources().getColor(R.color.light_yellow))
+//        val searchIcon = search.findViewById<ImageView>(R.id.search_mag_icon)
+//        searchIcon.setColorFilter(getResources().getColor(R.color.light_yellow))
 
 
-        val cancelIcon = search.findViewById<ImageView>(R.id.search_close_btn)
-        cancelIcon.setColorFilter(Color.BLUE)
-        val textView = search.findViewById<TextView>(R.id.search_src_text)
-        textView.setTextColor(Color.RED)
-        val searchIcon = search.findViewById<ImageView>(R.id.search_mag_icon)
-        searchIcon.setColorFilter(Color.BLUE)
+
+            cancelIcon?.setOnClickListener {
+                dataList.clear()
+                page = 1
+                scrollView.background = resources.getDrawable(R.drawable.ic_scrollview_bg)
+                viewModel.getLeaderboardDetails(
+                    page,
+                    10,
+                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imphc3NpbXNoYW1pbUBnbWFpbC5jb20iLCJpYXQiOjE2MzczODc2Mjh9.bWeW2T_iu4x8qDpLVjqax_DDspzL5N-JbgDm4A6HwW4",
+                    null
+                )
+//            dataList = datam
+//            val adapter2 = LeaderboardAdapter(requireContext(), dataList)
+//            leaderboardView.adapter = adapter2
+                textView.text = ""
+            }
+
+        })
+
 
 
         return root
+    }
+
+    private fun init() {
+
+        currentCalendar = Calendar.getInstance(TimeZone.getDefault())
+        eventCalendar = Calendar.getInstance(TimeZone.getDefault())
+    }
+
+    private fun startTimer(timeDifference: Long) {
+
+        val countdownTimer = object : CountDownTimer(timeDifference, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                days1.text = ((millisUntilFinished / (24 * 60 * 60 * 1000))/10).toString()
+                days2.text = ((millisUntilFinished / (24 * 60 * 60 * 1000))%10).toString()
+                hours1.text = ((millisUntilFinished / (60 * 60 * 1000) % 24)/10).toString()
+                hours2.text= ((millisUntilFinished / (60 * 60 * 1000) % 24)%10).toString()
+                minutes1.text = ((millisUntilFinished / (60 * 1000) % 60)/10).toString()
+                minutes2.text = ((millisUntilFinished / (60 * 1000) % 60)%10).toString()
+            }
+
+            override fun onFinish() {
+                viewModel.getEnigmaStatus("Token ${sharedPreferences.getAuthCode()}")
+
+
+
+            }
+
+        }
+        countdownTimer.start()
+
     }
 }
 
