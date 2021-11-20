@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_arrow_left" />
+
+        <TextView
+            android:id="@+id/tabHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="80dp"
+            android:layout_marginVertical="10dp"
+            android:fontFamily="@font/cinzeldecorative_bold"
+            android:text="ENIGMA"
+            android:textColor="@color/light_yellow"
+            android:textSize="26dp" />
+
+        <ImageView
+            android:id="@+id/instruction"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:visibility="invisible"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:baselineAligned="false"
+            android:src="@drawable/ic_info"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/demo_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/cinzel_decorative"
+        android:text="DEMO QUESTION"
+        android:textColor="@color/light_yellow"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/mulish_regular"
+        android:text="Where lived the man?\nEt tu, Brute?"
+        android:textAlignment="center"
+        android:textColor="@color/privacy_text"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/demo_question" />
+
+    <ImageView
+        android:id="@+id/question_image"
+        android:layout_width="320dp"
+        android:layout_height="191dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/demo_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question" />
+
+    <EditText
+        android:id="@+id/Answerfield"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/answer_background"
+        android:fontFamily="@font/mulish_regular"
+        android:paddingLeft="10dp"
+        android:hint="Type Here"
+        android:textSize="15dp"
+        android:textColor="@color/light_yellow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question_image" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submit_btn"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="#FFCA61"
+        android:fontFamily="@font/mulish_regular"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/wrong_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/mulish_regular"
+        android:text="@string/wrong_answer"
+        android:textColor="#E14A4A"
+        android:textSize="13dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Answerfield" />
+
+    <TextView
+        android:id="@+id/hint_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Hint: Caesar cipher with key 5"
+        android:textColor="@color/notification_time"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Answerfield" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_question_below"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="197dp"
+        tools:layout_editor_absoluteY="705dp" />
+
+    <ImageButton
+        android:id="@+id/hint_Btn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toEndOf="@+id/Answerfield"
+        app:layout_constraintTop_toBottomOf="@+id/question_image"
+        app:srcCompat="@drawable/ic_hint" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

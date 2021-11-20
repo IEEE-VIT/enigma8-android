@@ -13,6 +13,17 @@ object Constants {
     const val PowerUp_URL = "user/getPowerups"
     const val SendPowerUp_URL = "user/selectPowerup"
     const val CurrentStory_URL = "story/currentStory"
+    const val Feedback_URL = "feedback/submitFeedback"
+    const val Question_URL = "transact/getQuestion"
+    const val Submit_URL = "transact/submitAnswer"
+    const val CheckRoom_URL = "room/checkIfRoomUnlocked"
+    const val Hint_URL = "transact/useHint"
+    const val Notification_URl = "notifs/notifications"
+    const val UsePowerup_URL = "transact/usePowerup"
+    const val FCM_URL = "user/addFCM"
+    const val Profile_URL = "user/getDetails"
+    const val Leaderboard_URL = "game/leaderboards"
+    const val FullStory_URL = "story/fullStory"
 }
 
 

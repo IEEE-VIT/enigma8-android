@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/feedback_form_background">
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_arrow_left" />
+
+        <TextView
+            android:id="@+id/tabHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="80dp"
+            android:layout_marginVertical="10dp"
+            android:fontFamily="@font/cinzeldecorative_bold"
+            android:text="ENIGMA"
+            android:textColor="@color/light_yellow"
+            android:textSize="26dp" />
+
+        <ImageView
+            android:id="@+id/instruction"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:baselineAligned="false"
+            android:src="@drawable/ic_info"/>
+
+
+    </LinearLayout>
+    <!--    <ScrollView-->
+    <!--        android:id="@+id/feedback_scroll"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
+    <TextView
+        android:id="@+id/feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/cinzel_decorative_bold"
+        android:text="feEDBACK FORM"
+        android:textColor="@color/light_yellow"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear" />
+    <TextView
+        android:id="@+id/feedback_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/mulish_regular"
+        android:text="Your feedback makes us better!"
+        android:textColor="@color/light_blue"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedback" />
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/mummy"-->
+    <!--        android:layout_width="318dp"-->
+    <!--        android:layout_height="388dp"-->
+    <!--        android:layout_marginStart="44dp"-->
+    <!--        android:layout_marginTop="152dp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:srcCompat="@drawable/mummy" />-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/feedback_text">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/feedback_question1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Q1. Are you a VIT student?"
+                android:textColor="@color/privacy_text"
+                android:textSize="18dp"/>
+
+            <RadioGroup
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                android:layout_marginStart="40dp">
+
+                <RadioButton
+                    android:id="@+id/yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp"
+                    android:layout_weight="1"
+                    android:text="Yes"
+                    android:buttonTint="#0FA3B1"
+                    android:textColor="#309AC9"/>
+
+                <RadioButton
+                    android:id="@+id/no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#0FA3B1"
+                    android:layout_weight="1"
+                    android:text="No"
+                    android:textColor="#309AC9" />
+            </RadioGroup>
+            <LinearLayout
+                android:id="@+id/yes_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/feedback_question2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/mulish_regular"
+                    android:text="Enter your registration number"
+                    android:textColor="@color/privacy_text"
+                    android:textSize="18dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Answerfield2"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reg_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:background="@drawable/feedback_answer_background"
+                        android:fontFamily="@font/mulish_regular"
+                        android:textColor="@color/privacy_text"
+                        android:textStyle="bold"
+                        android:textSize="18dp"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/feedback_question3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/mulish_regular"
+                    android:text="Enter your VIT email id"
+                    android:textColor="@color/privacy_text"
+                    android:textSize="18dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Answerfield3"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="15dp"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/mail_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/feedback_answer_background"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/privacy_text"
+                        android:fontFamily="@font/mulish_regular"
+                        android:textStyle="bold" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/feedback_question4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="25dp"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Q2. On a scale of 1-5, how would you rate\nthe game?"
+                android:textColor="@color/privacy_text"
+                android:textSize="18dp" />
+            <RadioGroup
+                android:id="@+id/radio2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1"
+                    android:buttonTint="#0FA3B1"
+                    android:textColor="#309AC9"/>
+
+                <RadioButton
+                    android:id="@+id/two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="20dp"
+                    android:buttonTint="#0FA3B1"
+                    android:text="2"
+                    android:textColor="#309AC9" />
+                <RadioButton
+                    android:id="@+id/three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="#0FA3B1"
+                    android:layout_marginStart="20dp"
+                    android:text="3"
+                    android:textColor="#309AC9" />
+                <RadioButton
+                    android:id="@+id/four"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="20dp"
+                    android:buttonTint="#0FA3B1"
+                    android:text="4"
+                    android:textColor="#309AC9" />
+                <RadioButton
+                    android:id="@+id/five"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="20dp"
+                    android:buttonTint="#0FA3B1"
+                    android:text="5"
+                    android:textColor="#309AC9" />
+
+            </RadioGroup>
+            <TextView
+                android:id="@+id/feedback_question5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Q3. How was your user experience during\nthe game?"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/privacy_text"
+                android:textSize="18dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Answerfield5"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:background="@drawable/feedback_answer_background"
+                    android:fontFamily="@font/mulish_regular"
+                    android:textColor="@color/privacy_text"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/feedback_question6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Q4. Anything you would like to add for the\nupcoming enigma?"
+                android:textColor="@color/privacy_text"
+                android:textSize="18dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Answerfield6"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/suggestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:background="@drawable/feedback_answer_background"
+                    android:fontFamily="@font/mulish_regular"
+                    android:textColor="@color/privacy_text"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/submit"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="108dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="400dp"
+                    android:backgroundTint="#0FA3B1"
+                    android:text="Submit"
+                    android:fontFamily="@font/mulish_regular"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tvNext" type="id" />
+    <item name="tvSkip" type="id" />
+    <item name="tvArrow" type="id" />
+    <item name="get" type="id" />
+    <item name="notificationRecyler" type="id" />
+    <item name="zeroNotification" type="id" />
+    <item name="option" type="id" />
+    <item name="room_unlock" type="id" />
+</resources>

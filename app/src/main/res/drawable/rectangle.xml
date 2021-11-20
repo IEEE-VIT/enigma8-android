@@ -4,7 +4,7 @@
     xmlns:aapt="http://schemas.android.com/aapt"
     xmlns:tools="http://schemas.android.com/tools"
     android:width="235dp"
-    android:height="35dp"
+    android:height="30dp"
     android:viewportWidth="235"
     android:viewportHeight="35"
     tools:ignore="VectorRaster">

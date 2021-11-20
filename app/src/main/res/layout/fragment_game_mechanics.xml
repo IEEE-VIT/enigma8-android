@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="600dp"
+    android:background="@android:color/transparent">
+
+
+    <ImageView
+        android:id="@+id/point1"
+        android:layout_width="32dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="85dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_point_new" />
+
+    <TextView
+        android:id="@+id/instruction_point1"
+        style="@style/Instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:text="Enigma 8 is an online cryptic hunt where \nplayers solve exciting riddles and puzzles \nto win amazing prizes."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toEndOf="@+id/point1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/point2"
+        android:layout_width="32dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="38dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/point1"
+        app:srcCompat="@drawable/ic_point_new" />
+
+    <TextView
+        android:id="@+id/instruction_point2"
+        style="@style/Instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+
+        android:text="There are eight rooms in total and each \nroom has three questions."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintStart_toEndOf="@+id/point2"
+        app:layout_constraintTop_toBottomOf="@+id/instruction_point1" />
+
+    <ImageView
+        android:id="@+id/point3"
+        android:layout_width="32dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/point2"
+        app:srcCompat="@drawable/ic_point_new" />
+
+    <TextView
+        android:id="@+id/instruction_point3"
+        style="@style/Instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="On solving a question, the player will receive\n a key."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toEndOf="@+id/point3"
+        app:layout_constraintTop_toBottomOf="@+id/instruction_point2" />
+
+    <ImageView
+        android:id="@+id/point4"
+        android:layout_width="32dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/point3"
+        app:srcCompat="@drawable/ic_point_new" />
+
+    <TextView
+        android:id="@+id/instruction_point4"
+        style="@style/Instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+
+        android:text="A particular amount of keys are required \nto unlock a room."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintStart_toEndOf="@+id/point4"
+        app:layout_constraintTop_toBottomOf="@+id/instruction_point3" />
+
+    <ImageView
+        android:id="@+id/point5"
+        android:layout_width="32dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/point4"
+        app:srcCompat="@drawable/ic_point_new" />
+
+    <TextView
+        android:id="@+id/instruction_point5"
+        style="@style/Instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Solve every question to be the first one to \nsolve Enigma."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toEndOf="@+id/point5"
+        app:layout_constraintTop_toBottomOf="@+id/instruction_point4" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="42dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="108dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instruction_point5"
+        app:srcCompat="@drawable/ic_key" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="62dp"
+        android:fontFamily="@font/roboto"
+        android:text=": Key"
+        android:textColor="@color/notification_time"
+
+
+        android:textSize="18dp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/instruction_point5"
+        app:layout_constraintVertical_bias="0.346" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

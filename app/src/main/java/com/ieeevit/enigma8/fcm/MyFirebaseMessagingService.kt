@@ -50,7 +50,7 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
 
         // Check if message contains a notification payload.
         remoteMessage.notification?.let {
-            Log.d(TAG, "Message Notification Body: ${it.body}")
+            Log.d(TAG, "Message com.ieeevit.enigma8.model.notification.Notification Body: ${it.body}")
         }
 
 
