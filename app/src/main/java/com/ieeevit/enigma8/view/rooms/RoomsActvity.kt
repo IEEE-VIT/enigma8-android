@@ -7,7 +7,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.view.instruction.InstructionActivity
-import com.ieeevit.enigma8.view.main.LeaderboardFragment
+import com.ieeevit.enigma8.view.leaderboard.LeaderboardFragment
 import com.ieeevit.enigma8.view.notification.NotificationActivity
 import com.ieeevit.enigma8.view.profile.Profdashboard
 import com.ieeevit.enigma8.view.story.FullStoryFragment

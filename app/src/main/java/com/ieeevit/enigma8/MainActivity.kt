@@ -17,14 +17,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
-import com.ieeevit.enigma8.model.FullStory
 import com.ieeevit.enigma8.utils.PrefManager
-import com.ieeevit.enigma8.view.demoQuestion.DemoQuestionActivity
-import com.ieeevit.enigma8.view.story.StoryActivity
 import com.ieeevit.enigma8.view.profile.ProfileActivity
-import com.ieeevit.enigma8.view.question.QuestionActivity
 import com.ieeevit.enigma8.view.rooms.RoomsActvity
-import com.ieeevit.enigma8.view.story.CharacterActivity
 import com.ieeevit.enigma8.viewModel.SignUpViewModel
 
 
