@@ -59,7 +59,7 @@ class ProfileActivity:AppCompatActivity() {
         tabHeading.paint.shader = shader2
 
         uname = findViewById(R.id.username)
-        option =findViewById(R.id.option)
+
 //        end = findViewById(R.id.end_icon)
         autoCompletePlatform = findViewById(R.id.option)
         autoCompletePlatform.setDropDownBackgroundResource(R.color.black)
@@ -84,12 +84,14 @@ class ProfileActivity:AppCompatActivity() {
             nooutreach.visibility = View.INVISIBLE
 
         }
+        uname.setOnClickListener {
+            minimum.visibility = View.GONE
+            notAvailable.visibility = View.GONE
+        }
 
 
 
         uname.setOnFocusChangeListener(OnFocusChangeListener { v, hasFocus ->
-            minimum.visibility = View.INVISIBLE
-            enterusername.visibility = View.VISIBLE
             if (!hasFocus) {
                 hideKeyboard(v)
 
@@ -152,7 +154,14 @@ class ProfileActivity:AppCompatActivity() {
             if (it.message == "username not unique") {
                 notAvailable.visibility = View.VISIBLE
                 Log.e("Hello", "Hello")
-            } else if (it.success == true) {
+
+            }
+            else if(it.message ==  "${"username"} must only contain alpha-numeric characters") {
+                minimum.text = "*No special character"
+                minimum.visibility = View.VISIBLE
+
+            }
+            else if (it.success == true) {
                 sharedPreference.setCount(2)
                 sharedPreference.setisNew(2)
                 val intent = Intent(this, CountdownActivity::class.java)
