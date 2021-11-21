@@ -150,18 +150,18 @@ class Profdashboard : Fragment() {
             room5.setBackgroundResource(R.drawable.bg_progressbar_blue)
                 line4.setImageResource(R.drawable.greendot_rotated)
         }
-//        if(journeydataList[5].list[0] == "solved" || (journeydataList[5].list[0]=="solved" && journeydataList[5].list[1] == "solved" ) ) {
-//            room6.setBackgroundResource(R.drawable.bg_progressbar_blue)
-//                line5.setImageResource(R.drawable.greendot_mirror)
-//        }
-//             if(journeydataList[6].list[0] == "solved" || (journeydataList[6].list[0]=="solved" && journeydataList[6].list[1] == "solved" ) ) {
-//                room7.setBackgroundResource(R.drawable.bg_progressbar_blue)
-//                line6.setImageResource(R.drawable.greendot_mirror)
-//            }
-//             if(journeydataList[7].list[0] == "solved" || (journeydataList[7].list[0]=="solved" && journeydataList[7].list[1] == "solved" ) ) {
-//                room8.setBackgroundResource(R.drawable.bg_progressbar_blue)
-//                line7.setImageResource(R.drawable.greendot_mirror)
-//            }
+        if(journeydataList[5].list[0] == "solved" || (journeydataList[5].list[0]=="solved" && journeydataList[5].list[1] == "solved" ) ) {
+            room6.setBackgroundResource(R.drawable.bg_progressbar_blue)
+                line5.setImageResource(R.drawable.greendot_mirror)
+        }
+             if(journeydataList[6].list[0] == "solved" || (journeydataList[6].list[0]=="solved" && journeydataList[6].list[1] == "solved" ) ) {
+                room7.setBackgroundResource(R.drawable.bg_progressbar_blue)
+                line6.setImageResource(R.drawable.greendot_mirror)
+            }
+             if(journeydataList[7].list[0] == "solved" || (journeydataList[7].list[0]=="solved" && journeydataList[7].list[1] == "solved" ) ) {
+                room8.setBackgroundResource(R.drawable.bg_progressbar_blue)
+                line7.setImageResource(R.drawable.greendot_mirror)
+            }
 
 
 
@@ -185,18 +185,18 @@ class Profdashboard : Fragment() {
                  if (journeydataList[4].list[1] == "solved") room5q2.setImageResource(R.drawable.ques_done)
                  if (journeydataList[4].list[2] == "solved") room5q3.setImageResource(R.drawable.ques_done)
 
-//                 if (journeydataList[5].list[0] == "solved") room6q1.setImageResource(R.drawable.ques_done)
-//                 if (journeydataList[5].list[1] == "solved") room6q2.setImageResource(R.drawable.ques_done)
-//                 if (journeydataList[5].list[2] == "solved") room6q3.setImageResource(R.drawable.ques_done)
-//
-//                 if (journeydataList[6].list[0] == "solved") room7q1.setImageResource(R.drawable.ques_done)
-//                 if (journeydataList[6].list[1] == "solved") room7q2.setImageResource(R.drawable.ques_done)
-//                 if (journeydataList[6].list[2] == "solved") room7q3.setImageResource(R.drawable.ques_done)
-//
-//                 if (journeydataList[7].list[0] == "solved") room8q1.setImageResource(R.drawable.ques_done)
-//                 if (journeydataList[7].list[1] == "solved") room8q2.setImageResource(R.drawable.ques_done)
-//                 if (journeydataList[7].list[2] == "solved") room8q3.setImageResource(R.drawable.ques_done)
-//
+                 if (journeydataList[5].list[0] == "solved") room6q1.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[5].list[1] == "solved") room6q2.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[5].list[2] == "solved") room6q3.setImageResource(R.drawable.ques_done)
+
+                 if (journeydataList[6].list[0] == "solved") room7q1.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[6].list[1] == "solved") room7q2.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[6].list[2] == "solved") room7q3.setImageResource(R.drawable.ques_done)
+
+                 if (journeydataList[7].list[0] == "solved") room8q1.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[7].list[1] == "solved") room8q2.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[7].list[2] == "solved") room8q3.setImageResource(R.drawable.ques_done)
+
 
         if (journeydataList[0].list[0] == "solved" && journeydataList[0].list[1] == "solved" && journeydataList[0].list[2] == "solved") {
             room1.setBackgroundResource(R.drawable.bg_progressbar_green)
@@ -217,20 +217,20 @@ class Profdashboard : Fragment() {
             room5.setBackgroundResource(R.drawable.bg_progressbar_green)
             line4.setImageResource(R.drawable.greenful_rotated)
         }
-//          if (journeydataList[5].list[0] == "solved" && journeydataList[5].list[1] == "solved" && journeydataList[5].list[2] == "solved") {
-//            room6.setBackgroundResource(R.drawable.bg_progressbar_green)
-//            line5.setImageResource(R.drawable.greenful_mirror)
-//        }
-//          if (journeydataList[6].list[0] == "solved" && journeydataList[6].list[1] == "solved" && journeydataList[6].list[2] == "solved") {
-//            room7.setBackgroundResource(R.drawable.bg_progressbar_green)
-//            line6.setImageResource(R.drawable.greenful_mirror)
-//        }
-//          if (journeydataList[7].list[0] == "solved" && journeydataList[7].list[1] == "solved" && journeydataList[7].list[2] == "solved") {
-//            room8.setBackgroundResource(R.drawable.bg_progressbar_green)
-//            line7.setImageResource(R.drawable.greenful_mirror)
-//            line8.visibility = View.VISIBLE
-//            room9.visibility = View.VISIBLE
-//        }
+          if (journeydataList[5].list[0] == "solved" && journeydataList[5].list[1] == "solved" && journeydataList[5].list[2] == "solved") {
+            room6.setBackgroundResource(R.drawable.bg_progressbar_green)
+            line5.setImageResource(R.drawable.greenful_mirror)
+        }
+          if (journeydataList[6].list[0] == "solved" && journeydataList[6].list[1] == "solved" && journeydataList[6].list[2] == "solved") {
+            room7.setBackgroundResource(R.drawable.bg_progressbar_green)
+            line6.setImageResource(R.drawable.greenful_mirror)
+        }
+          if (journeydataList[7].list[0] == "solved" && journeydataList[7].list[1] == "solved" && journeydataList[7].list[2] == "solved") {
+            room8.setBackgroundResource(R.drawable.bg_progressbar_green)
+            line7.setImageResource(R.drawable.greenful_mirror)
+            line8.visibility = View.VISIBLE
+            room9.visibility = View.VISIBLE
+        }
 
 
 

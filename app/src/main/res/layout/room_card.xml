@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="10dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_marginStart="15dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,72 +17,63 @@
 
         <ImageView
             android:id="@+id/rightLamp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="14dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/room_fire_black"
-            app:layout_constraintBottom_toTopOf="@+id/right"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.828"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toEndOf="@+id/center"
+            app:layout_constraintTop_toBottomOf="@+id/centerLamp" />
 
         <ImageView
             android:id="@+id/right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="56dp"
+            android:layout_width="14dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="30dp"
             android:src="@drawable/room_torch"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.36"
-            app:layout_constraintStart_toEndOf="@id/left"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/center"
+            app:layout_constraintTop_toBottomOf="@+id/rightLamp" />
 
         <ImageView
             android:id="@+id/centerLamp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="14dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/room_fire_black"
-            app:layout_constraintBottom_toTopOf="@+id/center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="14dp"
+            android:layout_height="28dp"
 
-            android:layout_marginStart="65dp"
-            android:layout_marginTop="30dp"
             android:src="@drawable/room_torch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/centerLamp" />
 
         <ImageView
             android:id="@+id/left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="56dp"
+            android:layout_width="14dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="30dp"
             android:src="@drawable/room_torch"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/center"
+            app:layout_constraintTop_toBottomOf="@+id/leftLamp" />
 
         <ImageView
             android:id="@+id/leftLamp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="14dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
             android:src="@drawable/room_fire_black"
-            app:layout_constraintBottom_toTopOf="@+id/left"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.156"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintEnd_toStartOf="@+id/center"
+            app:layout_constraintTop_toBottomOf="@+id/centerLamp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -95,20 +86,20 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/roboto"
-        android:text="Room 1"
+        android:fontFamily="@font/mulish_regular"
         android:gravity="center"
+        android:text="Room 1"
         android:textAlignment="center"
         android:textColor="@color/light_yellow"
-        android:textSize="25dp" />
+        android:textSize="15sp" />
 
     <ImageView
         android:id="@+id/roomImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:padding="5dp"
         android:layout_marginTop="105dp"
+        android:padding="5dp"
         android:src="@drawable/room_rectangle0"
         app:layout_constraintStart_toStartOf="parent" />
 

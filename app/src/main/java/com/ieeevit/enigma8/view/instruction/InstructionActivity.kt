@@ -40,8 +40,8 @@ class InstructionActivity : AppCompatActivity() {
         val shader1 : Shader = LinearGradient(0f, 0f,0f,headtext.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),
                 Shader.TileMode.REPEAT)
         painthead.shader = shader1
-        val shader2 : Shader = LinearGradient(0f, 0f,0f,insname.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),
-                Shader.TileMode.REPEAT)
+        val shader2 : Shader = LinearGradient(0f, 0f,0f,insname.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_blue), this.getColor(R.color.dark_blue)), floatArrayOf(0.3f,0.7f),
+            Shader.TileMode.REPEAT)
         insname.paint.shader = shader2
 
         // making the status bar transparent

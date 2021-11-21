@@ -2,6 +2,8 @@ package com.ieeevit.enigma8.view.story
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,9 +14,7 @@ import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.model.Full_Story
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.viewModel.FullStoryViewModel
-
-
-
+import org.w3c.dom.Text
 
 
 class CharacterActivity : AppCompatActivity() {
@@ -25,6 +25,11 @@ class CharacterActivity : AppCompatActivity() {
         sharedPreferences = PrefManager(this)
 
         var count = 0
+
+        val tabhead = findViewById<TextView>(R.id.tabHeading)
+        val shader1 : Shader = LinearGradient(0f, 0f,0f,tabhead.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),
+            Shader.TileMode.REPEAT)
+        tabhead.paint.shader = shader1
 
         var viewModel: FullStoryViewModel = ViewModelProvider(this).get(FullStoryViewModel::class.java)
         var dataList: MutableList<Full_Story> = mutableListOf()

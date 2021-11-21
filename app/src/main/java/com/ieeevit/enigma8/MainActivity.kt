@@ -18,8 +18,12 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
 import com.ieeevit.enigma8.utils.PrefManager
+import com.ieeevit.enigma8.view.instruction.InstructionActivity
+import com.ieeevit.enigma8.view.onboarding.OnboardingActivity
 import com.ieeevit.enigma8.view.profile.ProfileActivity
 import com.ieeevit.enigma8.view.rooms.RoomsActvity
+import com.ieeevit.enigma8.view.story.CharacterActivity
+import com.ieeevit.enigma8.view.timer.CountdownActivity
 import com.ieeevit.enigma8.viewModel.SignUpViewModel
 
 

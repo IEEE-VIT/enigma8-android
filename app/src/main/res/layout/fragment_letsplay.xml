@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="600dp"
+    android:layout_height="500dp"
     android:background="@android:color/transparent">
 
 
     <ImageView
         android:id="@+id/point1"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point1"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -23,9 +21,10 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="52dp"
-        android:text="To smoothen your experience during Enigma,\nplease enable the notifications for this app\n or website to receive important updates."
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="61dp"
+        android:text="To smoothen your experience during Enigma,please\nenable the notifications for this app or website to\nreceive important updates."
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/point1"
@@ -33,12 +32,11 @@
 
     <ImageView
         android:id="@+id/point2"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/point1"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point2"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -46,8 +44,10 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="28dp"
         android:text="Malpractice in any form will be dealt with seriously.\nPlayers are requested to report us of any such\n practices."
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintStart_toEndOf="@+id/point2"
@@ -55,12 +55,11 @@
 
     <ImageView
         android:id="@+id/point3"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/point2"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point3"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -68,8 +67,10 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="24dp"
         android:text="Enigma is an individual player game and the players\nare requested to maintain the integrity of the game\nand not to divulge the solutions anywhere."
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.223"
         app:layout_constraintStart_toEndOf="@+id/point3"
@@ -89,12 +90,11 @@
         android:id="@+id/Notif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="60dp"
-        android:text=": Notifications"
+        android:text=":      Notifications"
         android:textColor="@color/notification_time"
         android:textSize="18dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/bell_notifications"
         app:layout_constraintTop_toBottomOf="@+id/instruction_point3" />
 
@@ -112,12 +112,11 @@
         android:id="@+id/Information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="48dp"
-        android:text=": Instructions"
+        android:text=":       Instructions"
         android:textColor="@color/notification_time"
         android:textSize="18dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/info"
         app:layout_constraintTop_toBottomOf="@+id/Notif" />
 

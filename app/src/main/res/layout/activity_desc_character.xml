@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/character_intro_bg"
-    tools:context=".view.main.CharacterActivity">
+    tools:context=".view.story.CharacterActivity">
 
     <LinearLayout
         android:id="@+id/linear"
@@ -79,7 +79,7 @@
         android:fontFamily="@font/cinzel_bold"
         android:text="NAME"
         android:textColor="@color/light_yellow"
-        android:textSize="15sp"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,10 +92,11 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/character_into_card"
         android:gravity="center"
-        android:paddingHorizontal="12dp"
+        android:paddingHorizontal="20dp"
         android:text="hello_description"
         android:textColor="#0FA3B1"
-        android:textSize="18sp"
+        android:fontFamily="@font/mulish_regular"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
+
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
@@ -43,11 +43,11 @@
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:layout_marginTop="15dp"
-            android:visibility="invisible"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
             android:baselineAligned="false"
-            android:src="@drawable/ic_info"/>
+            android:src="@drawable/ic_info"
+            android:visibility="invisible" />
 
 
     </LinearLayout>
@@ -56,11 +56,11 @@
         android:id="@+id/demo_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/cinzel_decorative"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/cinzel_bold"
         android:text="DEMO QUESTION"
         android:textColor="@color/light_yellow"
-        android:textSize="30dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear" />
@@ -92,16 +92,18 @@
 
     <EditText
         android:id="@+id/Answerfield"
-        android:layout_width="270dp"
+        android:layout_width="230dp"
         android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="50dp"
         android:background="@color/answer_background"
         android:fontFamily="@font/mulish_regular"
-        android:paddingLeft="10dp"
         android:hint="Type Here"
-        android:textSize="15dp"
+        android:paddingLeft="10dp"
         android:textColor="@color/light_yellow"
+        android:textColorHint="@color/light_yellow"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question_image" />
 
@@ -128,7 +130,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/mulish_regular"
         android:text="@string/wrong_answer"
         android:textColor="#E14A4A"
@@ -141,7 +143,7 @@
         android:id="@+id/hint_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
         android:text="Hint: Caesar cipher with key 5"
         android:textColor="@color/notification_time"
         android:visibility="invisible"
@@ -155,9 +157,9 @@
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_question_below"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_question_below"
         tools:layout_editor_absoluteX="197dp"
         tools:layout_editor_absoluteY="705dp" />
 
@@ -165,11 +167,8 @@
         android:id="@+id/hint_Btn"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="50dp"
         android:background="@color/background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
         app:layout_constraintStart_toEndOf="@+id/Answerfield"
         app:layout_constraintTop_toBottomOf="@+id/question_image"
         app:srcCompat="@drawable/ic_hint" />

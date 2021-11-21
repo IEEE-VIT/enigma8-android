@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="600dp"
+    android:layout_height="500dp"
     android:background="@android:color/transparent">
 
 
     <ImageView
         android:id="@+id/point1"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point1"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -23,9 +21,9 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-
+        android:layout_marginTop="43dp"
         android:text="@string/ins4a"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.192"
         app:layout_constraintStart_toEndOf="@+id/point1"
@@ -33,12 +31,11 @@
 
     <ImageView
         android:id="@+id/point2"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/point1"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point2"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -46,8 +43,9 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="A room is locked when the player does not have the\nminimum amount of keys to unlock it else if the\nplayer hasn’t yet chosen a powerup for that room."
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.229"
         app:layout_constraintStart_toEndOf="@+id/point2"
@@ -55,12 +53,11 @@
 
     <ImageView
         android:id="@+id/point3"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/point2"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point3"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -68,9 +65,9 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-
+        android:layout_marginTop="14dp"
         android:text="A room is unlocked when the player has sufficient\nkeys and has chosen a powerup for that room."
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toEndOf="@+id/point3"
@@ -79,12 +76,11 @@
 
     <ImageView
         android:id="@+id/point4"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/point3"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point4"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -92,8 +88,9 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="14dp"
         android:text="A room is solved only when a player solves all three\nquestions in that room"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toEndOf="@+id/point4"
@@ -104,7 +101,7 @@
         android:layout_width="146dp"
         android:layout_height="196dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction_point4"
         app:srcCompat="@drawable/roominst" />
@@ -113,8 +110,8 @@
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="35dp"
         app:layout_constraintStart_toEndOf="@+id/room_door"
         app:layout_constraintTop_toBottomOf="@+id/instruction_point4"
         app:srcCompat="@drawable/ic_question_solved" />
@@ -123,8 +120,8 @@
         android:id="@+id/imageView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="38dp"
         app:layout_constraintStart_toEndOf="@+id/room_door"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
         app:srcCompat="@drawable/ic_question_locked" />
@@ -133,8 +130,8 @@
         android:id="@+id/imageView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="38dp"
         app:layout_constraintStart_toEndOf="@+id/room_door"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:srcCompat="@drawable/ic_question_unlocked" />
@@ -144,13 +141,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="25dp"
         android:fontFamily="@font/mulish_regular"
         android:text="Question Solved"
         android:textColor="@color/notification_time"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/instruction_point4" />
 
@@ -159,13 +157,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="25dp"
         android:fontFamily="@font/mulish_regular"
         android:text="Question Unlocked"
         android:textColor="@color/notification_time"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toBottomOf="@+id/question_solved" />
 
@@ -174,7 +173,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="25dp"
         android:fontFamily="@font/mulish_regular"
         android:text="Question Locked"
         android:textColor="@color/notification_time"
