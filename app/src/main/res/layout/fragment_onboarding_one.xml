@@ -3,20 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="500dp"
+    android:layout_height="550dp"
     android:background="@color/background"
     tools:context=".view.onboarding.OnboardingFragmentOne">
 
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="257dp"
-        android:layout_height="306dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="308dp"
+        android:layout_height="380dp"
+        android:layout_marginTop="28dp"
         android:src="@drawable/pharoah"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +44,7 @@
         android:text="Things take a turn for the worse when Jones and Ali wander through the depths of Egypt. "
         android:textAlignment="center"
         android:textColor="#FFCA61"
-        android:textSize="10sp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
