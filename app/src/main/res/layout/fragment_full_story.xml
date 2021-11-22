@@ -7,7 +7,6 @@
     android:background="@drawable/story_bg">
 
 
-
     <ImageView
         android:id="@+id/character1_torch"
         android:layout_width="wrap_content"
@@ -22,14 +21,13 @@
         android:id="@+id/character1_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
-        android:textSize="22sp"
         android:fontFamily="@font/cinzel_bold"
         android:text="JONES"
         android:textColor="@color/light_yellow"
         app:layout_constraintStart_toEndOf="@+id/character1_torch"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/character2_name"
@@ -37,7 +35,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:textSize="22sp"
         android:fontFamily="@font/cinzel_bold"
         android:text="ALI"
         android:textColor="@color/light_yellow"
@@ -65,32 +62,30 @@
         android:layout_height="0dp"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="5dp"
-        android:paddingBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/conti"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/character1_torch" />
-    <ImageView
-        android:id="@+id/overlay"
-        android:layout_width="match_parent"
-        android:visibility="gone"
-        android:background="@color/background"
-        android:layout_height="match_parent"/>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginHorizontal="40dp"
-        android:progress="50"
-        android:visibility="gone"
-        android:progressDrawable="@drawable/ic_progress"
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/conti"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FFCA61"
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
