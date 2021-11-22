@@ -5,7 +5,6 @@ import android.graphics.LinearGradient
 import android.graphics.Shader
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
@@ -17,7 +16,6 @@ import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.view.onboarding.OnboardingActivity
 import com.ieeevit.enigma8.view.profile.ProfileActivity
 import com.ieeevit.enigma8.view.rooms.RoomsActvity
-import com.ieeevit.enigma8.view.story.CharacterActivity
 import com.ieeevit.enigma8.view.timer.CountdownActivity
 
 class SplashScreen:AppCompatActivity() {
@@ -67,17 +65,13 @@ class SplashScreen:AppCompatActivity() {
         view.setOnCompletionListener {
             val r  = object : Runnable {
                 override fun run() {
-                    Log.e("indicator","$indicator")
-                    Log.e("isNew","$isNew")
-                    Log.e("getCount","${sharedPreferences.getCount()}")
-                    Log.e("HuntStarted","${sharedPreferences.isHuntStarted()}")
 //                    val intent = Intent(this@SplashScreen,MainActivity::class.java)
 //                            startActivity(intent)
 //                            finish()
                     if(indicator==1 && isNew == 0) {
-                        val intent = Intent(this@SplashScreen,MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                            val intent = Intent(this@SplashScreen,MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
                     }
                     else if(isNew == 1) {
                         val intent = Intent(this@SplashScreen,ProfileActivity::class.java)
@@ -111,7 +105,7 @@ class SplashScreen:AppCompatActivity() {
                     }
 
                 }
-
+            
             }
             Handler().postDelayed(r,500)
         }

@@ -1,25 +1,14 @@
 package com.ieeevit.enigma8.view.rooms
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.LinearGradient
 import android.graphics.Shader
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import android.widget.RelativeLayout
-
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.view.instruction.InstructionActivity
 import com.ieeevit.enigma8.view.leaderboard.LeaderboardFragment
@@ -34,38 +23,16 @@ class RoomsActvity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_room)
-        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val netInfo = cm.activeNetworkInfo
-        if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){
-            val view = View.inflate(this, R.layout.connection_error, null)
-            val builder = android.app.AlertDialog.Builder(this)
-            builder.setView(view)
-            val dialog = builder.create()
-            val lp = dialog.window!!.attributes
-            lp.dimAmount = 0.0f
-            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
-            dialog.window!!.attributes = lp
-            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-            dialog.show()
-            view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
-                recreate()
-
-            })
-        }
-
-
 
         notification = findViewById(R.id.notification)
         instruction = findViewById(R.id.instruction)
         notification.setOnClickListener {
             val intent = Intent(this,NotificationActivity::class.java)
             startActivity(intent)
-            finish()
         }
         instruction.setOnClickListener {
             val intent = Intent(this, InstructionActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
         val roomfrag = RoomFragment()
@@ -88,12 +55,11 @@ class RoomsActvity:AppCompatActivity() {
         tabhead.paint.shader = shader1
 
         supportFragmentManager.beginTransaction().apply {
+
             replace(R.id.fragmentFLcontainer, roomfrag)
             addToBackStack(null)
             commit()
         }
-
-
 
 
 
@@ -157,38 +123,4 @@ class RoomsActvity:AppCompatActivity() {
 //        }
 
     }
-
-
-
-    override fun onBackPressed()
-    {
-
-        val currentFragment =this.supportFragmentManager.findFragmentById(R.id.fragmentFLcontainer)
-        if(currentFragment is RoomFragment)
-        {
-            val view = View.inflate(this, R.layout.exit_dialog, null)
-            val builder = android.app.AlertDialog.Builder(this)
-            builder.setView(view)
-            val dialog = builder.create()
-            val lp = dialog.window!!.attributes
-            lp.dimAmount = 0.0f
-            dialog.window!!.attributes = lp
-            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
-            dialog.show()
-            view.findViewById<Button>(R.id.yes).setOnClickListener {
-                finish()
-            }
-            view.findViewById<Button>(R.id.no).setOnClickListener{
-                dialog.dismiss()
-            }
-        }
-        else{
-            super.onBackPressed()
-        }
-
-
-    }
-
-
 }

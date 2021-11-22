@@ -10,13 +10,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ieeevit.enigma8.ProgressBarAnimation
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.adapter.FullStoryAdapter
 import com.ieeevit.enigma8.adapter.RoomsAdapter
@@ -36,9 +33,6 @@ class FullStoryFragment : Fragment() {
 
     private lateinit var adapter: FullStoryAdapter
     private lateinit var fullStoryView: RecyclerView
-    private lateinit var progress: ProgressBar
-    private lateinit var blackScreen: ImageView
-
 //    lateinit var nxt_btn: Button
 //    lateinit var continue_btn: Button
 //    var count:Int = 1
@@ -66,13 +60,6 @@ class FullStoryFragment : Fragment() {
         val actionbartxt = root.findViewById<TextView>(R.id.tabHeading)
         val jones = root.findViewById<TextView>(R.id.character1_name)
         val ali = root.findViewById<TextView>(R.id.character2_name)
-        blackScreen  = root.findViewById(R.id.overlay)
-        progress =root.findViewById(R.id.progressBar)
-        blackScreen.visibility = View.VISIBLE
-        progress.visibility = View.VISIBLE
-        val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
-        anim.duration = 1000
-        progress.startAnimation(anim)
 
 
         val shader2 : Shader = LinearGradient(0f, 0f,0f,jones.lineHeight.toFloat(), intArrayOf(requireContext().getColor(R.color.light_yellow), requireContext().getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),
@@ -86,8 +73,6 @@ class FullStoryFragment : Fragment() {
             "Bearer $authToken"
         )
         viewModel.fullstoryResponse.observe(viewLifecycleOwner, {
-            progress.visibility = View.GONE
-            blackScreen.visibility = View.GONE
             dataList.clear()
             if (it != null) {
                 for (item in it.data.story) {

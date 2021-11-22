@@ -24,5 +24,6 @@ object Constants {
     const val Profile_URL = "user/getDetails"
     const val Leaderboard_URL = "game/leaderboards"
     const val FullStory_URL = "story/fullStory"
-    const val Feedback_Filled_URL = "feedback/feedbackFilled"
 }
+
+

@@ -73,7 +73,6 @@
         android:fontFamily="@font/mulish_regular"
         android:text="Where lived the man?\nEt tu, Brute?"
         android:textAlignment="center"
-        android:gravity="center"
         android:textColor="@color/privacy_text"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"

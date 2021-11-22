@@ -64,7 +64,7 @@ class LeaderboardAdapter(var context: Context,var Leaderboard: List<Leaderboard>
 //                    .inflate(R.layout.leader_card, parent, false)
 //            }
 
-        var view = LayoutInflater.from(parent.context)
+            var view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.leader_card, parent, false)
 
 
@@ -102,3 +102,4 @@ class LeaderboardAdapter(var context: Context,var Leaderboard: List<Leaderboard>
 //        }
 //    }
 }
+

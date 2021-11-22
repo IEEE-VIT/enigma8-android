@@ -24,13 +24,10 @@ import com.ieeevit.enigma8.model.leaderboard.Leaderboard
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.viewModel.LeaderboardViewModel
 import androidx.appcompat.widget.SearchView
-import com.ieeevit.enigma8.ProgressBarAnimation
 import java.util.*
 
 
 class LeaderboardFragment : Fragment() {
-    private lateinit var progress:ProgressBar
-    private lateinit var blackScreen:ImageView
     private lateinit var days1: TextView
     private lateinit var days2: TextView
     private lateinit var hours1: TextView
@@ -50,7 +47,7 @@ class LeaderboardFragment : Fragment() {
     private lateinit var adapter: LeaderboardAdapter
     private val viewModel : LeaderboardViewModel by lazy {
         ViewModelProvider(this, LeaderboardViewModel.Factory())
-                .get(LeaderboardViewModel::class.java)
+            .get(LeaderboardViewModel::class.java)
     }
     var count = 0
     var dataList : MutableList<Leaderboard> = mutableListOf()
@@ -61,8 +58,8 @@ class LeaderboardFragment : Fragment() {
 
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         var page = 1
 
@@ -75,25 +72,17 @@ class LeaderboardFragment : Fragment() {
         sharedPreferences = PrefManager(requireContext())
         val authToken = sharedPreferences.getAuthCode()
         leaderboardView = root.findViewById(R.id.Leaderboard_view)
-        leaderboardView.visibility = View.INVISIBLE
-        progress = root.findViewById(R.id.progressBar)
-        blackScreen = root.findViewById(R.id.overlay)
-        blackScreen.visibility = View.VISIBLE
-        progress.visibility = View.VISIBLE
-        val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
-        anim.duration = 1000
-        progress.startAnimation(anim)
-
-        Handler().postDelayed({
-            leaderboardView.visibility = View.VISIBLE
-        }, 1000)
+//        leaderboardView.visibility = View.INVISIBLE
+//        Handler().postDelayed({
+//            leaderboardView.visibility = View.VISIBLE
+//        }, 1000)
         days1 = root.findViewById(R.id.days1)
         hours1 = root.findViewById(R.id.hours1)
         minutes1 = root.findViewById(R.id.minutes1)
         days2 = root.findViewById(R.id.days2)
         hours2 = root.findViewById(R.id.hours2)
         minutes2 = root.findViewById(R.id.minutes2)
-        val progressBar = root.findViewById<ProgressBar>(R.id.progressBar)
+
         init()
         viewModel.getEnigmaStatus("Token $authToken")
 
@@ -133,7 +122,7 @@ class LeaderboardFragment : Fragment() {
 
 
 
-        val searchIcon = root.findViewById<ImageView>(R.id.search_mag_icon)
+
         val userRank = root.findViewById<TextView>(R.id.user_rankvar)
         val userName = root.findViewById<TextView>(R.id.user_namevar)
         val userSolved = root.findViewById<TextView>(R.id.user_solvedvar)
@@ -165,15 +154,16 @@ class LeaderboardFragment : Fragment() {
         painthead.shader = shader1
 
 
-        viewModel.getLeaderboardDetails(
+            viewModel.getLeaderboardDetails(
                 page,
                 10,
                 "Bearer $authToken",
                 null
-        )
+            )
 
 
 
+            val progressBar = root.findViewById<ProgressBar>(R.id.progressBar)
         viewModel.eleaderboardResponse.observe(viewLifecycleOwner,{
             if(it == "Please set a username first!"){
 
@@ -194,13 +184,7 @@ class LeaderboardFragment : Fragment() {
 
 
         })
-        count = 0
         viewModel.leaderboardResponse.observe(viewLifecycleOwner, {
-            count++
-
-            progress.visibility = View.GONE
-            blackScreen.visibility = View.GONE
-            search.visibility = View.VISIBLE
 
             scrollView.background = resources.getDrawable(R.drawable.ic_scrollview_bg)
             if (it != null) {
@@ -222,12 +206,12 @@ class LeaderboardFragment : Fragment() {
                         if (item !in dataList  ) {
                             Log.e("hih","$datam")
                             datam.add(
-                                    Leaderboard(
-                                            item.username,
-                                            item.score,
-                                            item.questionsSolved,
-                                            item.rank
-                                    )
+                                Leaderboard(
+                                    item.username,
+                                    item.score,
+                                    item.questionsSolved,
+                                    item.rank
+                                )
                             )
 
                         }
@@ -244,7 +228,9 @@ class LeaderboardFragment : Fragment() {
                 adapter = LeaderboardAdapter(requireContext(), dataList)
                 leaderboardView.layoutManager = LinearLayoutManager(context)
                 leaderboardView.adapter = adapter
-
+                if (progressBar != null) {
+                    progressBar.visibility = View.INVISIBLE
+                }
 
             }
             Log.e("Response","$it")
@@ -254,69 +240,73 @@ class LeaderboardFragment : Fragment() {
 
 
 
-            leaderboardView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    Log.e("page 1", "$page $totalPage")
+        leaderboardView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                Log.e("page 1", "$page $totalPage")
 
 
-                    Log.e("page 2", "$page $totalPage")
-                    if (page < totalPage) {
-                        page++
+                Log.e("page 2", "$page $totalPage")
+                if (page < totalPage) {
+                    page++
 
 
-                        Log.e("page inside if", "$page $totalPage")
+                    Log.e("page inside if", "$page $totalPage")
 
-                        val visibleItemCount = leaderboardView.layoutManager?.childCount
-                        val pastVisibleItem = 1
+                    val visibleItemCount = leaderboardView.layoutManager?.childCount
+                    val pastVisibleItem = 1
 //                          LinearLayoutManager(context).findFirstVisibleItemPosition()
 //                    val total = adapter.itemCount
 
-                        if (!isLoading) {
-                            if (visibleItemCount != null) {
-                                if (page <= totalPage) {
+                    if (!isLoading) {
+                        if (visibleItemCount != null) {
+                            if (page <= totalPage) {
 //                                        page++
-                                    isLoading = true
-
-
-                                    viewModel.getLeaderboardDetails(
-                                            page,
-                                            10,
-                                            "Bearer $authToken",
-                                            null
-                                    )
-
-                                    Handler().postDelayed({
-                                        if (::adapter.isInitialized) {
-                                            adapter.notifyDataSetChanged()
-                                        } else {
-                                            adapter =
-                                                    LeaderboardAdapter(requireContext(), dataList)
-                                            leaderboardView.adapter = adapter
-                                        }
-                                        isLoading = false
-//
-                                    }, 500)
+                                isLoading = true
+                                if (progressBar != null) {
+                                    progressBar.visibility = View.VISIBLE
                                 }
-                            }
 
+                                viewModel.getLeaderboardDetails(
+                                    page,
+                                    10,
+                                    "Bearer $authToken",
+                                    null
+                                )
+
+                                Handler().postDelayed({
+                                    if (::adapter.isInitialized) {
+                                        adapter.notifyDataSetChanged()
+                                    } else {
+                                        adapter =
+                                            LeaderboardAdapter(requireContext(), dataList)
+                                        leaderboardView.adapter = adapter
+                                    }
+                                    isLoading = false
+                                    if (progressBar != null) {
+                                        progressBar.visibility = View.GONE
+                                    }
+                                }, 500)
+                            }
                         }
 
-                        super.onScrolled(recyclerView, dx, dy)
                     }
 
+                    super.onScrolled(recyclerView, dx, dy)
                 }
-            })
 
-            search.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    dataList.clear()
-                    page = 1
-                    viewModel.getLeaderboardDetails(
-                            1,
-                            30,
-                            "Bearer $authToken",
-                            query
-                    )
+            }
+        })
+
+        search.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                dataList.clear()
+                page = 1
+                viewModel.getLeaderboardDetails(
+                    1,
+                    30,
+                    "Bearer $authToken",
+                    query
+                )
 
 
 //                 var newList: MutableList<Leaderboard> = mutableListOf()
@@ -355,37 +345,36 @@ class LeaderboardFragment : Fragment() {
 
 
 
-                    return false
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?) :Boolean{
+                if (newText == ""){
+
+
                 }
-
-                override fun onQueryTextChange(newText: String?) :Boolean{
-                    if (newText == ""){
-
-
-                    }
-                    return false
-                }
+                return false
+            }
 
 
-            })
+        })
             //        cancelIcon.setColorFilter(getResources().getColor(R.color.light_yellow))
 //        textView.setTextColor(
 //            getResources().getColor(R.color.light_yellow))
-
+//        val searchIcon = search.findViewById<ImageView>(R.id.search_mag_icon)
 //        searchIcon.setColorFilter(getResources().getColor(R.color.light_yellow))
 
 
 
             cancelIcon?.setOnClickListener {
-                searchIcon.visibility = View.VISIBLE
                 dataList.clear()
                 page = 1
                 scrollView.background = resources.getDrawable(R.drawable.ic_scrollview_bg)
                 viewModel.getLeaderboardDetails(
-                        page,
-                        10,
-                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imphc3NpbXNoYW1pbUBnbWFpbC5jb20iLCJpYXQiOjE2MzczODc2Mjh9.bWeW2T_iu4x8qDpLVjqax_DDspzL5N-JbgDm4A6HwW4",
-                        null
+                    page,
+                    10,
+                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imphc3NpbXNoYW1pbUBnbWFpbC5jb20iLCJpYXQiOjE2MzczODc2Mjh9.bWeW2T_iu4x8qDpLVjqax_DDspzL5N-JbgDm4A6HwW4",
+                    null
                 )
 //            dataList = datam
 //            val adapter2 = LeaderboardAdapter(requireContext(), dataList)
@@ -430,3 +419,10 @@ class LeaderboardFragment : Fragment() {
 
     }
 }
+
+    //-----------------------------------------------------------------------------
+
+
+
+
+

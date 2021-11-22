@@ -1,19 +1,12 @@
 package com.ieeevit.enigma8
 
 
-import android.app.AlertDialog
 import android.content.ContentValues.TAG
-import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Shader
-import android.graphics.drawable.ColorDrawable
-import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -47,26 +40,9 @@ class MainActivity :AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val netInfo = cm.activeNetworkInfo
-        if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){
-            val view = View.inflate(this, R.layout.connection_error, null)
-            val builder = AlertDialog.Builder(this)
-            builder.setView(view)
-            val dialog = builder.create()
-            val lp = dialog.window!!.attributes
-            lp.dimAmount = 0.0f
-            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
-            dialog.window!!.attributes = lp
-            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-            dialog.show()
-            view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
-                recreate()
-
-            })
-        }
         g_button = findViewById(R.id.google)
         sharedPreference = PrefManager(this)
         FirebaseApp.initializeApp(applicationContext)
@@ -75,7 +51,7 @@ class MainActivity :AppCompatActivity() {
 
 
         val paint1 = text1.paint
-        val shader1 : Shader = LinearGradient(0f, 0f, 0f, text1.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f, 0.7f), Shader.TileMode.REPEAT)
+        val shader1 : Shader = LinearGradient(0f, 0f,0f,text1.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f), Shader.TileMode.REPEAT)
         paint1.shader = shader1
 
 
@@ -84,27 +60,33 @@ class MainActivity :AppCompatActivity() {
         mGoogleSignInClient = GoogleSignIn.getClient(this, viewModel.gso)
 
 
+//                viewModel.getUser().observe(this, object : Observer<User?>() {
+//                    fun onChanged(@Nullable data: User?) {
+//                        // update ui.
+//                    }
+//                })
         g_button.setOnClickListener {
             signIn()
         }
 
-        viewModel.authCode.observe(this, {
-            if (it != null) {
-                sharedPreference.setAuthCode(it.data.JWT)
+            viewModel.authCode.observe(this,{
+                if(it!=null) {
+                    sharedPreference.setAuthCode(it.data.JWT)
 
-                if (it.data.isNew) {
-                    sharedPreference.setCount(1)
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    finish()
+                    if(it.data.isNew) {
+                        sharedPreference.setCount(1)
+                        val intent = Intent(this, ProfileActivity::class.java)
+                        startActivity(intent)
+                        finish()
 
-                } else {
-                    val intent = Intent(this, RoomsActvity::class.java)
-                    startActivity(intent)
-                    finish()
+                    }
+                    else {
+                        val intent = Intent(this,RoomsActvity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
                 }
-            }
-        })
+            })
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
 
@@ -117,7 +99,7 @@ class MainActivity :AppCompatActivity() {
             val token = task.result
             // Log and toast
 //            val msg = getString(R.string., token)
-            Log.e("Fcmtoken", "$token")
+            Log.e("Fcmtoken","$token")
             sharedPreference.setFcm(token.toString())
 
 
@@ -127,13 +109,10 @@ class MainActivity :AppCompatActivity() {
 
     }
 
-
-
     private fun signIn() {
         val signInIntent: Intent = mGoogleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
-//        sharedPreference.setisNew(1)
-
+        sharedPreference.setisNew(1)
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -141,24 +120,34 @@ class MainActivity :AppCompatActivity() {
 
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             task.addOnSuccessListener {
-
-                Log.e("token", "${it.idToken}")
+                Log.e("token","${it.idToken}")
                 viewModel.getAuthCode(it.idToken.toString())
-                sharedPreference.setisNew(1)
 
             }.addOnFailureListener{
-                Toast.makeText(this, "Sign In Failed", Toast.LENGTH_LONG).show()
-                Log.e("fail", "Failed")
+                Toast.makeText(this,"Sign In Failed",Toast.LENGTH_LONG).show()
+                Log.e("fail","Failed")
 
             }
+//            handleSignInResult(task)
 
         }
-
-
     }
 
 
-
+//    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount?>) {
+//        try {
+//            val account = completedTask.getResult(ApiException::class.java)
+//            val authToken = account?.idToken
+//
+//
+//
+//            Toast.makeText(this,"Sign in",Toast.LENGTH_LONG).show()
+////            Log.e("AuthCode",sharedPreference.getAuthCode().toString())
+//
+//        } catch (e: ApiException) {
+//
+//        }
+//    }
 
 
 
