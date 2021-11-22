@@ -8,19 +8,16 @@ import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.ieeevit.enigma8.ProgressBarAnimation
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.view.demoQuestion.DemoQuestionActivity
-import com.ieeevit.enigma8.view.instruction.InstructionActivity
+import com.ieeevit.enigma8.view.profile.ProfileActivity
+import com.ieeevit.enigma8.view.rooms.RoomsActvity
 import com.ieeevit.enigma8.viewModel.CountdownViewModel
 import java.util.*
-
 
 class   CountdownActivity : AppCompatActivity() {
 
@@ -46,8 +43,6 @@ class   CountdownActivity : AppCompatActivity() {
     private lateinit var minutes:TextView
     private lateinit var text:TextView
     private lateinit var end:TextView
-    private lateinit var progress:ProgressBar
-    private lateinit var blackScreen:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,17 +64,10 @@ class   CountdownActivity : AppCompatActivity() {
         days = findViewById(R.id.days)
         hours = findViewById(R.id.hours)
         minutes = findViewById(R.id.minutes)
-        blackScreen  = findViewById(R.id.overlay)
-        progress = findViewById(R.id.progressBar)
-        blackScreen.visibility = View.VISIBLE
-        progress.visibility = View.VISIBLE
-        val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
-        anim.duration = 1000
-        progress.startAnimation(anim)
 
-        val shader1 : Shader = LinearGradient(0f, 0f, 0f, heading.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f, 0.7f), Shader.TileMode.REPEAT)
-        val shader2 : Shader= LinearGradient(0f, 0f, 0f, demo.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f, 0.7f), Shader.TileMode.REPEAT)
-        val shader3 : Shader= LinearGradient(0f, 0f, 0f, days1.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.countdown_yellow), this.getColor(R.color.countdown_brown)), floatArrayOf(0.05f, 0.9f), Shader.TileMode.REPEAT)
+        val shader1 : Shader = LinearGradient(0f, 0f,0f,heading.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),Shader.TileMode.REPEAT)
+        val shader2 : Shader= LinearGradient(0f, 0f,0f,demo.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),Shader.TileMode.REPEAT)
+        val shader3 : Shader= LinearGradient(0f, 0f,0f,days1.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.countdown_yellow), this.getColor(R.color.countdown_brown)), floatArrayOf(0.05f,0.9f),Shader.TileMode.REPEAT)
         heading.paint.shader = shader1
         days1.paint.shader = shader3
         days2.paint.shader = shader3
@@ -99,18 +87,15 @@ class   CountdownActivity : AppCompatActivity() {
         init()
         viewModel.getEnigmaStatus("Token $authToken")
         play.setOnClickListener {
-            sharedPreference.setBackIndicator(0)
-            startActivity(Intent(this, InstructionActivity::class.java))
-            finish()
+            startActivity(Intent(this, RoomsActvity::class.java))
+
         }
 
         viewModel.enigmaStatus.observe(this, {
-            progress.visibility = View.GONE
-            blackScreen.visibility = View.GONE
             if (it != null) {
                 sharedPreference.setHuntStarted(it.data.enigmaStarted)
-                Log.e("ResponseCounter", "$it")
-                if (it.data.date > 0 && it.data.enigmaStarted == false) {
+                Log.e("ResponseCounter","$it")
+                if(it.data.date > 0 && it.data.enigmaStarted == false) {
                     play.visibility = View.INVISIBLE
                     demo.visibility = View.VISIBLE
                     sharedPreference.setEnigmaStatus(it.data.enigmaStarted)
@@ -123,7 +108,8 @@ class   CountdownActivity : AppCompatActivity() {
                     timeLeft = eventStartTime - currentTime
 
                     startTimer(timeLeft)
-                } else if (it.data.date > 0 && it.data.enigmaStarted == true) {
+                }
+                else if(it.data.date > 0 && it.data.enigmaStarted == true) {
                     play.visibility = View.VISIBLE
                     demo.visibility = View.INVISIBLE
                     currentTime = currentCalendar.timeInMillis
@@ -135,7 +121,8 @@ class   CountdownActivity : AppCompatActivity() {
                     timeLeft = eventStartTime - currentTime
 
                     startTimer(timeLeft)
-                } else {
+                }
+                else {
                     demo.visibility = View.VISIBLE
                     play.visibility = View.INVISIBLE
                 }
@@ -146,7 +133,6 @@ class   CountdownActivity : AppCompatActivity() {
         demo.setOnClickListener {
             val intent = Intent(this, DemoQuestionActivity::class.java)
             startActivity(intent)
-            finish()
         }
 //        viewModel.getEnigmaStatus("Token ${sharedPreference.getAuthCode()}")
 //
@@ -172,7 +158,7 @@ class   CountdownActivity : AppCompatActivity() {
 //        })
 
 
-    }
+        }
     private fun init() {
 
         currentCalendar = Calendar.getInstance(TimeZone.getDefault())
@@ -193,7 +179,7 @@ class   CountdownActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 viewModel.getEnigmaStatus("Token ${sharedPreference.getAuthCode()}")
-                Log.e("jdjsddsj", "dksjdkdskdsn")
+                Log.e("jdjsddsj","dksjdkdskdsn")
                 play.visibility = View.VISIBLE
                 demo.visibility = View.INVISIBLE
                 text.visibility = View.INVISIBLE
@@ -208,3 +194,6 @@ class   CountdownActivity : AppCompatActivity() {
 
 
 }
+
+
+

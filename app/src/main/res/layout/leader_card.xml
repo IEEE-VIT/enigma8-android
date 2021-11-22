@@ -27,7 +27,6 @@
                 android:id="@+id/rankval"
                 android:textColor="@color/light_yellow"
                 android:layout_width="60dp"
-                android:layout_marginStart="5dp"
                 android:layout_height="match_parent"
                 android:text="Rank"
                 android:textAlignment="center"
@@ -54,7 +53,6 @@
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:text="Solved"
-
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="15dp"
@@ -67,7 +65,6 @@
                 android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:text="Score"
-                android:layout_marginStart="-5dp"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="15dp"

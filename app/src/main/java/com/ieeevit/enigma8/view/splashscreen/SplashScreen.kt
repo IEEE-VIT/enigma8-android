@@ -16,7 +16,6 @@ import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.view.onboarding.OnboardingActivity
 import com.ieeevit.enigma8.view.profile.ProfileActivity
 import com.ieeevit.enigma8.view.rooms.RoomsActvity
-import com.ieeevit.enigma8.view.story.CharacterActivity
 import com.ieeevit.enigma8.view.timer.CountdownActivity
 
 class SplashScreen:AppCompatActivity() {
@@ -70,9 +69,9 @@ class SplashScreen:AppCompatActivity() {
 //                            startActivity(intent)
 //                            finish()
                     if(indicator==1 && isNew == 0) {
-                        val intent = Intent(this@SplashScreen,MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                            val intent = Intent(this@SplashScreen,MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
                     }
                     else if(isNew == 1) {
                         val intent = Intent(this@SplashScreen,ProfileActivity::class.java)
@@ -106,7 +105,7 @@ class SplashScreen:AppCompatActivity() {
                     }
 
                 }
-
+            
             }
             Handler().postDelayed(r,500)
         }

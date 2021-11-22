@@ -21,16 +21,15 @@
         <ImageView
             android:id="@+id/back_btn"
             android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_height="30dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/ic_arrow_left" />
 
         <TextView
             android:id="@+id/tabHeading"
-            android:layout_width="140dp"
-            android:gravity="center"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="85dp"
@@ -41,14 +40,13 @@
 
         <ImageView
             android:id="@+id/instruction"
-            android:layout_width="26dp"
-            android:layout_height="21dp"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
             android:baselineAligned="false"
-            android:src="@drawable/ic_info"
-            android:visibility="invisible" />
+            android:src="@drawable/ic_info"/>
 
 
     </LinearLayout>
@@ -58,63 +56,67 @@
         android:id="@+id/room_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
         android:fontFamily="@font/cinzel_decorative"
         android:text="room iii"
         android:textAppearance="@style/roomQuestion"
         android:textColor="@color/light_yellow"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="@+id/question"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear" />
 
     <TextView
         android:id="@+id/question_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:fontFamily="@font/cinzel_decorative"
         android:text="q iii"
         android:textAppearance="@style/questionNo"
         android:textColor="@color/notification_time"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/question"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/room_no" />
 
-    <RelativeLayout
-        android:layout_width="171dp"
-        android:layout_height="47dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="15dp"
-        android:background="@drawable/powerupqstn_bg"
+        android:background="@color/answer_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear">
 
         <TextView
             android:id="@+id/powerup_name"
-            android:layout_width="200dp"
-            android:layout_height="155dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="60dp"
+            android:layout_marginEnd="5dp"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="CARTOUCHE"
+            android:text="Jai homdkmdlmd"
             android:textColor="@color/light_yellow"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/powerup_icon"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="13dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginBottom="3dp"
-            android:foregroundGravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/ic_ellipse_14"
+            android:layout_marginStart="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/powerup_name"
+            app:layout_constraintHorizontal_bias="0.21"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/question"
@@ -123,75 +125,43 @@
         android:layout_marginTop="32dp"
         android:fontFamily="@font/mulish_regular"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. vitae suspendisse vel bibendum curabitur adipiscing viverra ut venenatis? Lorem ipsum dolor sit amet, consectetur adipiscing elit. vitae suspendisse vel bibendum curabitur adipiscing viverra ut venenatis?"
-        android:textAlignment="center"
         android:textColor="@color/privacy_text"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question_no" />
 
-    <RelativeLayout
-        android:id="@+id/relative"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/question_image"
+        android:layout_width="320dp"
+        android:layout_height="191dp"
+
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question">
-
-        <ImageView
-            android:id="@+id/question_image"
-            android:layout_width="325dp"
-            android:layout_height="191dp"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.465"
-            app:srcCompat="@drawable/question_image" />
-
-        <VideoView
-            android:id="@+id/simpleVideoView"
-            android:layout_width="320dp"
-            android:layout_height="191dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="32dp"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </RelativeLayout>
+        app:layout_constraintTop_toBottomOf="@+id/question"
+        app:srcCompat="@drawable/question_image" />
 
     <EditText
         android:id="@+id/Answerfield"
         android:layout_width="270dp"
         android:layout_height="40dp"
-        android:layout_marginTop="76dp"
-        android:textColor="@color/light_yellow"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
         android:background="@color/answer_background"
         android:fontFamily="@font/mulish_regular"
-        android:hint="Type Here"
         android:paddingLeft="10dp"
-        android:textColorHint="@color/light_yellow"
+        android:hint="Type Here"
         android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="@+id/relative"
-        app:layout_constraintTop_toBottomOf="@+id/relative" />
-
-    <ImageButton
-        android:id="@+id/hint"
-        android:layout_width="52dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="72dp"
-        android:background="@color/background"
-        app:layout_constraintEnd_toEndOf="@+id/relative"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/Answerfield"
-        app:layout_constraintTop_toBottomOf="@+id/relative"
-        app:srcCompat="@drawable/ic_hint" />
+        android:textColorHint="@color/light_yellow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question_image" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/submit_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginBottom="36dp"
         android:backgroundTint="#FFCA61"
         android:fontFamily="@font/mulish_regular"
         android:text="Submit"
@@ -199,73 +169,84 @@
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hint_text" />
-
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/wrong_answer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="@font/mulish_regular"
         android:text="@string/wrong_answer"
         android:textColor="#E14A4A"
-        android:textSize="13sp"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Answerfield" />
+
+    <TextView
+        android:id="@+id/hint_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/mulish_regular"
+        android:text="Hint : "
+        android:textColor="@color/notification_time"
+        android:textSize="15dp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Answerfield" />
 
     <TextView
         android:id="@+id/hint_text"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        android:textAlignment="center"
         android:textColor="@color/notification_time"
-        android:textStyle="bold"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
         android:visibility="invisible"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wrong_answer" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/hint_show"
+        app:layout_constraintTop_toBottomOf="@+id/Answerfield" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/ic_question_below"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_question_below" />
+        android:layout_marginBottom="5dp"/>
 
-    <ImageView
-        android:id="@+id/overlay"
-        android:layout_width="match_parent"
-        android:visibility="gone"
+    <ImageButton
+        android:id="@+id/hint"
+        android:layout_width="52dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
         android:background="@color/background"
-        android:layout_height="match_parent"/>
+        app:layout_constraintStart_toEndOf="@+id/Answerfield"
+        app:layout_constraintTop_toBottomOf="@+id/question_image"
+        app:srcCompat="@drawable/ic_hint" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginHorizontal="40dp"
-        android:progress="50"
-        android:visibility="gone"
-        android:progressDrawable="@drawable/ic_progress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+    <!--    <eightbitlab.com.blurview.BlurView-->
+<!--        android:id="@+id/blurBackground"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        android:visibility="invisible"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--    </eightbitlab.com.blurview.BlurView>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
