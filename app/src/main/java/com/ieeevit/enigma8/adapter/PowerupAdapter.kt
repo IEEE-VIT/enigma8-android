@@ -62,6 +62,7 @@ class PowerupAdapter(var context: Context, var dataList: List<Powerups>, val vie
         if(!data.available_to_use)
         {
             holder.used.visibility = View.VISIBLE
+            holder.itemView.setClickable(false)
         }
         holder.itemView.setOnClickListener {
             val sendPowerupRequest = PowerupRequest(sharedPreferences.getRoomid().toString(),dataList[holder.adapterPosition]._id)

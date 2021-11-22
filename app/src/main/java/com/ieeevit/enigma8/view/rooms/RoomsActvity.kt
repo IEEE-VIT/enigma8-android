@@ -46,9 +46,9 @@ class RoomsActvity:AppCompatActivity() {
         val tabhead = findViewById<TextView>(R.id.tabHeading)
 
         homelay.setBackgroundColor(resources.getColor(R.color.bottom_selected))
-        profilelay.setBackgroundColor(resources.getColor(R.color.black))
-        storylay.setBackgroundColor(resources.getColor(R.color.black))
-        leaderlay.setBackgroundColor(resources.getColor(R.color.black))
+        profilelay.setBackgroundColor(resources.getColor(R.color.background))
+        storylay.setBackgroundColor(resources.getColor(R.color.background))
+        leaderlay.setBackgroundColor(resources.getColor(R.color.background))
 
         val shader1 : Shader = LinearGradient(0f, 0f,0f,tabhead.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),
             Shader.TileMode.REPEAT)
@@ -66,9 +66,9 @@ class RoomsActvity:AppCompatActivity() {
         val dash = findViewById<ImageButton>(R.id.profileBtn)
         dash.setOnClickListener{
             profilelay.setBackgroundColor(resources.getColor(R.color.bottom_selected))
-            storylay.setBackgroundColor(resources.getColor(R.color.black))
-            leaderlay.setBackgroundColor(resources.getColor(R.color.black))
-            homelay.setBackgroundColor(resources.getColor(R.color.black))
+            storylay.setBackgroundColor(resources.getColor(R.color.background))
+            leaderlay.setBackgroundColor(resources.getColor(R.color.background))
+            homelay.setBackgroundColor(resources.getColor(R.color.background))
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragmentFLcontainer, dashboardfrag)
                 addToBackStack(null)
@@ -77,10 +77,10 @@ class RoomsActvity:AppCompatActivity() {
         }
         val lead = findViewById<ImageButton>(R.id.leaderboardBtn)
         lead.setOnClickListener{
-            profilelay.setBackgroundColor(resources.getColor(R.color.black))
-            storylay.setBackgroundColor(resources.getColor(R.color.black))
+            profilelay.setBackgroundColor(resources.getColor(R.color.background))
+            storylay.setBackgroundColor(resources.getColor(R.color.background))
             leaderlay.setBackgroundColor(resources.getColor(R.color.bottom_selected))
-            homelay.setBackgroundColor(resources.getColor(R.color.black))
+            homelay.setBackgroundColor(resources.getColor(R.color.background))
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragmentFLcontainer, leadboardfrag)
                 addToBackStack(null)
@@ -102,9 +102,9 @@ class RoomsActvity:AppCompatActivity() {
 
         val home = findViewById<ImageButton>(R.id.homeBtn)
         home.setOnClickListener{
-            profilelay.setBackgroundColor(resources.getColor(R.color.black))
-            storylay.setBackgroundColor(resources.getColor(R.color.black))
-            leaderlay.setBackgroundColor(resources.getColor(R.color.black))
+            profilelay.setBackgroundColor(resources.getColor(R.color.background))
+            storylay.setBackgroundColor(resources.getColor(R.color.background))
+            leaderlay.setBackgroundColor(resources.getColor(R.color.background))
             homelay.setBackgroundColor(resources.getColor(R.color.bottom_selected))
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragmentFLcontainer, roomfrag)

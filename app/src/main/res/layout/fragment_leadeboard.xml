@@ -13,12 +13,11 @@
         android:id="@+id/linearLayout1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/head_leaderboard"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -27,7 +26,7 @@
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="1" />
+             />
 
 
         <TextView
@@ -38,7 +37,7 @@
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="8"
+
             app:lineHeight="49sp" />
 
         <TextView
@@ -62,7 +61,6 @@
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="2"
             app:lineHeight="49sp" />
 
         <TextView
@@ -73,7 +71,6 @@
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="0"
             app:lineHeight="49sp" />
 
         <TextView
@@ -96,7 +93,6 @@
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="4"
             app:lineHeight="49sp" />
 
 
@@ -108,7 +104,6 @@
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="3"
             app:lineHeight="49sp" />
 
     </LinearLayout>
@@ -116,14 +111,14 @@
 
     <TextView
         android:id="@+id/head_leaderboard"
-        android:layout_width="150dp"
+        android:layout_width="190dp"
         android:layout_height="30dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/cinzel_bold"
-        android:text="LeaderBoard"
+        android:text="Leaderboard"
         android:textColor="@color/light_yellow"
-        android:textSize="20sp"
+        android:textSize="23sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -158,6 +153,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Rank"
+                android:layout_marginStart="0dp"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -169,10 +165,11 @@
 
             <TextView
                 android:id="@+id/usernametable"
-                android:layout_width="150dp"
+                android:layout_width="140dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Username"
+                android:layout_marginStart="0dp"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -186,6 +183,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Solved"
+                android:layout_marginStart="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -195,10 +193,11 @@
 
             <TextView
                 android:id="@+id/scoretable"
-                android:layout_width="90dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Score"
+                android:layout_marginStart="0dp"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -369,7 +368,7 @@
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="5dp"
-        android:background="@drawable/result_drawable"
+        android:background="@drawable/searchview_bg"
         android:clickable="true"
         android:focusable="true"
         android:focusableInTouchMode="true"

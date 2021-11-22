@@ -76,7 +76,7 @@ class QuestionActivity: AppCompatActivity() {
         roomNo.paint.shader = shader1
         val shader3 : Shader = LinearGradient(0f, 0f, 0f,powerup.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.4f, 0.6f), Shader.TileMode.REPEAT)
 //        text1.paint.shader = shader1
-        roomNo.paint.shader = shader3
+        powerup.paint.shader = shader3
 
         val authToken = sharedPreferences.getAuthCode()
         questionImg = findViewById(R.id.question_image)
@@ -127,6 +127,7 @@ class QuestionActivity: AppCompatActivity() {
                                 hint_txt.text = "Hint: " + it.data.hint
                                 hint_txt.setVisibility(View.VISIBLE)
                                 hint_btn.setClickable(false)
+                                hint_btn.setImageResource(R.drawable.ic_hint_used)
                                 dialog.dismiss()
 
                             }
