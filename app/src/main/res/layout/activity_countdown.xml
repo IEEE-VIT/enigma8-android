@@ -27,13 +27,17 @@
             android:layout_marginTop="48dp"
             android:fontFamily="@font/mulish_regular"
             android:text="The Ultimate Cryptic Hunt Ends in"
+
             android:textColor="#F4C067"
             android:textSize="18dp"
             android:visibility="invisible"
+
+           
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/heading"
             app:lineHeight="33sp" />
+
 
         <TextView
             android:id="@+id/heading"
@@ -81,6 +85,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_begin">
 
+
                 <TextView
                     android:id="@+id/days1"
                     style="@style/countdown"
@@ -88,6 +93,7 @@
                     android:fontFamily="@font/cinzel_bold"
                     android:gravity="center"
                     android:text="1" />
+
 
 
                 <TextView
@@ -193,6 +199,7 @@
             app:layout_constraintEnd_toEndOf="@+id/linearLayout1"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
 
+
         <TextView
             android:id="@+id/Demo"
             android:layout_width="wrap_content"
@@ -230,6 +237,7 @@
             android:paddingStart="20dp"
             android:paddingTop="10dp"
             android:paddingEnd="20dp"
+
             android:text="Play now"
             android:textAlignment="center"
             android:textAllCaps="false"
@@ -237,11 +245,13 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:visibility="invisible"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hours"
             app:strokeColor="@color/enigmaColor" />
+
     <ImageView
         android:id="@+id/overlay"
         android:layout_width="match_parent"
@@ -264,6 +274,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.516" />
+
 
 
 

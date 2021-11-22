@@ -50,7 +50,7 @@ class LeaderboardFragment : Fragment() {
     private lateinit var adapter: LeaderboardAdapter
     private val viewModel : LeaderboardViewModel by lazy {
         ViewModelProvider(this, LeaderboardViewModel.Factory())
-                .get(LeaderboardViewModel::class.java)
+            .get(LeaderboardViewModel::class.java)
     }
     var count = 0
     var dataList : MutableList<Leaderboard> = mutableListOf()
@@ -61,8 +61,8 @@ class LeaderboardFragment : Fragment() {
 
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         var page = 1
 
@@ -165,12 +165,13 @@ class LeaderboardFragment : Fragment() {
         painthead.shader = shader1
 
 
-        viewModel.getLeaderboardDetails(
+            viewModel.getLeaderboardDetails(
                 page,
                 10,
                 "Bearer $authToken",
                 null
-        )
+            )
+
 
 
 
@@ -222,12 +223,12 @@ class LeaderboardFragment : Fragment() {
                         if (item !in dataList  ) {
                             Log.e("hih","$datam")
                             datam.add(
-                                    Leaderboard(
-                                            item.username,
-                                            item.score,
-                                            item.questionsSolved,
-                                            item.rank
-                                    )
+                                Leaderboard(
+                                    item.username,
+                                    item.score,
+                                    item.questionsSolved,
+                                    item.rank
+                                )
                             )
 
                         }
@@ -254,27 +255,28 @@ class LeaderboardFragment : Fragment() {
 
 
 
-            leaderboardView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    Log.e("page 1", "$page $totalPage")
+        leaderboardView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                Log.e("page 1", "$page $totalPage")
 
 
-                    Log.e("page 2", "$page $totalPage")
-                    if (page < totalPage) {
-                        page++
+                Log.e("page 2", "$page $totalPage")
+                if (page < totalPage) {
+                    page++
 
 
-                        Log.e("page inside if", "$page $totalPage")
+                    Log.e("page inside if", "$page $totalPage")
 
-                        val visibleItemCount = leaderboardView.layoutManager?.childCount
-                        val pastVisibleItem = 1
+                    val visibleItemCount = leaderboardView.layoutManager?.childCount
+                    val pastVisibleItem = 1
 //                          LinearLayoutManager(context).findFirstVisibleItemPosition()
 //                    val total = adapter.itemCount
 
-                        if (!isLoading) {
-                            if (visibleItemCount != null) {
-                                if (page <= totalPage) {
+                    if (!isLoading) {
+                        if (visibleItemCount != null) {
+                            if (page <= totalPage) {
 //                                        page++
+
                                     isLoading = true
 
 
@@ -297,26 +299,28 @@ class LeaderboardFragment : Fragment() {
 //
                                     }, 500)
                                 }
-                            }
 
+                            }
                         }
 
-                        super.onScrolled(recyclerView, dx, dy)
                     }
 
+                    super.onScrolled(recyclerView, dx, dy)
                 }
-            })
 
-            search.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    dataList.clear()
-                    page = 1
-                    viewModel.getLeaderboardDetails(
-                            1,
-                            30,
-                            "Bearer $authToken",
-                            query
-                    )
+            }
+        })
+
+        search.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                dataList.clear()
+                page = 1
+                viewModel.getLeaderboardDetails(
+                    1,
+                    30,
+                    "Bearer $authToken",
+                    query
+                )
 
 
 //                 var newList: MutableList<Leaderboard> = mutableListOf()
@@ -355,19 +359,19 @@ class LeaderboardFragment : Fragment() {
 
 
 
-                    return false
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?) :Boolean{
+                if (newText == ""){
+
+
                 }
-
-                override fun onQueryTextChange(newText: String?) :Boolean{
-                    if (newText == ""){
-
-
-                    }
-                    return false
-                }
+                return false
+            }
 
 
-            })
+        })
             //        cancelIcon.setColorFilter(getResources().getColor(R.color.light_yellow))
 //        textView.setTextColor(
 //            getResources().getColor(R.color.light_yellow))
@@ -382,10 +386,10 @@ class LeaderboardFragment : Fragment() {
                 page = 1
                 scrollView.background = resources.getDrawable(R.drawable.ic_scrollview_bg)
                 viewModel.getLeaderboardDetails(
-                        page,
-                        10,
-                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imphc3NpbXNoYW1pbUBnbWFpbC5jb20iLCJpYXQiOjE2MzczODc2Mjh9.bWeW2T_iu4x8qDpLVjqax_DDspzL5N-JbgDm4A6HwW4",
-                        null
+                    page,
+                    10,
+                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imphc3NpbXNoYW1pbUBnbWFpbC5jb20iLCJpYXQiOjE2MzczODc2Mjh9.bWeW2T_iu4x8qDpLVjqax_DDspzL5N-JbgDm4A6HwW4",
+                    null
                 )
 //            dataList = datam
 //            val adapter2 = LeaderboardAdapter(requireContext(), dataList)
@@ -408,7 +412,7 @@ class LeaderboardFragment : Fragment() {
 
     private fun startTimer(timeDifference: Long) {
 
-        val countdownTimer = object : CountDownTimer(timeDifference, 60000 ) {
+        val countdownTimer = object : CountDownTimer(timeDifference, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 days1.text = ((millisUntilFinished / (24 * 60 * 60 * 1000))/10).toString()
                 days2.text = ((millisUntilFinished / (24 * 60 * 60 * 1000))%10).toString()
@@ -430,3 +434,10 @@ class LeaderboardFragment : Fragment() {
 
     }
 }
+
+    //-----------------------------------------------------------------------------
+
+
+
+
+

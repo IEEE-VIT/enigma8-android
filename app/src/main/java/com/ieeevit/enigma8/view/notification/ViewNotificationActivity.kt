@@ -1,17 +1,10 @@
 package com.ieeevit.enigma8.view.notification
 
-import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Shader
-import android.graphics.drawable.ColorDrawable
-import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.view.WindowManager
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -28,35 +21,15 @@ class ViewNotificationActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.notifications_view)
-        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val netInfo = cm.activeNetworkInfo
-        if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){
-            val view = View.inflate(this, R.layout.connection_error, null)
-            val builder = android.app.AlertDialog.Builder(this)
-            builder.setView(view)
-            val dialog = builder.create()
-            val lp = dialog.window!!.attributes
-            lp.dimAmount = 0.0f
-            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
-            dialog.window!!.attributes = lp
-            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-            dialog.show()
-            view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
-                recreate()
-
-            })
-        }
         back = findViewById(R.id.back_btn)
         instruction = findViewById(R.id.instruction)
         back.setOnClickListener {
             val intent = Intent(this, NotificationActivity::class.java)
             startActivity(intent)
-            finish()
         }
         instruction.setOnClickListener {
             val intent = Intent(this, InstructionActivity::class.java)
             startActivity(intent)
-            finish()
         }
         notification = findViewById(R.id.notification)
         tabHeading = findViewById(R.id.tabHeading)

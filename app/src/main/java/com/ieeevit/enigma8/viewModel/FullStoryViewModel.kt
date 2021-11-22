@@ -1,15 +1,11 @@
 package com.ieeevit.enigma8.viewModel
 
-import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.ieeevit.enigma8.api_service.Api
-import com.ieeevit.enigma8.model.story.CurrentStory
 import com.ieeevit.enigma8.model.FullStory
-import com.ieeevit.enigma8.model.profile.User
-import com.ieeevit.enigma8.model.profile.UserRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

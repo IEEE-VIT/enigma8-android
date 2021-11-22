@@ -1,43 +1,33 @@
 package com.ieeevit.enigma8.view.story
 
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+
 import android.graphics.LinearGradient
 import android.graphics.Shader
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.view.WindowManager
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import com.ieeevit.enigma8.ProgressBarAnimation
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.model.Full_Story
 import com.ieeevit.enigma8.utils.PrefManager
-import com.ieeevit.enigma8.view.instruction.InstructionActivity
-import com.ieeevit.enigma8.view.rooms.RoomsActvity
-
 import com.ieeevit.enigma8.viewModel.FullStoryViewModel
 import org.w3c.dom.Text
 
 
 class CharacterActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: PrefManager
-    private lateinit var back: ImageView
-    private lateinit var instruction: ImageView
-    private lateinit var progress: ProgressBar
-    private lateinit var blackScreen:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_desc_character)
+
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val netInfo = cm.activeNetworkInfo
         if (netInfo == null || !netInfo.isConnected || !netInfo.isAvailable) {
@@ -101,47 +91,62 @@ class CharacterActivity : AppCompatActivity() {
                 )
                 viewModel.fullstoryResponse.observe(this, {
 
-                    progress.visibility = View.GONE
-                    blackScreen.visibility = View.GONE
 
-                    dataList.clear()
-                    if (it != null) {
-                        for (item in it.data.story) {
-                            if (item.roomNo == 0) {
+        var count = 0
 
-                                dataList.add(Full_Story(item.roomNo, item.sender, item.message))
-                            }
-                        }
+        var viewModel: FullStoryViewModel = ViewModelProvider(this).get(FullStoryViewModel::class.java)
+        var dataList: MutableList<Full_Story> = mutableListOf()
+        val conti = findViewById<Button>(R.id.contin)
 
-                        Log.e("dataList", "$dataList")
+        var name = findViewById<TextView>(R.id.name_char)
+        val authToken = sharedPreferences.getAuthCode()
+        var desc = findViewById<TextView>(R.id.charac_card)
 
+        val sharedPreferences: PrefManager = PrefManager(this)
 
+        viewModel.getFullStoryDetails(
+            sharedPreferences.getRoomid().toString(),
+            "Bearer $authToken"
+        )
+        viewModel.fullstoryResponse.observe(this, {
+            dataList.clear()
+            if (it != null) {
+                for (item in it.data.story) {
+                    if (item.roomNo == 0 ) {
+
+                        dataList.add(Full_Story(item.roomNo,item.sender, item.message))
                     }
+                }
 
-                    name.text = dataList[0].sender
-                    desc.text = dataList[0].message
-                    Log.e("mssg", "$dataList")
+                Log.e("dataList","$dataList")
 
-                    conti.setOnClickListener {
-                        if (count == dataList.size - 1) {
-                            val intent = Intent(this, StoryActivity::class.java)
-                            startActivity(intent)
-                        }
-                        count++
-
-
-                        name.text = dataList[count].sender
-                        desc.text = dataList[count].message
-
-
-                    }
-
-                    Log.e("StoryResponse", "$it")
-
-                })
 
             }
-        }
+
+            name.text = dataList[0].sender
+            desc.text = dataList[0].message
+            Log.e("mssg","$dataList")
+
+            conti.setOnClickListener {
+                if (count == dataList.size-1) {
+                    val intent = Intent(this, StoryActivity::class.java)
+                    startActivity(intent)
+                }
+                count++
 
 
+                name.text = dataList[count].sender
+                desc.text = dataList[count].message
 
+
+            }
+
+                Log.e("StoryResponse", "$it")
+
+        })
+
+
+    }
+
+
+}
