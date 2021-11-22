@@ -397,7 +397,7 @@ class LeaderboardFragment : Fragment() {
 
     private fun startTimer(timeDifference: Long) {
 
-        val countdownTimer = object : CountDownTimer(timeDifference, 60000 ) {
+        val countdownTimer = object : CountDownTimer(timeDifference, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 days1.text = ((millisUntilFinished / (24 * 60 * 60 * 1000))/10).toString()
                 days2.text = ((millisUntilFinished / (24 * 60 * 60 * 1000))%10).toString()

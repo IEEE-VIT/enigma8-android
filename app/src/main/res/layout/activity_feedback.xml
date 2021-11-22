@@ -147,6 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:visibility="gone"
                 android:orientation="vertical">
                 <TextView
                     android:id="@+id/feedback_question2"
@@ -158,17 +159,27 @@
                     android:textColor="@color/privacy_text"
                     android:textSize="18dp"/>
 
-                <EditText
-                    android:id="@+id/reg_no"
-                    android:layout_width="320dp"
-                    android:layout_height="45dp"
-                    android:onClick="TextFieldClicked"
-                    android:layout_marginTop="17dp"
-                    android:layout_marginEnd="32dp"
-                    android:background="@drawable/feedback_answer_background"
-                    android:fontFamily="@font/mulish_regular"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/light_yellow" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Answerfield2"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reg_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:background="@drawable/feedback_answer_background"
+                        android:fontFamily="@font/mulish_regular"
+                        android:textColor="@color/privacy_text"
+                        android:textStyle="bold"
+                        android:textSize="18dp"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/feedback_question3"
@@ -180,17 +191,26 @@
                     android:textColor="@color/privacy_text"
                     android:textSize="18dp"/>
 
-                <EditText
-                    android:id="@+id/mail_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:onClick="TextFieldClicked"
-                    android:layout_marginTop="17dp"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Answerfield3"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="32dp"
-                    android:background="@drawable/feedback_answer_background"
-                    android:fontFamily="@font/mulish_regular"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/light_yellow" />
+                    android:layout_marginBottom="15dp"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/mail_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/feedback_answer_background"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/privacy_text"
+                        android:fontFamily="@font/mulish_regular"
+                        android:textStyle="bold" />
+
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <TextView
@@ -270,18 +290,29 @@
                 android:textColor="@color/privacy_text"
                 android:textSize="18dp"/>
 
-            <EditText
-                android:id="@+id/desc"
-                android:layout_width="320dp"
-                android:layout_height="45dp"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Answerfield5"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:onClick="TextFieldClicked"
-                android:layout_marginTop="17dp"
-                android:layout_marginEnd="32dp"
-                android:background="@drawable/feedback_answer_background"
-                android:fontFamily="@font/mulish_regular"
-                android:paddingLeft="10dp"
-                android:textColor="@color/light_yellow" />
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:background="@drawable/feedback_answer_background"
+                    android:fontFamily="@font/mulish_regular"
+                    android:textColor="@color/privacy_text"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
             <TextView
                 android:id="@+id/feedback_question6"
                 android:layout_width="wrap_content"
@@ -293,33 +324,42 @@
                 android:textColor="@color/privacy_text"
                 android:textSize="18dp"/>
 
-            <EditText
-                android:id="@+id/suggestion"
-                android:layout_width="320dp"
-                android:layout_height="45dp"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Answerfield6"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:onClick="TextFieldClicked"
-                android:layout_marginTop="17dp"
-                android:layout_marginEnd="32dp"
-                android:background="@drawable/feedback_answer_background"
-                android:fontFamily="@font/mulish_regular"
-                android:paddingLeft="10dp"
-                android:textColor="@color/light_yellow" />
+                android:layout_marginTop="10dp"
+                >
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/submit"
-                android:layout_width="150dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="108dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="400dp"
-                android:backgroundTint="#0FA3B1"
-                android:text="Submit"
-                android:fontFamily="@font/mulish_regular"
-                android:textStyle="bold"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="18dp" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/suggestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:background="@drawable/feedback_answer_background"
+                    android:fontFamily="@font/mulish_regular"
+                    android:textColor="@color/privacy_text"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/submit"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="108dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="400dp"
+                    android:backgroundTint="#0FA3B1"
+                    android:text="Submit"
+                    android:fontFamily="@font/mulish_regular"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
 
 
         </LinearLayout>

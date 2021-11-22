@@ -9,45 +9,45 @@
 
     <ImageView
         android:id="@+id/point1"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point1"
         app:srcCompat="@drawable/ic_point_new" />
 
     <ImageView
         android:id="@+id/point2"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point2"
         app:srcCompat="@drawable/ic_point_new" />
 
     <ImageView
         android:id="@+id/point5"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point5"
         app:srcCompat="@drawable/ic_point_new" />
 
     <ImageView
         android:id="@+id/point3"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point3"
         app:srcCompat="@drawable/ic_point_new" />
 
     <ImageView
         android:id="@+id/point4"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point4"
         app:srcCompat="@drawable/ic_point_new" />
@@ -58,7 +58,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
-        android:fontFamily="@font/mulish_regular"
         android:text="Enigma 8 is an online cryptic hunt where \nplayers solve exciting riddles and puzzles \nto win amazing prizes."
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +71,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
-        android:fontFamily="@font/mulish_regular"
         android:text="There are eight rooms in total and each \nroom has three questions."
 
         android:textSize="13sp"
@@ -87,7 +85,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
-        android:fontFamily="@font/mulish_regular"
         android:text="On solving a question, the player will receive\n a key."
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +96,7 @@
         android:id="@+id/instruction_point4"
         style="@style/Instruction"
         android:layout_width="wrap_content"
-        android:fontFamily="@font/mulish_regular"
+
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
         android:text="A particular amount of keys are required \nto unlock a room."
@@ -116,7 +113,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
-        android:fontFamily="@font/mulish_regular"
         android:text="Solve every question to be the first one to \nsolve Enigma."
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"

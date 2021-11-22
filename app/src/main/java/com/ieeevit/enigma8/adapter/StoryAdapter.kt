@@ -1,8 +1,6 @@
 package com.ieeevit.enigma8.adapter
 
 import android.content.Context
-import android.graphics.LinearGradient
-import android.graphics.Shader
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,14 +37,9 @@ class StoryAdapter (
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val story  = Story[position]
+        holder.name.text = story.sender
 
         holder.show_message.text = story.message
-
-        holder.show_message.text = story.message
-
-        val shader : Shader = LinearGradient(0f, 0f,0f,holder.name.lineHeight.toFloat(), intArrayOf(context!!.getColor(R.color.light_yellow), context!!.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),
-            Shader.TileMode.REPEAT)
-        holder.name.paint.shader = shader
 //        Glide.with(context!!).load(imageurl).into(holder.profile_image)
 
     }

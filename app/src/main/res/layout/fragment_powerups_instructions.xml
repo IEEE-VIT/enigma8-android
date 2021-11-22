@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/point1"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point1"
@@ -22,7 +22,7 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/mulish_regular"
+
         android:layout_marginTop="60dp"
         android:text="Every player gets eight power ups at the start\nof the game."
         android:textSize="13sp"
@@ -33,10 +33,10 @@
 
     <ImageView
         android:id="@+id/point2"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
 
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point2"
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Before a player enters the room, they have to\nchoose powerup and the powerup chosen can\nonly beusedin that particular room."
-        android:fontFamily="@font/mulish_regular"
+
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.273"
@@ -58,9 +58,9 @@
 
     <ImageView
         android:id="@+id/point3"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point3"
         app:srcCompat="@drawable/ic_point_new" />
@@ -73,7 +73,6 @@
         android:layout_marginTop="15dp"
         android:text="Only one powerup can be chosen per room and \ncan only be used only for one question in that room."
         android:textSize="13sp"
-        android:fontFamily="@font/mulish_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toEndOf="@+id/point3"
@@ -81,9 +80,9 @@
 
     <ImageView
         android:id="@+id/point4"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point4"
@@ -99,7 +98,6 @@
         android:layout_marginTop="15dp"
         android:text="No points will be deducted for using a powerup."
         android:textSize="13sp"
-        android:fontFamily="@font/mulish_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toEndOf="@+id/point4"
@@ -107,9 +105,9 @@
 
     <ImageView
         android:id="@+id/point5"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point5"
         app:srcCompat="@drawable/ic_point_new" />
@@ -122,7 +120,6 @@
         android:layout_marginTop="15dp"
         android:text="Each powerup can be used only once, during the\nentire game."
         android:textSize="13sp"
-        android:fontFamily="@font/mulish_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toEndOf="@+id/point5"

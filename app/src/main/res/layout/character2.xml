@@ -38,7 +38,7 @@
             android:gravity="start"
             android:text="ALI"
             android:textColor="@color/light_yellow"
-            android:textSize="10dp"
+            android:textSize="12dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/show_messag"
             app:layout_constraintStart_toStartOf="@+id/show_messag" />

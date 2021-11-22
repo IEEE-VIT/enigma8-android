@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/point1"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point1"
         app:srcCompat="@drawable/ic_point_new" />
@@ -22,7 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="43dp"
-        android:fontFamily="@font/mulish_regular"
         android:text="@string/ins4a"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,9 +31,9 @@
 
     <ImageView
         android:id="@+id/point2"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point2"
         app:srcCompat="@drawable/ic_point_new" />
@@ -45,7 +44,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/mulish_regular"
         android:text="A room is locked when the player does not have the\nminimum amount of keys to unlock it else if the\nplayer hasn’t yet chosen a powerup for that room."
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,9 +53,9 @@
 
     <ImageView
         android:id="@+id/point3"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point3"
         app:srcCompat="@drawable/ic_point_new" />
@@ -68,7 +66,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:fontFamily="@font/mulish_regular"
         android:text="A room is unlocked when the player has sufficient\nkeys and has chosen a powerup for that room."
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,9 +76,9 @@
 
     <ImageView
         android:id="@+id/point4"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point4"
         app:srcCompat="@drawable/ic_point_new" />
@@ -92,7 +89,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:fontFamily="@font/mulish_regular"
         android:text="A room is solved only when a player solves all three\nquestions in that room"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"

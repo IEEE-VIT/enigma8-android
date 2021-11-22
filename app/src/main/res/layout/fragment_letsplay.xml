@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/point1"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point1"
@@ -23,7 +23,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="61dp"
-        android:fontFamily="@font/mulish_regular"
         android:text="To smoothen your experience during Enigma,please\nenable the notifications for this app or website to\nreceive important updates."
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,8 +32,8 @@
 
     <ImageView
         android:id="@+id/point2"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point2"
@@ -47,7 +46,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
         android:layout_marginTop="28dp"
-        android:fontFamily="@font/mulish_regular"
         android:text="Malpractice in any form will be dealt with seriously.\nPlayers are requested to report us of any such\n practices."
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,8 +55,8 @@
 
     <ImageView
         android:id="@+id/point3"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point3"
@@ -71,7 +69,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/mulish_regular"
         android:text="Enigma is an individual player game and the players\nare requested to maintain the integrity of the game\nand not to divulge the solutions anywhere."
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,10 +91,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="64dp"
-        android:fontFamily="@font/mulish_regular"
+        android:layout_marginTop="60dp"
         android:text=":      Notifications"
-        android:textAllCaps="false"
         android:textColor="@color/notification_time"
         android:textSize="18dp"
         app:layout_constraintStart_toEndOf="@+id/bell_notifications"
@@ -110,7 +105,7 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Notif"
+        app:layout_constraintTop_toBottomOf="@+id/bell_notifications"
         app:srcCompat="@drawable/ic_info" />
 
     <TextView
@@ -118,8 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/mulish_regular"
+        android:layout_marginTop="48dp"
         android:text=":       Instructions"
         android:textColor="@color/notification_time"
         android:textSize="18dp"

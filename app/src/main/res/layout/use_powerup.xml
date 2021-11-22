@@ -55,7 +55,7 @@
                     android:fontFamily="@font/mulish_regular"
                     android:text="You can now use the hint\n without loosing any points!"
                     android:textAlignment="center"
-                    android:textColor="@color/notification_time"
+                    android:textColor="#309AC9"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/img_url"
