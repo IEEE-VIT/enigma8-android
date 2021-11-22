@@ -96,11 +96,12 @@ class RoomFragment : Fragment() {
                     torch2 = roomTorch(item.journey.questionsStatus[1])
                     torch3 = roomTorch(item.journey.questionsStatus[2])
                     roomsDataList.add(item.room._id)
-                        dataList.add(RoomsOuter(item.room.title, item.room.media, torch1, torch2, torch3, R.drawable.room_torch, R.drawable.room_torch, R.drawable.room_torch, item.room._id, item.room.roomNo, item.journey.roomUnlocked,item.journey.powerupUsed,item.room.starQuota,item.journey.questionsStatus ,item.journey.powerupSet,item.starLeft))
-                        journeyList.add(QustionStatus(item.journey.questionsStatus))
-                        questionList.add(QuestionList(item.room._id,item.room.questionId))
 
-                    }
+                    dataList.add(RoomsOuter(item.room.title, item.room.media, torch1, torch2, torch3, R.drawable.room_torch, R.drawable.room_torch, R.drawable.room_torch, item.room._id, item.room.roomNo, item.journey.roomUnlocked,item.journey.powerupUsed,item.room.starQuota,item.journey.questionsStatus ,item.journey.powerupSet,item.starLeft))
+                    journeyList.add(QustionStatus(item.journey.questionsStatus))
+                    questionList.add(QuestionList(item.room._id,item.room.questionId))
+                }
+
 
 //                sharedPreferences.setRoomList(roomsDataList)
 //                Log.e("RoomList", "${sharedPreferences.getRoomList()}")

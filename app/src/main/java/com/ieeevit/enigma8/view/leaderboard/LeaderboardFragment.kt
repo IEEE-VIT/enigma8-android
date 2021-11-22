@@ -24,10 +24,13 @@ import com.ieeevit.enigma8.model.leaderboard.Leaderboard
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.viewModel.LeaderboardViewModel
 import androidx.appcompat.widget.SearchView
+import com.ieeevit.enigma8.ProgressBarAnimation
 import java.util.*
 
 
 class LeaderboardFragment : Fragment() {
+    private lateinit var progress:ProgressBar
+    private lateinit var blackScreen:ImageView
     private lateinit var days1: TextView
     private lateinit var days2: TextView
     private lateinit var hours1: TextView
@@ -72,17 +75,25 @@ class LeaderboardFragment : Fragment() {
         sharedPreferences = PrefManager(requireContext())
         val authToken = sharedPreferences.getAuthCode()
         leaderboardView = root.findViewById(R.id.Leaderboard_view)
-//        leaderboardView.visibility = View.INVISIBLE
-//        Handler().postDelayed({
-//            leaderboardView.visibility = View.VISIBLE
-//        }, 1000)
+        leaderboardView.visibility = View.INVISIBLE
+        progress = root.findViewById(R.id.progressBar)
+        blackScreen = root.findViewById(R.id.overlay)
+        blackScreen.visibility = View.VISIBLE
+        progress.visibility = View.VISIBLE
+        val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
+        anim.duration = 1000
+        progress.startAnimation(anim)
+
+        Handler().postDelayed({
+            leaderboardView.visibility = View.VISIBLE
+        }, 1000)
         days1 = root.findViewById(R.id.days1)
         hours1 = root.findViewById(R.id.hours1)
         minutes1 = root.findViewById(R.id.minutes1)
         days2 = root.findViewById(R.id.days2)
         hours2 = root.findViewById(R.id.hours2)
         minutes2 = root.findViewById(R.id.minutes2)
-
+        val progressBar = root.findViewById<ProgressBar>(R.id.progressBar)
         init()
         viewModel.getEnigmaStatus("Token $authToken")
 
@@ -122,7 +133,7 @@ class LeaderboardFragment : Fragment() {
 
 
 
-
+        val searchIcon = root.findViewById<ImageView>(R.id.search_mag_icon)
         val userRank = root.findViewById<TextView>(R.id.user_rankvar)
         val userName = root.findViewById<TextView>(R.id.user_namevar)
         val userSolved = root.findViewById<TextView>(R.id.user_solvedvar)
@@ -163,7 +174,7 @@ class LeaderboardFragment : Fragment() {
 
 
 
-            val progressBar = root.findViewById<ProgressBar>(R.id.progressBar)
+
         viewModel.eleaderboardResponse.observe(viewLifecycleOwner,{
             if(it == "Please set a username first!"){
 
@@ -184,7 +195,13 @@ class LeaderboardFragment : Fragment() {
 
 
         })
+        count = 0
         viewModel.leaderboardResponse.observe(viewLifecycleOwner, {
+            count++
+
+            progress.visibility = View.GONE
+            blackScreen.visibility = View.GONE
+            search.visibility = View.VISIBLE
 
             scrollView.background = resources.getDrawable(R.drawable.ic_scrollview_bg)
             if (it != null) {
@@ -228,9 +245,7 @@ class LeaderboardFragment : Fragment() {
                 adapter = LeaderboardAdapter(requireContext(), dataList)
                 leaderboardView.layoutManager = LinearLayoutManager(context)
                 leaderboardView.adapter = adapter
-                if (progressBar != null) {
-                    progressBar.visibility = View.INVISIBLE
-                }
+
 
             }
             Log.e("Response","$it")
@@ -261,31 +276,30 @@ class LeaderboardFragment : Fragment() {
                         if (visibleItemCount != null) {
                             if (page <= totalPage) {
 //                                        page++
-                                isLoading = true
-                                if (progressBar != null) {
-                                    progressBar.visibility = View.VISIBLE
+
+                                    isLoading = true
+
+
+                                    viewModel.getLeaderboardDetails(
+                                            page,
+                                            10,
+                                            "Bearer $authToken",
+                                            null
+                                    )
+
+                                    Handler().postDelayed({
+                                        if (::adapter.isInitialized) {
+                                            adapter.notifyDataSetChanged()
+                                        } else {
+                                            adapter =
+                                                    LeaderboardAdapter(requireContext(), dataList)
+                                            leaderboardView.adapter = adapter
+                                        }
+                                        isLoading = false
+//
+                                    }, 500)
                                 }
 
-                                viewModel.getLeaderboardDetails(
-                                    page,
-                                    10,
-                                    "Bearer $authToken",
-                                    null
-                                )
-
-                                Handler().postDelayed({
-                                    if (::adapter.isInitialized) {
-                                        adapter.notifyDataSetChanged()
-                                    } else {
-                                        adapter =
-                                            LeaderboardAdapter(requireContext(), dataList)
-                                        leaderboardView.adapter = adapter
-                                    }
-                                    isLoading = false
-                                    if (progressBar != null) {
-                                        progressBar.visibility = View.GONE
-                                    }
-                                }, 500)
                             }
                         }
 
@@ -361,12 +375,13 @@ class LeaderboardFragment : Fragment() {
             //        cancelIcon.setColorFilter(getResources().getColor(R.color.light_yellow))
 //        textView.setTextColor(
 //            getResources().getColor(R.color.light_yellow))
-//        val searchIcon = search.findViewById<ImageView>(R.id.search_mag_icon)
+
 //        searchIcon.setColorFilter(getResources().getColor(R.color.light_yellow))
 
 
 
             cancelIcon?.setOnClickListener {
+                searchIcon.visibility = View.VISIBLE
                 dataList.clear()
                 page = 1
                 scrollView.background = resources.getDrawable(R.drawable.ic_scrollview_bg)

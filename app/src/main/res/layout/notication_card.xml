@@ -1,73 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="20dp"
+    android:orientation="horizontal"
     android:background="@android:color/transparent">
 
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="23dp"
+            android:layout_height="21dp"
+            android:layout_margin="15dp"
+            android:layout_gravity="center"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_icon_notification" />
 
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="23dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="25dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_icon_notification" />
 
-    <TextView
-        android:id="@+id/notif_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="5dp"
-        android:fontFamily="@font/mulish_regular"
-        android:text="hello"
-        android:textColor="@color/privacy_text"
-        android:textSize="14dp"
-        app:layout_constraintEnd_toStartOf="@+id/view_button"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toEndOf="@+id/icon"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/transparent">
+            <TextView
+                android:id="@+id/notif_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/mulish_regular"
+                android:text="hello"
+                android:textColor="@color/privacy_text"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/notif_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/mulish_regular"
+                android:text="30 mins ago"
+                android:textColor="@color/notification_time"
+                android:textSize="10dp"/>
 
-    <TextView
-        android:id="@+id/view_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="44dp"
-        android:background="@drawable/notification_button_background"
-        android:clickable="true"
-        android:focusable="true"
-        android:fontFamily="@font/mulish_regular"
-        android:gravity="center"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:text="View"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/countdown_brown"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/enigmaColor" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/view_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/notification_button_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/mulish_regular"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="View"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/countdown_brown"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/enigmaColor" />
 
-    <TextView
-        android:id="@+id/notif_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/mulish_regular"
-        android:text="30 mins ago"
-        android:textColor="@color/notification_time"
-        android:textSize="10dp"
-        app:layout_constraintStart_toStartOf="@id/notif_title"
-        app:layout_constraintTop_toBottomOf="@+id/notif_title" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>

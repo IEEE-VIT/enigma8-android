@@ -32,11 +32,13 @@ class PowerupAdapter(var context: Context, var dataList: List<Powerups>, val vie
         var name: TextView
         var detail: TextView
         var icon : ImageView
+        var used : ImageView
 
         init {
             name = itemView.findViewById(R.id.name)
             icon = itemView.findViewById(R.id.icon)
             detail = itemView.findViewById(R.id.detail)
+            used = itemView.findViewById(R.id.powerupused)
         }
     }
 
@@ -59,7 +61,12 @@ class PowerupAdapter(var context: Context, var dataList: List<Powerups>, val vie
 
         if(!data.available_to_use)
         {
+
+            holder.used.visibility = View.VISIBLE
+            holder.itemView.setClickable(false)
+
             holder.itemView.setBackgroundColor(Color.parseColor("#FF5349"))
+
         }
         holder.itemView.setOnClickListener {
             val sendPowerupRequest = PowerupRequest(sharedPreferences.getRoomid().toString(),dataList[holder.adapterPosition]._id)
@@ -91,6 +98,10 @@ class PowerupAdapter(var context: Context, var dataList: List<Powerups>, val vie
                     context.startActivity(intent)
 
                 }
+
+                val sendPowerupRequest = PowerupRequest(sharedPreferences.getRoomid().toString(),dataList[holder.adapterPosition]._id)
+                viewModel.sendPowerupDetails("Bearer ${authToken}",sendPowerupRequest)
+
 
             }
             Dialogview.findViewById<ImageView>(R.id.close).setOnClickListener {

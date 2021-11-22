@@ -5,6 +5,7 @@ import android.graphics.LinearGradient
 import android.graphics.Shader
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
@@ -65,6 +66,10 @@ class SplashScreen:AppCompatActivity() {
         view.setOnCompletionListener {
             val r  = object : Runnable {
                 override fun run() {
+                    Log.e("indicator","$indicator")
+                    Log.e("isNew","$isNew")
+                    Log.e("getCount","${sharedPreferences.getCount()}")
+                    Log.e("HuntStarted","${sharedPreferences.isHuntStarted()}")
 //                    val intent = Intent(this@SplashScreen,MainActivity::class.java)
 //                            startActivity(intent)
 //                            finish()

@@ -20,7 +20,7 @@
         <ImageView
             android:id="@+id/back_btn"
             android:layout_width="25dp"
-            android:layout_height="30dp"
+            android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
@@ -41,6 +41,7 @@
             android:id="@+id/instruction"
             android:layout_width="25dp"
             android:layout_height="30dp"
+            android:visibility="invisible"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"

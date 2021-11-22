@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="500dp"
     android:background="@android:color/transparent">
 
 
     <ImageView
         android:id="@+id/point1"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="24dp"
 
-        android:layout_marginTop="62dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point1"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -24,9 +22,10 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:fontFamily="@font/mulish_regular"
         android:layout_marginTop="60dp"
         android:text="Every player gets eight power ups at the start\nof the game."
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.269"
         app:layout_constraintStart_toEndOf="@+id/point1"
@@ -34,13 +33,13 @@
 
     <ImageView
         android:id="@+id/point2"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+
+        android:layout_marginStart="24dp"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/point1"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point2"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -48,22 +47,22 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-
+        android:layout_marginTop="15dp"
         android:text="Before a player enters the room, they have to\nchoose powerup and the powerup chosen can\nonly beusedin that particular room."
+        android:fontFamily="@font/mulish_regular"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.277"
+        app:layout_constraintHorizontal_bias="0.273"
         app:layout_constraintStart_toEndOf="@+id/point2"
         app:layout_constraintTop_toBottomOf="@+id/instruction_point1" />
 
     <ImageView
         android:id="@+id/point3"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/point2"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point3"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -71,22 +70,23 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
         android:text="Only one powerup can be chosen per room and \ncan only be used only for one question in that room."
+        android:textSize="13sp"
+        android:fontFamily="@font/mulish_regular"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toEndOf="@+id/point3"
         app:layout_constraintTop_toBottomOf="@+id/instruction_point2" />
 
     <ImageView
         android:id="@+id/point4"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="24dp"
 
-        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/point3"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point4"
         app:layout_goneMarginStart="16dp"
         app:srcCompat="@drawable/ic_point_new" />
 
@@ -96,21 +96,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="No points will be deducted for using a powerup."
+        android:textSize="13sp"
+        android:fontFamily="@font/mulish_regular"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toEndOf="@+id/point4"
         app:layout_constraintTop_toBottomOf="@+id/instruction_point3" />
 
     <ImageView
         android:id="@+id/point5"
-        android:layout_width="32dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/point4"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point5"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -118,10 +119,12 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="Each powerup can be used only once, during the\nentire game."
+        android:textSize="13sp"
+        android:fontFamily="@font/mulish_regular"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.337"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toEndOf="@+id/point5"
         app:layout_constraintTop_toBottomOf="@+id/instruction_point4" />
 
@@ -129,9 +132,9 @@
         android:id="@+id/powerups_image"
         android:layout_width="220dp"
         android:layout_height="164dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction_point5"
         app:srcCompat="@drawable/group_1990" />
