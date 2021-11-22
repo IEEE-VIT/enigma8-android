@@ -44,6 +44,11 @@ class InstructionActivity : AppCompatActivity() {
             Shader.TileMode.REPEAT)
         insname.paint.shader = shader2
 
+        val tabhead = findViewById<TextView>(R.id.tabHeading)
+        val shader3 : Shader = LinearGradient(0f, 0f,0f,tabhead.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),
+            Shader.TileMode.REPEAT)
+        tabhead.paint.shader = shader3
+
         // making the status bar transparent
         window.decorView.systemUiVisibility =
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -106,8 +111,8 @@ class InstructionActivity : AppCompatActivity() {
                 else {
                     instructionname.text = "LET'S PLAY!"
                     icon_instruction.setImageResource(R.drawable.lets_play)
-                    rightArrow.visibility = View.VISIBLE
-                    leftArrow.visibility = View.INVISIBLE
+                    rightArrow.visibility = View.INVISIBLE
+                    leftArrow.visibility = View.VISIBLE
                     nxtBtn.visibility = View.VISIBLE
 
 
@@ -127,8 +132,9 @@ class InstructionActivity : AppCompatActivity() {
         }
         leftArrow.setOnClickListener{
             val position = vpIntroSlider.currentItem
-            if (position < fragmentList.lastIndex) {
+            if (position <= fragmentList.lastIndex) {
                 vpIntroSlider.currentItem = position - 1
+                Log.e("lol","$position")
             }
         }
 

@@ -13,24 +13,24 @@
         app:layout_constraintStart_toStartOf="parent"
         android:visibility="invisible"
         android:id="@+id/name"/>
-    <TextView
+    <ImageView
         android:id="@+id/voice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
         android:fontFamily="@font/cinzel_bold"
-        android:text="THE VOICE"
         android:textAlignment="center"
         android:textColor="#E0E2E2"
-        android:textSize="15sp"
+        android:src="@drawable/voice_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginHorizontal="10dp"
+        android:backgroundTint="@android:color/transparent"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
 
         <TextView
             android:id="@+id/show_messag"
-            android:padding="10dp"
+            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

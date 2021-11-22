@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/point1"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point1"
         app:srcCompat="@drawable/ic_point_new" />
@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
+        android:fontFamily="@font/mulish_regular"
         android:text="Upon solving a question, a player shall receive\na particular amount of points relative to the\ncompetition the earlier you solve a question,\nthe higher your score will be."
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,9 +32,9 @@
 
     <ImageView
         android:id="@+id/point2"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point2"
         app:srcCompat="@drawable/ic_point_new" />
@@ -53,9 +54,9 @@
 
     <ImageView
         android:id="@+id/point3"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/instruction_point3"
         app:srcCompat="@drawable/ic_point_new" />
