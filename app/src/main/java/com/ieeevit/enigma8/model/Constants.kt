@@ -26,5 +26,3 @@ object Constants {
     const val FullStory_URL = "story/fullStory"
     const val Feedback_Filled_URL = "feedback/feedbackFilled"
 }
-
-

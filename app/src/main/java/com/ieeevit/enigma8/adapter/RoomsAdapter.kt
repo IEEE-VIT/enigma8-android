@@ -61,11 +61,11 @@ class RoomsAdapter(var context: Context, var dataList: List<RoomsOuter>, val vie
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoomsAdapter.ViewHolder {
-            sharedPreferences = PrefManager(context)
+        sharedPreferences = PrefManager(context)
 
-            var view = LayoutInflater.from(parent.context).inflate(R.layout.room_card, parent, false)
-            return ViewHolder(view)
-        }
+        var view = LayoutInflater.from(parent.context).inflate(R.layout.room_card, parent, false)
+        return ViewHolder(view)
+    }
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RoomsAdapter.ViewHolder, position: Int) {

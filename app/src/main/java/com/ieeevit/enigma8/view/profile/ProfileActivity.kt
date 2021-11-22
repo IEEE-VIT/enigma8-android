@@ -218,4 +218,3 @@ class ProfileActivity:AppCompatActivity() {
     }
 
 }
-

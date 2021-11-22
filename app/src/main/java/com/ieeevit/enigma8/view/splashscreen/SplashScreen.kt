@@ -70,9 +70,9 @@ class SplashScreen:AppCompatActivity() {
 //                            startActivity(intent)
 //                            finish()
                     if(indicator==1 && isNew == 0) {
-                            val intent = Intent(this@SplashScreen,MainActivity::class.java)
-                            startActivity(intent)
-                            finish()
+                        val intent = Intent(this@SplashScreen,MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
                     }
                     else if(isNew == 1) {
                         val intent = Intent(this@SplashScreen,ProfileActivity::class.java)
@@ -106,7 +106,7 @@ class SplashScreen:AppCompatActivity() {
                     }
 
                 }
-            
+
             }
             Handler().postDelayed(r,500)
         }

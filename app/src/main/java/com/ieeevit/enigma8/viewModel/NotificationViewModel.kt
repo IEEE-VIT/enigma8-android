@@ -42,6 +42,7 @@ class NotificationViewModel:ViewModel() {
         })
 
     }
+
     fun getNotificationDetails(authToken:String) {
         Api.retrofitService.getNotificationDetails(authToken).enqueue(object : Callback<NotificationResponse> {
             override fun onResponse(

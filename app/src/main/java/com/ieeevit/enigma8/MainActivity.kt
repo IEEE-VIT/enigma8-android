@@ -61,7 +61,7 @@ class MainActivity :AppCompatActivity() {
             view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
                 recreate()
 
-        })
+            })
         }
         g_button = findViewById(R.id.google)
         sharedPreference = PrefManager(this)
@@ -84,23 +84,23 @@ class MainActivity :AppCompatActivity() {
             signIn()
         }
 
-            viewModel.authCode.observe(this, {
-                if (it != null) {
-                    sharedPreference.setAuthCode(it.data.JWT)
+        viewModel.authCode.observe(this, {
+            if (it != null) {
+                sharedPreference.setAuthCode(it.data.JWT)
 
-                    if (it.data.isNew) {
-                        sharedPreference.setCount(1)
-                        val intent = Intent(this, ProfileActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                if (it.data.isNew) {
+                    sharedPreference.setCount(1)
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    finish()
 
-                    } else {
-                        val intent = Intent(this, RoomsActvity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
+                } else {
+                    val intent = Intent(this, RoomsActvity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
-            })
+            }
+        })
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
 

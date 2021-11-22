@@ -168,7 +168,7 @@ class QuestionActivity: AppCompatActivity() {
             })
 
             view.findViewById<ImageView>(R.id.close).setOnClickListener {
-                    dialog.dismiss()
+                dialog.dismiss()
             }
 
         }

@@ -22,6 +22,7 @@ import com.ieeevit.enigma8.model.Full_Story
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.view.instruction.InstructionActivity
 import com.ieeevit.enigma8.view.rooms.RoomsActvity
+
 import com.ieeevit.enigma8.viewModel.FullStoryViewModel
 
 
@@ -39,7 +40,7 @@ class CharacterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_desc_character)
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val netInfo = cm.activeNetworkInfo
-        if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){
+        if (netInfo == null || !netInfo.isConnected || !netInfo.isAvailable) {
             val view = View.inflate(this, R.layout.connection_error, null)
             val builder = android.app.AlertDialog.Builder(this)
             builder.setView(view)
@@ -55,85 +56,87 @@ class CharacterActivity : AppCompatActivity() {
 
             })
         }
-        sharedPreferences = PrefManager(this)
+                sharedPreferences = PrefManager(this)
 
+                var count = 0
 
-        var count = 0
+                var viewModel: FullStoryViewModel = ViewModelProvider(this).get(FullStoryViewModel::class.java)
+                var dataList: MutableList<Full_Story> = mutableListOf()
+                val conti = findViewById<Button>(R.id.contin)
 
-        var viewModel: FullStoryViewModel = ViewModelProvider(this).get(FullStoryViewModel::class.java)
-        var dataList: MutableList<Full_Story> = mutableListOf()
-        val conti = findViewById<Button>(R.id.contin)
+                var name = findViewById<TextView>(R.id.name_char)
+                val authToken = sharedPreferences.getAuthCode()
+                var desc = findViewById<TextView>(R.id.charac_card)
 
-        var name = findViewById<TextView>(R.id.name_char)
-        val authToken = sharedPreferences.getAuthCode()
-        var desc = findViewById<TextView>(R.id.charac_card)
+                val sharedPreferences: PrefManager = PrefManager(this)
 
-        val sharedPreferences: PrefManager = PrefManager(this)
-        back = findViewById(R.id.back_btn)
-        instruction = findViewById(R.id.instruction)
-        blackScreen  = findViewById(R.id.overlay)
-        progress = findViewById(R.id.progressBar)
-        blackScreen.visibility = View.VISIBLE
-        progress.visibility = View.VISIBLE
-        val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
-        anim.duration = 1000
-        progress.startAnimation(anim)
-        back.setOnClickListener {
-            val intent = Intent(this, RoomsActvity::class.java)
-            startActivity(intent)
-            finish()
-        }
-        instruction.setOnClickListener {
-            val intent = Intent(this, InstructionActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-        viewModel.getFullStoryDetails(
-            sharedPreferences.getRoomid().toString(),
-            "Bearer $authToken"
-        )
-        viewModel.fullstoryResponse.observe(this, {
-            progress.visibility = View.GONE
-            blackScreen.visibility = View.GONE
-            dataList.clear()
-            if (it != null) {
-                for (item in it.data.story) {
-                    if (item.roomNo == 0 ) {
-
-                        dataList.add(Full_Story(item.roomNo,item.sender, item.message))
-                    }
-                }
-
-                Log.e("dataList","$dataList")
-
-
-            }
-
-            name.text = dataList[0].sender
-            desc.text = dataList[0].message
-            Log.e("mssg","$dataList")
-
-            conti.setOnClickListener {
-                if (count == dataList.size-1) {
-                    val intent = Intent(this, StoryActivity::class.java)
+                back = findViewById(R.id.back_btn)
+                instruction = findViewById(R.id.instruction)
+                blackScreen = findViewById(R.id.overlay)
+                progress = findViewById(R.id.progressBar)
+                blackScreen.visibility = View.VISIBLE
+                progress.visibility = View.VISIBLE
+                val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
+                anim.duration = 1000
+                progress.startAnimation(anim)
+                back.setOnClickListener {
+                    val intent = Intent(this, RoomsActvity::class.java)
                     startActivity(intent)
+                    finish()
                 }
-                count++
+                instruction.setOnClickListener {
+                    val intent = Intent(this, InstructionActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
+                viewModel.getFullStoryDetails(
+                        sharedPreferences.getRoomid().toString(),
+                        "Bearer $authToken"
+                )
+                viewModel.fullstoryResponse.observe(this, {
+
+                    progress.visibility = View.GONE
+                    blackScreen.visibility = View.GONE
+
+                    dataList.clear()
+                    if (it != null) {
+                        for (item in it.data.story) {
+                            if (item.roomNo == 0) {
+
+                                dataList.add(Full_Story(item.roomNo, item.sender, item.message))
+                            }
+                        }
+
+                        Log.e("dataList", "$dataList")
 
 
-                name.text = dataList[count].sender
-                desc.text = dataList[count].message
+                    }
 
+                    name.text = dataList[0].sender
+                    desc.text = dataList[0].message
+                    Log.e("mssg", "$dataList")
+
+                    conti.setOnClickListener {
+                        if (count == dataList.size - 1) {
+                            val intent = Intent(this, StoryActivity::class.java)
+                            startActivity(intent)
+                        }
+                        count++
+
+
+                        name.text = dataList[count].sender
+                        desc.text = dataList[count].message
+
+
+                    }
+
+                    Log.e("StoryResponse", "$it")
+
+                })
 
             }
-
-                Log.e("StoryResponse", "$it")
-
-        })
+        }
 
 
-    }
 
-
-}

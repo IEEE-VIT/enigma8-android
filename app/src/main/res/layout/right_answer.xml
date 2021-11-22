@@ -49,6 +49,7 @@
                     android:fontFamily="@font/mulish_regular"
                     android:text="Wohoo!\nYou got the right answer. "
                     android:textAlignment="center"
+                    android:gravity="center"
                     android:textColor="@color/notification_time"
                     android:textSize="16dp"
                     android:textStyle="bold"
@@ -67,6 +68,7 @@
                     android:textAlignment="center"
                     android:textColor="@color/notification_time"
                     android:textSize="15dp"
+                    android:gravity="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/right_answer" />

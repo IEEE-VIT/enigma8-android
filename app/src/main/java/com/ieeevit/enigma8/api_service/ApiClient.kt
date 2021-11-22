@@ -50,7 +50,7 @@ interface ApiClient {
 
     fun getAccessToken(@Body authRequest: AuthRequest): Call<AccessTokenResponse>
 
-//    @POST("api/v1/users/logout/")
+    //    @POST("api/v1/users/logout/")
 //    fun logOut(@Header("Authorization") authToken: String): Call<LogoutResponse>
     @GET(Constants.TIMER_URL)
     fun getEnigmaStatus(@Header("Authorization") authToken: String): Call<StatusResponse>

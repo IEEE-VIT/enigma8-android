@@ -35,19 +35,19 @@ class FullStoryAdapter (
 
         if (viewType == MSG_TYPE_RIGHT) {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.character2, parent, false)
+                    .inflate(R.layout.character2, parent, false)
             return Holder(view)
         } else if (viewType == MSG_TYPE_LEFT) {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.character1, parent, false)
+                    .inflate(R.layout.character1, parent, false)
             return Holder(view)
         } else if (viewType == MSG_TYPE_NARRATOR) {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.narrator, parent, false)
+                    .inflate(R.layout.narrator, parent, false)
             return Holder(view)
         } else if (viewType == MSG_TYPE_VOICE) {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.voice_card_story, parent, false)
+                    .inflate(R.layout.voice_card_story, parent, false)
             return Holder(view)
         }
         val view = LayoutInflater.from(parent.context)
@@ -61,7 +61,7 @@ class FullStoryAdapter (
         holder.show_message.text = story.message
 
         val shader : Shader = LinearGradient(0f, 0f,0f,holder.name.lineHeight.toFloat(), intArrayOf(context.getColor(R.color.light_yellow), context.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),
-            Shader.TileMode.REPEAT)
+                Shader.TileMode.REPEAT)
         holder.name.paint.shader = shader
 //        Glide.with(context!!).load(imageurl).into(holder.profile_image)
 
@@ -79,17 +79,17 @@ class FullStoryAdapter (
     override fun getItemViewType(position: Int): Int {
 
 
-            if (Story[position].sender.toUpperCase() == "MJ") {
-                return MSG_TYPE_LEFT
-            } else if (Story[position].sender.toUpperCase() == "ALI") {
-                return MSG_TYPE_RIGHT
-            } else if (Story[position].sender.toUpperCase() == "NARRATOR") {
-                return MSG_TYPE_NARRATOR
-            } else if (Story[position].sender.toUpperCase() == "VOICE") {
-                return MSG_TYPE_VOICE
-            } else {
-                return MSG_TYPE_LEFT
-            }
+        if (Story[position].sender.toUpperCase() == "MJ") {
+            return MSG_TYPE_LEFT
+        } else if (Story[position].sender.toUpperCase() == "ALI") {
+            return MSG_TYPE_RIGHT
+        } else if (Story[position].sender.toUpperCase() == "NARRATOR") {
+            return MSG_TYPE_NARRATOR
+        } else if (Story[position].sender.toUpperCase() == "VOICE") {
+            return MSG_TYPE_VOICE
+        } else {
+            return MSG_TYPE_LEFT
+        }
 
     }
-        }
+}
