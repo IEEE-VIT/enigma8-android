@@ -7,11 +7,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ieeevit.enigma8.ProgressBarAnimation
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.adapter.RoomsAdapter
 import com.ieeevit.enigma8.model.question.QuestionList
@@ -29,10 +32,12 @@ class RoomFragment : Fragment() {
     private lateinit var heading:TextView
     private lateinit var roomUnlock:TextView
     private lateinit var starcount :TextView
+    private lateinit var progress: ProgressBar
+    private lateinit var blackScreen: ImageView
 
     private val viewModel: RoomViewModel by lazy {
         ViewModelProvider(this, RoomViewModel.Factory())
-            .get(RoomViewModel::class.java)
+                .get(RoomViewModel::class.java)
     }
 
 
@@ -54,6 +59,13 @@ class RoomFragment : Fragment() {
         roomView = root.findViewById(R.id.roomView)
         roomUnlock = root.findViewById(R.id.roomUnlock)
         starcount = root.findViewById(R.id.star_counter)
+        blackScreen  = root.findViewById(R.id.overlay)
+        progress = root.findViewById(R.id.progressBar)
+        blackScreen.visibility = View.VISIBLE
+        progress.visibility = View.VISIBLE
+        val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
+        anim.duration = 1000
+        progress.startAnimation(anim)
         heading = root.findViewById(R.id.heading)
         val shader1 : Shader = LinearGradient(0f, 0f, 0f, heading.lineHeight.toFloat(), intArrayOf(requireContext().getColor(R.color.light_yellow), requireContext().getColor(R.color.dark_yellow)), floatArrayOf(0.4f, 0.6f), Shader.TileMode.REPEAT)
         heading.paint.shader = shader1
@@ -82,6 +94,8 @@ class RoomFragment : Fragment() {
 
 
         viewModel.roomStatus.observe(viewLifecycleOwner, {
+            progress.visibility = View.GONE
+            blackScreen.visibility = View.GONE
             dataList.clear()
             journeyList.clear()
             questionList.clear()
@@ -96,11 +110,11 @@ class RoomFragment : Fragment() {
                     torch2 = roomTorch(item.journey.questionsStatus[1])
                     torch3 = roomTorch(item.journey.questionsStatus[2])
                     roomsDataList.add(item.room._id)
-                        dataList.add(RoomsOuter(item.room.title, item.room.media, torch1, torch2, torch3, R.drawable.room_torch, R.drawable.room_torch, R.drawable.room_torch, item.room._id, item.room.roomNo, item.journey.roomUnlocked,item.journey.powerupUsed,item.room.starQuota,item.journey.questionsStatus ,item.journey.powerupSet,item.starLeft))
-                        journeyList.add(QustionStatus(item.journey.questionsStatus))
-                        questionList.add(QuestionList(item.room._id,item.room.questionId))
+                    dataList.add(RoomsOuter(item.room.title, item.room.media, torch1, torch2, torch3, R.drawable.room_torch, R.drawable.room_torch, R.drawable.room_torch, item.room._id, item.room.roomNo, item.journey.roomUnlocked,item.journey.powerupUsed,item.room.starQuota,item.journey.questionsStatus ,item.journey.powerupSet,item.starLeft))
+                    journeyList.add(QustionStatus(item.journey.questionsStatus))
+                    questionList.add(QuestionList(item.room._id,item.room.questionId))
 
-                    }
+                }
 
 //                sharedPreferences.setRoomList(roomsDataList)
 //                Log.e("RoomList", "${sharedPreferences.getRoomList()}")

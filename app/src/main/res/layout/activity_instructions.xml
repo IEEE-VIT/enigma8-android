@@ -10,53 +10,104 @@
         android:id="@+id/instructions_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/instructions_background"
+        android:background="@drawable/instructions_background" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/toolbar_background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_arrow_left" />
+
+        <TextView
+            android:id="@+id/tabHeading"
+            android:layout_width="140sp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="85dp"
+            android:fontFamily="@font/cinzeldecorative_bold"
+            android:text="ENIGMA"
+            android:textColor="@color/light_yellow"
+            android:textSize="26dp" />
+
+        <ImageView
+            android:id="@+id/instruction"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:visibility="invisible"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="10dp"
+            android:baselineAligned="false"
+            android:src="@drawable/ic_info" />
+
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/heading_instructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/cinzel_bold"
         android:text="INSTRUCTIONS"
         android:textColor="@color/light_yellow"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linear" />
 
     <ImageView
         android:id="@+id/arrow_left"
-        android:layout_width="34dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="96dp"
+        android:layout_width="26dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/vpIntroSlider"
+        app:layout_constraintEnd_toStartOf="@+id/instruction_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/heading_instructions"
         app:srcCompat="@drawable/ic_arrow_left" />
 
     <ImageView
         android:id="@+id/arrow_right"
-        android:layout_width="30dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="48dp"
+        android:layout_width="26dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/vpIntroSlider"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/heading_instructions"
+        app:layout_constraintStart_toEndOf="@+id/instruction_name"
         app:srcCompat="@drawable/ic_arrow_right" />
 
     <TextView
         android:id="@+id/instruction_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/cinzel_bold"
         android:text="GAME MECHANICS"
         android:textColor="@color/light_blue"
-        android:textSize="22dp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toStartOf="@+id/arrow_right"
+
         app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toEndOf="@+id/arrow_left"
         app:layout_constraintTop_toBottomOf="@+id/icon_instruction" />
@@ -66,7 +117,7 @@
         android:layout_width="72dp"
         android:layout_height="66dp"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heading_instructions"
         app:srcCompat="@drawable/game_mechanics" />
@@ -74,7 +125,7 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpIntroSlider"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="500dp"
         app:layout_constraintBottom_toTopOf="@+id/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

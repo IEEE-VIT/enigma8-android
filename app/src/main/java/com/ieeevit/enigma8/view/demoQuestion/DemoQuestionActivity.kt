@@ -1,9 +1,11 @@
 package com.ieeevit.enigma8.view.demoQuestion
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -36,9 +38,29 @@ class DemoQuestionActivity: AppCompatActivity() {
     var count = 0
     var answer:String=""
     var questionNo=0
+    private lateinit var progress:ProgressBar
+    private lateinit var blackScreen:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_demo_question)
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = cm.activeNetworkInfo
+        if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){
+            val view = View.inflate(this, R.layout.connection_error, null)
+            val builder = android.app.AlertDialog.Builder(this)
+            builder.setView(view)
+            val dialog = builder.create()
+            val lp = dialog.window!!.attributes
+            lp.dimAmount = 0.0f
+            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+            dialog.window!!.attributes = lp
+            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+            dialog.show()
+            view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
+                recreate()
+
+            })
+        }
         back = findViewById(R.id.back_btn)
         submit_btn = findViewById(R.id.submit_btn)
         btn = findViewById(R.id.submit_btn)

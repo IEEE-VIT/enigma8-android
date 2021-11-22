@@ -1,13 +1,19 @@
 package com.ieeevit.enigma8.view.feedback
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.ieeevit.enigma8.ProgressBarAnimation
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.model.feedback.FeedbackRequest
 import com.ieeevit.enigma8.utils.PrefManager
@@ -42,10 +48,30 @@ class FeedbackActivity:AppCompatActivity() {
     var improve:String=""
     private lateinit var back: ImageView
     private lateinit var instruction: ImageView
+    private lateinit var progress:ProgressBar
+    private lateinit var blackScreen:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feedback)
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = cm.activeNetworkInfo
+        if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){
+            val view = View.inflate(this, R.layout.connection_error, null)
+            val builder = android.app.AlertDialog.Builder(this)
+            builder.setView(view)
+            val dialog = builder.create()
+            val lp = dialog.window!!.attributes
+            lp.dimAmount = 0.0f
+            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+            dialog.window!!.attributes = lp
+            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+            dialog.show()
+            view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
+                recreate()
+
+            })
+        }
         sharedPreferences = PrefManager(this)
         viewModel = ViewModelProvider(this).get(FeedbackViewModel::class.java)
         submit_btn = findViewById(R.id.submit)
@@ -55,31 +81,21 @@ class FeedbackActivity:AppCompatActivity() {
         two = findViewById(R.id.two)
         three = findViewById(R.id.three)
         four = findViewById(R.id.four)
+        blackScreen = findViewById(R.id.overlay)
+        progress = findViewById(R.id.progressBar)
         five = findViewById(R.id.five)
         layout = findViewById(R.id.yes_layout)
         reg_no = findViewById(R.id.reg_no)
         mail_id = findViewById(R.id.mail_id)
         desc = findViewById(R.id.desc)
         suggestion = findViewById(R.id.suggestion)
-        mail_id.setOnClickListener {
-            emailid = mail_id.text.toString().trim()
-        }
-        desc.setOnClickListener {
-            description = desc.text.toString().trim()
-        }
-        suggestion.setOnClickListener {
-            improve = suggestion.text.toString().trim()
-        }
-        reg_no.setOnClickListener {
-            reg = reg_no.text.toString().trim()
-        }
         yes.setOnClickListener {
             layout.visibility = View.VISIBLE
-            value = yes.isChecked
+            value = true
         }
         no.setOnClickListener {
             layout.visibility = View.GONE
-            value = no.isChecked
+            value = false
         }
         one.setOnClickListener {
             rate = 1
@@ -108,14 +124,40 @@ class FeedbackActivity:AppCompatActivity() {
         }
 
         val authCode: String? = sharedPreferences.getAuthCode()
+
         submit_btn.setOnClickListener {
-            val feedbackRequest = FeedbackRequest(value,rate,description,improve,reg,emailid)
+            emailid = mail_id.text.toString().trim()
+            description = desc.text.toString().trim()
+            improve = suggestion.text.toString().trim()
+
+            reg = reg_no.text.toString().trim()
+            if(value == false) {
+                reg = "Not a vit student"
+                emailid = "Not a vit student"
+            }
+
+            val feedbackRequest = FeedbackRequest(value,reg,emailid,rate,description,improve)
             viewModel.sendFeedbackDetails("Bearer ${authCode.toString()}",feedbackRequest)
             viewModel.FeedbackResponse.observe(this,{
+                if(it.success == true) {
+                    Toast.makeText(applicationContext,"Feedback Submitted",Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this,NotificationActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                else if(!it.success) {
+                    Toast.makeText(applicationContext,"You Already Submitted the feedback",Toast.LENGTH_SHORT).show()
+                }
+
                 if(it!=null) {
                     Log.e("Feedback","$it")
                 }
             })
+
+
+
+
+
         }
 
 
