@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     android:clickable="true"
-    android:focusableInTouchMode="true">
-
+    android:focusableInTouchMode="true"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background">
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
@@ -26,18 +25,17 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/ic_bell_notification"
-            android:visibility="invisible" />
+            android:visibility="invisible"
+            android:src="@drawable/ic_bell_notification" />
 
         <TextView
             android:id="@+id/tabHeading"
-            android:layout_width="140dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginHorizontal="80dp"
             android:fontFamily="@font/cinzeldecorative_bold"
-            android:gravity="center"
             android:text="ENIGMA"
+            android:layout_marginHorizontal="80dp"
             android:textColor="@color/light_yellow"
             android:textSize="26dp" />
 
@@ -46,10 +44,10 @@
             android:layout_height="30dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
+            android:visibility="invisible"
             android:layout_marginBottom="10dp"
             android:baselineAligned="false"
-            android:src="@drawable/ic_info"
-            android:visibility="invisible" />
+            android:src="@drawable/ic_info"/>
 
 
     </LinearLayout>
@@ -66,38 +64,37 @@
         android:id="@+id/illustration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="76dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_profile_illustration" />
 
+
     <TextView
         android:id="@+id/setup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/cinzeldecorative_bold"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/cinzel_bold"
         android:text="SETUP YOUR PROFILE"
         android:textAlignment="center"
         android:textColor="@color/light_yellow"
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.455"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/illustration" />
-
 
     <RelativeLayout
         android:id="@+id/relative"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="25dp"
-        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         android:background="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setup">
@@ -105,14 +102,16 @@
         <EditText
             android:id="@+id/username"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/result_drawable"
+            android:layout_height="45dp"
+            android:layout_marginStart="32dp"
+            android:onClick="TextFieldClicked"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/ic_dropdown_rectangle"
             android:fontFamily="@font/mulish_regular"
             android:paddingLeft="10dp"
-            android:textColorHint="@color/light_yellow" />
+            android:textColor="@color/light_yellow" />
+
 
         <TextView
             android:id="@+id/enter_username"
@@ -120,14 +119,18 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="7dp"
-            android:background="@color/background"
-            android:fontFamily="@font/mulish_regular"
-            android:text="Enter Username"
-            android:textColor="@color/light_yellow"
-            android:textSize="15dp"
             android:textStyle="bold"
-            android:visibility="invisible" />
+            android:textSize="15dp"
+            android:textColor="@color/light_yellow"
+            android:fontFamily="@font/mulish_regular"
+            android:background="@color/background"
+            android:text="Enter Username" />
     </RelativeLayout>
+
+
+
+
+
 
 
     <!--    <com.google.android.material.textfield.TextInputLayout-->
@@ -208,6 +211,7 @@
     <!--            android:spinnerMode="dropdown" />-->
 
 
+
     <!--        <TextView-->
     <!--            android:id="@+id/option"-->
     <!--            android:layout_width="match_parent"-->
@@ -222,6 +226,7 @@
 
     <!--    </RelativeLayout>-->
 
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
@@ -229,7 +234,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/ic_dropdown_rectangle"
         app:endIconMode="dropdown_menu"
         app:endIconTint="@color/white"
@@ -244,9 +249,9 @@
             android:id="@+id/option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:dropDownHeight="200dp"
             android:background="@drawable/dropdown_back"
             android:backgroundTint="@android:color/transparent"
-            android:dropDownHeight="200dp"
             android:inputType="none"
             android:padding="10dp"
             android:text="-Select-"
@@ -254,7 +259,6 @@
             tools:ignore="HardcodedText" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <TextView
         android:id="@+id/notAvailable"
@@ -273,19 +277,19 @@
         android:id="@+id/how_did_you"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/mulish_regular"
         android:gravity="top"
         android:text="@string/how_did_you"
         android:textColor="@color/light_yellow"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notAvailable" />
+        app:layout_constraintTop_toBottomOf="@+id/relative" />
 
     <TextView
         android:id="@+id/minimum_characters"
@@ -293,11 +297,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="65dp"
         android:layout_marginTop="8dp"
+        android:visibility="invisible"
         android:text="*Minimum 8 characters"
         android:textColor="@color/notification_time"
-        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relative" />
+        app:layout_constraintTop_toBottomOf="@id/relative" />
+
 
 
     <TextView
@@ -306,8 +311,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Select a outreach option"
-        android:textColor="@color/notification_time"
         android:visibility="invisible"
+        android:textColor="@color/notification_time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
@@ -329,6 +334,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

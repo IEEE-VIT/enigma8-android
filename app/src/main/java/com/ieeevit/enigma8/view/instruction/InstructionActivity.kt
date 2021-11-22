@@ -14,12 +14,16 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.adapter.InstructionSliderAdapter
+import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.view.IndicatorLayout
 import com.ieeevit.enigma8.view.rooms.RoomsActvity
+import com.ieeevit.enigma8.view.timer.CountdownActivity
 
 
 @Suppress("DEPRECATION")
 class InstructionActivity : AppCompatActivity() {
+    private lateinit var back:ImageView
+    private lateinit var sharedPreferences:PrefManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_instructions)
@@ -27,7 +31,7 @@ class InstructionActivity : AppCompatActivity() {
         var fragmentList:MutableList<Fragment> = mutableListOf()
         val vpIntroSlider = findViewById<ViewPager2>(R.id.vpIntroSlider)
         val nxtBtn = findViewById<Button>(R.id.next)
-
+        sharedPreferences = PrefManager(this)
 
 
         val rightArrow = findViewById<ImageView>(R.id.arrow_right)
@@ -54,6 +58,7 @@ class InstructionActivity : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 
         val indicatorLayout = findViewById<IndicatorLayout>(R.id.indicatorLayout)
+        back = findViewById(R.id.back_btn)
         val adapter = InstructionSliderAdapter(this)
         vpIntroSlider.adapter = adapter
         fragmentList.add(GameMechanics())
@@ -67,6 +72,18 @@ class InstructionActivity : AppCompatActivity() {
         indicatorLayout.setIndicatorCount(adapter.itemCount)
         indicatorLayout.selectCurrentPosition(0)
         registerListeners(fragmentList)
+        back.setOnClickListener {
+            if(sharedPreferences.getBackIndicator() == 0) {
+                val intent = Intent(this,CountdownActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            else if (sharedPreferences.getBackIndicator() == 1) {
+                val intent = Intent(this,RoomsActvity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
     }
     private fun registerListeners(fragmentList:MutableList<Fragment>) {
         val vpIntroSlider = findViewById<ViewPager2>(R.id.vpIntroSlider)
@@ -121,6 +138,7 @@ class InstructionActivity : AppCompatActivity() {
         })
 
         nxtBtn.setOnClickListener{
+            sharedPreferences.setBackIndicator(1)
             startActivity(Intent(this, RoomsActvity::class.java))
             finish()
         }

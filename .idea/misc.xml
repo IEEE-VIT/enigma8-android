@@ -6,6 +6,7 @@
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable-v24/countdown_background.xml" value="0.22412280701754386" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable-v24/countdown_button_background.xml" value="0.22412280701754386" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable-v24/ic_close.xml" value="0.21837606837606838" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.23657407407407408" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable-v24/ic_narrator_left_arrow.xml" value="0.199609375" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable-v24/ic_narrator_right_arrow.xml" value="0.199609375" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable-v24/leaderboardcountdown_background.xml" value="0.1" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/dialog_background.xml" value="0.536" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/feedback_answer_background.xml" value="0.22412280701754386" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/group_1836.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/group_1990.xml" value="0.23657407407407408" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/ic_arrow.xml" value="0.23657407407407408" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/ic_arrow_left.xml" value="0.22412280701754386" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/ic_bell_notification.xml" value="0.22412280701754386" />
@@ -24,6 +26,9 @@
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/ic_eclipse.xml" value="0.21837606837606838" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/ic_hint_icon.xml" value="0.1" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/ic_info.xml" value="0.22412280701754386" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.23657407407407408" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/ic_powerup_used.xml" value="0.23657407407407408" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/ic_powerupqstn_bg.xml" value="0.4" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/ic_question_unlocked.xml" value="0.22412280701754386" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/ic_round_leaderboard.xml" value="0.22412280701754386" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/ic_scrollview_bg.xml" value="0.199609375" />
@@ -31,6 +36,7 @@
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/indicator_selected.xml" value="0.10277777777777777" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/indicator_unselected.xml" value="0.10277777777777777" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/leaderboard_usercard_bg.xml" value="0.199609375" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/notification_button_background.xml" value="0.23657407407407408" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/outer_dialog_background.xml" value="0.21837606837606838" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/powerupicon_shadow.xml" value="0.4" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/progressbar_deaw.xml" value="0.199609375" />
@@ -39,29 +45,33 @@
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/round_background.xml" value="0.21837606837606838" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/round_bg.xml" value="0.22412280701754386" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/round_border.xml" value="0.21837606837606838" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/searchview_bg.xml" value="0.23657407407407408" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/story.xml" value="0.22412280701754386" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/toolbar_background.xml" value="0.22412280701754386" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/drawable/voice_bg.xml" value="0.199609375" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_base.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_character.xml" value="0.1830601092896175" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_countdown.xml" value="0.6" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_countdown.xml" value="0.264" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_demo_question.xml" value="0.2" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_desc_character.xml" value="0.176" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_feedback.xml" value="0.264" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_desc_character.xml" value="0.1" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_feedback.xml" value="0.21052631578947367" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_first.xml" value="0.176" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_instructions.xml" value="0.264" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_instructions.xml" value="0.1" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_main.xml" value="0.20512820512820512" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_onboarding.xml" value="0.176" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_notifications.xml" value="0.6" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_onboarding.xml" value="0.536" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_powerup.xml" value="0.72" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_profile.xml" value="0.25" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_question.xml" value="0.2" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_room.xml" value="0.1" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_question.xml" value="0.264" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_room.xml" value="0.4" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_splash_screen.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/activity_story.xml" value="0.152" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/bottom_bar.xml" value="0.264" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/bottom_bar.xml" value="0.6" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/bottom_bar2.xml" value="0.21052631578947367" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/character1.xml" value="0.21052631578947367" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/character1.xml" value="0.4" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/character2.xml" value="0.3047619047619048" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/close_answer.xml" value="0.2222222222222222" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/confirm_powerup.xml" value="0.25" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/confirm_powerup.xml" value="0.4" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/confirm_use_hint.xml" value="0.4" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/confirm_use_powerup.xml" value="0.4" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/demo_question_dialog.xml" value="0.2" />
@@ -69,36 +79,41 @@
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/dialog_powerup_fullpts.xml" value="0.536" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/dialog_powerup_image.xml" value="0.36492890995260663" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/dialog_powerup_url.xml" value="0.3562091503267974" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/exit_dialog.xml" value="0.4" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_character.xml" value="0.1830601092896175" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_countdown.xml" value="0.4" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_full_story.xml" value="0.176" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_game_mechanics.xml" value="0.8" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_leadeboard.xml" value="0.1" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_letsplay.xml" value="0.264" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_game_mechanics.xml" value="0.264" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_leadeboard.xml" value="0.264" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_letsplay.xml" value="0.6" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_onboarding_one.xml" value="0.264" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_onboarding_three.xml" value="0.264" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_onboarding_two.xml" value="0.264" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_powerup.xml" value="0.264" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_powerups_instructions.xml" value="0.4" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_profile_dashboard.xml" value="0.4" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_room.xml" value="0.43795620437956206" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_room.xml" value="0.264" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_room_states.xml" value="0.4" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_scoring_system.xml" value="0.2" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/fragment_scoring_system.xml" value="0.4" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/hint_web.xml" value="0.2222222222222222" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/leader_card.xml" value="0.5037688442211056" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/leader_card.xml" value="0.6" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/leaderboard_usercard.xml" value="0.2" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/narrator.xml" value="0.44594594594594594" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/notication_card.xml" value="0.4" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/notifications_view.xml" value="0.264" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/notifications_zero.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/powerup.xml" value="0.8" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/privacy_policy.xml" value="0.1875" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/privacy_policy.xml" value="0.4" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/progress.xml" value="1.6" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/progressbar.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/right_answer.xml" value="0.4" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/right_answer_first.xml" value="0.2222222222222222" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/room_card.xml" value="0.8" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/right_answer_first.xml" value="0.4" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/room_card.xml" value="0.72" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/room_done_dialog.xml" value="0.1" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/room_unlock_dialog.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/rv_child_number.xml" value="0.1" />
-        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/voice_card_story.xml" value="0.264" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/use_powerup.xml" value="0.72" />
+        <entry key="..\:/Users/jassi/Downloads/enigma8-android/enigma8-android/app/src/main/res/layout/voice_card_story.xml" value="0.4" />
       </map>
     </option>
   </component>
