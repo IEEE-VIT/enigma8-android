@@ -1,8 +1,11 @@
-package com.ieeevit.enigma8.view.main
+package com.ieeevit.enigma8.view.leaderboard
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Shader
+import android.graphics.drawable.ColorDrawable
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -10,6 +13,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -22,11 +27,15 @@ import com.ieeevit.enigma8.model.leaderboard.Leaderboard
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.viewModel.LeaderboardViewModel
 import androidx.appcompat.widget.SearchView
-
-
+import androidx.core.app.ActivityCompat.recreate
+import androidx.core.content.ContextCompat.getSystemService
+import com.ieeevit.enigma8.ProgressBarAnimation
+import com.ieeevit.enigma8.view.rooms.RoomsActvity
 
 
 class LeaderboardFragment : Fragment() {
+    private lateinit var progress:ProgressBar
+    private lateinit var blackScreen:ImageView
 
 
     private lateinit var sharedPreferences: PrefManager
@@ -55,10 +64,18 @@ class LeaderboardFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.fragment_leadeboard, container , false)
 
+
         sharedPreferences = PrefManager(requireContext())
         val authToken = sharedPreferences.getAuthCode()
         leaderboardView = root.findViewById(R.id.Leaderboard_view)
         leaderboardView.visibility = View.INVISIBLE
+        progress = root.findViewById(R.id.progressBar)
+        blackScreen = root.findViewById(R.id.overlay)
+        blackScreen.visibility = View.VISIBLE
+        progress.visibility = View.VISIBLE
+        val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
+        anim.duration = 1000
+        progress.startAnimation(anim)
         Handler().postDelayed({
             leaderboardView.visibility = View.VISIBLE
         }, 1000)
@@ -77,15 +94,16 @@ class LeaderboardFragment : Fragment() {
             viewModel.getLeaderboardDetails(
                 page,
                 10,
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imphc3NpbXNoYW1pbUBnbWFpbC5jb20iLCJpYXQiOjE2MzYzOTM2NTN9.K2Va3dAa5DIPGqt-ENTlzoulLcB-_IYE5ApqaaOlH4c",
+                "Bearer $authToken",
                 null
             )
 
 
 
-            val progressBar = root.findViewById<ProgressBar>(R.id.progressBar)
 
         viewModel.leaderboardResponse.observe(viewLifecycleOwner, {
+            progress.visibility = View.GONE
+            blackScreen.visibility = View.GONE
 
             if (it != null) {
                 userRank.text = it.data?.userRank?.rank.toString()
@@ -125,8 +143,8 @@ class LeaderboardFragment : Fragment() {
                 adapter = LeaderboardAdapter(requireContext(), dataList)
                 leaderboardView.layoutManager = LinearLayoutManager(context)
                 leaderboardView.adapter = adapter
-                if (progressBar != null) {
-                    progressBar.visibility = View.INVISIBLE
+                if (progress != null) {
+                    progress.visibility = View.INVISIBLE
                 }
 
             }
@@ -159,8 +177,8 @@ class LeaderboardFragment : Fragment() {
                             if ((visibleItemCount + pastVisibleItem) >= total) {
 //                                        page++
                                 isLoading = true
-                                if (progressBar != null) {
-                                    progressBar.visibility = View.VISIBLE
+                                if (progress != null) {
+                                    progress.visibility = View.VISIBLE
                                 }
                                 Log.e("b4 getfunc", "leaderboard")
                                 viewModel.getLeaderboardDetails(
@@ -179,8 +197,8 @@ class LeaderboardFragment : Fragment() {
                                         leaderboardView.adapter = adapter
                                     }
                                     isLoading = false
-                                    if (progressBar != null) {
-                                        progressBar.visibility = View.GONE
+                                    if (progress != null) {
+                                        progress.visibility = View.GONE
                                     }
                                 }, 500)
                             }

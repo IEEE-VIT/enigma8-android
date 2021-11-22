@@ -2,23 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="370dp"
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
+
     <RelativeLayout
         android:id="@+id/relative"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
         <androidx.cardview.widget.CardView
             android:id="@+id/dialogCard"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginHorizontal="15dp"
             android:layout_marginVertical="10dp"
             android:backgroundTint="@color/background"
             app:cardCornerRadius="7dp"
-            android:layout_centerInParent="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -37,52 +39,43 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
+
+
                 <TextView
-                    android:id="@+id/room_unlock"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="36dp"
-                    android:layout_marginEnd="20dp" android:fontFamily="@font/mulish_regular"
-                    android:text="You need 2 more"
-                    android:textColor="#309AC9"
+                    android:id="@+id/right_answer"
+                    android:layout_width="244dp"
+                    android:layout_height="68dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/mulish_regular"
+                    android:text="You’ve lost your internet connection. \nReconnect to continue."
+                    android:textAlignment="center"
+                    android:textColor="@color/notification_time"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.282"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-                    <ImageView
-                        android:id="@+id/key"
-                        android:layout_width="27dp"
-                        android:layout_height="25dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginBottom="28dp"
-                        android:layout_marginEnd="20dp"
-                        android:src="@drawable/ic_key"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.4"
-                        app:layout_constraintStart_toEndOf="@+id/room_unlock"
-                        app:layout_constraintTop_toTopOf="parent"/>
 
-                <TextView
-                    android:id="@+id/unlock_text"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/try_again"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="#0FA3B1"
                     android:fontFamily="@font/mulish_regular"
-                    android:text="to unlock this room"
-                    android:textColor="#309AC9"
-                    android:textSize="16dp"
+                    android:text="@string/try_again"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.222"
+                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/room_unlock"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toBottomOf="@+id/right_answer"
+                    app:layout_constraintVertical_bias="1.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -90,13 +83,6 @@
 
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/relative"
-        android:translationZ="50dp"
-        app:srcCompat="@drawable/ic_close" />
 
 
 </RelativeLayout>

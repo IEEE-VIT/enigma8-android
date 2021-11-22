@@ -5,20 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
+
     <RelativeLayout
         android:id="@+id/relative"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
         <androidx.cardview.widget.CardView
             android:id="@+id/dialogCard"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginHorizontal="15dp"
             android:layout_marginVertical="10dp"
             android:backgroundTint="@color/background"
             app:cardCornerRadius="7dp"
-            android:layout_centerInParent="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -45,9 +47,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:fontFamily="@font/mulish_regular"
-                    android:textAlignment="center"
                     android:text="Wohoo!\nYou got the right answer. "
-                    android:textColor="#309AC9"
+                    android:textAlignment="center"
+                    android:textColor="@color/notification_time"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -60,14 +62,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:textAlignment="center"
                     android:fontFamily="@font/mulish_regular"
-                    android:text="@string/first_key"
-                    android:textColor="#309AC9"
+                    android:text="You’ve earned x points\nand a key!"
+                    android:textAlignment="center"
+                    android:textColor="@color/notification_time"
                     android:textSize="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/right_answer" />
+
                 <ImageView
                     android:id="@+id/key"
                     android:layout_width="27dp"
@@ -94,7 +97,7 @@
                     android:textSize="12dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.503"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/key" />
 
@@ -102,8 +105,7 @@
                     android:id="@+id/continue_room"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="5dp"
                     android:backgroundTint="#0FA3B1"
                     android:fontFamily="@font/mulish_regular"
                     android:text="Continue in this room"
@@ -113,10 +115,9 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.413"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/another_room"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toBottomOf="@+id/another_room" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

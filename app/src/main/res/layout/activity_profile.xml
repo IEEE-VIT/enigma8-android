@@ -104,12 +104,14 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginStart="32dp"
+            android:onClick="TextFieldClicked"
             android:layout_marginTop="17dp"
             android:layout_marginEnd="32dp"
             android:background="@drawable/ic_dropdown_rectangle"
             android:fontFamily="@font/mulish_regular"
             android:paddingLeft="10dp"
             android:textColor="@color/light_yellow" />
+
 
         <TextView
             android:id="@+id/enter_username"
@@ -287,13 +289,13 @@
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/minimum_characters" />
+        app:layout_constraintTop_toBottomOf="@+id/relative" />
 
     <TextView
         android:id="@+id/minimum_characters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="8dp"
         android:visibility="invisible"
         android:text="*Minimum 8 characters"

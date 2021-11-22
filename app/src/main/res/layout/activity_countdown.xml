@@ -19,6 +19,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/heading"
             app:lineHeight="33sp" />
+
+
+
         <TextView
             android:id="@+id/text_end"
             android:layout_width="wrap_content"
@@ -151,15 +154,17 @@
 
         <TextView
             android:id="@+id/hours"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
-            android:layout_marginTop="36dp"
+            android:layout_width="26dp"
+            android:layout_height="6dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/mulish_regular"
             android:text="Hours"
             android:textAlignment="center"
             android:textColor="@color/light_yellow"
             android:textSize="21sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/days"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
 
@@ -241,6 +246,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hours"
             app:strokeColor="@color/enigmaColor" />
+        <ImageView
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:background="@color/background"
+            android:layout_height="match_parent"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="40dp"
+            android:progress="50"
+            android:visibility="gone"
+            android:progressDrawable="@drawable/ic_progress"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.516" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_question_unlocked" />
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="19dp"
         android:fontFamily="@font/cinzel_bold"
         android:text="JONES"
         android:textColor="@color/light_yellow"
@@ -47,7 +47,7 @@
         android:id="@+id/character2_torch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -62,30 +62,31 @@
         android:layout_height="0dp"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/conti"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/character1_torch" />
+    <ImageView
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:background="@color/background"
+        android:layout_height="match_parent"/>
 
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/conti"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#FFCA61"
-        android:bottomLeftRadius="20dp"
-        android:bottomRightRadius="20dp"
-        android:text="Continue"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:cornerRadius="10dp"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="40dp"
+        android:progress="50"
+        android:visibility="gone"
+        android:progressDrawable="@drawable/ic_progress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.516" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

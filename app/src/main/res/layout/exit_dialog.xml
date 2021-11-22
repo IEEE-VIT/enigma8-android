@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="350dp"
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
+
     <RelativeLayout
         android:id="@+id/relative"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
         <androidx.cardview.widget.CardView
             android:id="@+id/dialogCard"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginHorizontal="15dp"
             android:layout_marginVertical="10dp"
             android:backgroundTint="@color/background"
             app:cardCornerRadius="7dp"
-            android:layout_centerInParent="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -42,50 +43,57 @@
 
                 <TextView
                     android:id="@+id/right_answer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="52dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_width="205dp"
+                    android:layout_height="49dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="24dp"
                     android:fontFamily="@font/mulish_regular"
-                    android:text="@string/right_first_answer"
+                    android:text="Are you sure you want to exit Enigma?"
+                    android:textAlignment="center"
                     android:textColor="@color/notification_time"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
-                <TextView
-                    android:id="@+id/earn_key"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/no"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#0FA3B1"
                     android:fontFamily="@font/mulish_regular"
-                    android:text="You’ve earned x points\nand a key!"
-                    android:textAlignment="center"
-                    android:textColor="@color/notification_time"
-                    android:textSize="15dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.217"
+                    android:text="No"
+                    android:layout_margin="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/yes"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/right_answer" />
+                    app:layout_constraintTop_toBottomOf="@+id/right_answer"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
-                <ImageView
-                    android:id="@+id/key"
-                    android:layout_width="27dp"
-                    android:layout_height="29dp"
-                    android:layout_marginTop="28dp"
-                    android:layout_marginBottom="30dp"
-                    android:src="@drawable/ic_key"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#0FA3B1"
+                    android:fontFamily="@font/mulish_regular"
+                    android:text="Yes"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="13dp"
+                    android:layout_margin="10dp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/earn_key" />
+                    app:layout_constraintStart_toEndOf="@+id/no"
+                    app:layout_constraintTop_toBottomOf="@+id/right_answer" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -93,13 +101,6 @@
 
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/relative"
-        android:translationZ="70dp"
-        app:srcCompat="@drawable/ic_close" />
 
 
 </RelativeLayout>

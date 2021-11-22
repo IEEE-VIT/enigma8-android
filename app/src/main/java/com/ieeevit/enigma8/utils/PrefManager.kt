@@ -38,6 +38,21 @@ class PrefManager(val context: Context) {
     private val powerupSet = "powerupSet"
     private val onBoardingincdicator = "indicator"
     private val isNew = "isNew"
+    private val instruction = "instruction"
+    private val backIndicator = "backindicator"
+
+    fun setInstruction(text: Int) {
+        editor.putInt(instruction,text)
+        editor.commit()
+    }
+    fun setBackIndicator(text: Int) {
+        editor.putInt(backIndicator,text)
+        editor.commit()
+    }
+    fun getBackIndicator ():Int {
+        return  sharedPref.getInt(backIndicator,0)
+
+    }
 
 
     fun setQuestionList(list:MutableList<QuestionList>){
@@ -168,11 +183,14 @@ class PrefManager(val context: Context) {
     fun getAuthCode(): String? {
         return sharedPref.getString(authorizationCode, null)
     }
+    fun getInstruction(): Int {
+        return sharedPref.getInt(instruction,0)
+    }
     fun getOutreach(): String? {
         return sharedPref.getString(authorizationCode,null)
     }
     fun getPowerupName()  : String? {
-        return sharedPref.getString(powerupName,null)
+        return sharedPref.getString(powerupName, null)
     }
     fun getFcm():String? {
         return sharedPref.getString(fcmToken,null)

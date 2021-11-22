@@ -16,6 +16,7 @@ import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.view.onboarding.OnboardingActivity
 import com.ieeevit.enigma8.view.profile.ProfileActivity
 import com.ieeevit.enigma8.view.rooms.RoomsActvity
+import com.ieeevit.enigma8.view.story.CharacterActivity
 import com.ieeevit.enigma8.view.timer.CountdownActivity
 
 class SplashScreen:AppCompatActivity() {

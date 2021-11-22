@@ -10,12 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.ieeevit.enigma8.MainActivity
+import com.ieeevit.enigma8.ProgressBarAnimation
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.model.question.QustionStatus
 import com.ieeevit.enigma8.utils.PrefManager
@@ -32,6 +34,8 @@ class Profdashboard : Fragment() {
     private lateinit var ranktxt:TextView
     private lateinit var policy:ImageView
     private lateinit var mGoogleSignInClient: GoogleSignInClient
+    private lateinit var progress: ProgressBar
+    private lateinit var blackScreen:ImageView
 
 
     private val viewModel: ProfileViewModel by lazy {
@@ -52,6 +56,13 @@ class Profdashboard : Fragment() {
         val authToken = sharedPreferences.getAuthCode()
         val journeydataList : MutableList<QustionStatus> = sharedPreferences.getJourneyList()
         Log.e("Token","Bearer $authToken")
+        blackScreen  = root.findViewById(R.id.overlay)
+        progress = root.findViewById(R.id.progressBar)
+        blackScreen.visibility = View.VISIBLE
+        progress.visibility = View.VISIBLE
+        val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
+        anim.duration = 1000
+        progress.startAnimation(anim)
         val privacy_policy = root.findViewById<ImageView>(R.id.privacy_policy)
 
 
@@ -150,18 +161,18 @@ class Profdashboard : Fragment() {
             room5.setBackgroundResource(R.drawable.bg_progressbar_blue)
                 line4.setImageResource(R.drawable.greendot_rotated)
         }
-//        if(journeydataList[5].list[0] == "solved" || (journeydataList[5].list[0]=="solved" && journeydataList[5].list[1] == "solved" ) ) {
-//            room6.setBackgroundResource(R.drawable.bg_progressbar_blue)
-//                line5.setImageResource(R.drawable.greendot_mirror)
-//        }
-//             if(journeydataList[6].list[0] == "solved" || (journeydataList[6].list[0]=="solved" && journeydataList[6].list[1] == "solved" ) ) {
-//                room7.setBackgroundResource(R.drawable.bg_progressbar_blue)
-//                line6.setImageResource(R.drawable.greendot_mirror)
-//            }
-//             if(journeydataList[7].list[0] == "solved" || (journeydataList[7].list[0]=="solved" && journeydataList[7].list[1] == "solved" ) ) {
-//                room8.setBackgroundResource(R.drawable.bg_progressbar_blue)
-//                line7.setImageResource(R.drawable.greendot_mirror)
-//            }
+        if(journeydataList[5].list[0] == "solved" || (journeydataList[5].list[0]=="solved" && journeydataList[5].list[1] == "solved" ) ) {
+            room6.setBackgroundResource(R.drawable.bg_progressbar_blue)
+                line5.setImageResource(R.drawable.greendot_mirror)
+        }
+             if(journeydataList[6].list[0] == "solved" || (journeydataList[6].list[0]=="solved" && journeydataList[6].list[1] == "solved" ) ) {
+                room7.setBackgroundResource(R.drawable.bg_progressbar_blue)
+                line6.setImageResource(R.drawable.greendot_mirror)
+            }
+             if(journeydataList[7].list[0] == "solved" || (journeydataList[7].list[0]=="solved" && journeydataList[7].list[1] == "solved" ) ) {
+                room8.setBackgroundResource(R.drawable.bg_progressbar_blue)
+                line7.setImageResource(R.drawable.greendot_mirror)
+            }
 
 
 
@@ -185,17 +196,17 @@ class Profdashboard : Fragment() {
                  if (journeydataList[4].list[1] == "solved") room5q2.setImageResource(R.drawable.ques_done)
                  if (journeydataList[4].list[2] == "solved") room5q3.setImageResource(R.drawable.ques_done)
 
-//                 if (journeydataList[5].list[0] == "solved") room6q1.setImageResource(R.drawable.ques_done)
-//                 if (journeydataList[5].list[1] == "solved") room6q2.setImageResource(R.drawable.ques_done)
-//                 if (journeydataList[5].list[2] == "solved") room6q3.setImageResource(R.drawable.ques_done)
-//
-//                 if (journeydataList[6].list[0] == "solved") room7q1.setImageResource(R.drawable.ques_done)
-//                 if (journeydataList[6].list[1] == "solved") room7q2.setImageResource(R.drawable.ques_done)
-//                 if (journeydataList[6].list[2] == "solved") room7q3.setImageResource(R.drawable.ques_done)
-//
-//                 if (journeydataList[7].list[0] == "solved") room8q1.setImageResource(R.drawable.ques_done)
-//                 if (journeydataList[7].list[1] == "solved") room8q2.setImageResource(R.drawable.ques_done)
-//                 if (journeydataList[7].list[2] == "solved") room8q3.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[5].list[0] == "solved") room6q1.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[5].list[1] == "solved") room6q2.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[5].list[2] == "solved") room6q3.setImageResource(R.drawable.ques_done)
+
+                 if (journeydataList[6].list[0] == "solved") room7q1.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[6].list[1] == "solved") room7q2.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[6].list[2] == "solved") room7q3.setImageResource(R.drawable.ques_done)
+
+                 if (journeydataList[7].list[0] == "solved") room8q1.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[7].list[1] == "solved") room8q2.setImageResource(R.drawable.ques_done)
+                 if (journeydataList[7].list[2] == "solved") room8q3.setImageResource(R.drawable.ques_done)
 //
 
         if (journeydataList[0].list[0] == "solved" && journeydataList[0].list[1] == "solved" && journeydataList[0].list[2] == "solved") {
@@ -217,26 +228,28 @@ class Profdashboard : Fragment() {
             room5.setBackgroundResource(R.drawable.bg_progressbar_green)
             line4.setImageResource(R.drawable.greenful_rotated)
         }
-//          if (journeydataList[5].list[0] == "solved" && journeydataList[5].list[1] == "solved" && journeydataList[5].list[2] == "solved") {
-//            room6.setBackgroundResource(R.drawable.bg_progressbar_green)
-//            line5.setImageResource(R.drawable.greenful_mirror)
-//        }
-//          if (journeydataList[6].list[0] == "solved" && journeydataList[6].list[1] == "solved" && journeydataList[6].list[2] == "solved") {
-//            room7.setBackgroundResource(R.drawable.bg_progressbar_green)
-//            line6.setImageResource(R.drawable.greenful_mirror)
-//        }
-//          if (journeydataList[7].list[0] == "solved" && journeydataList[7].list[1] == "solved" && journeydataList[7].list[2] == "solved") {
-//            room8.setBackgroundResource(R.drawable.bg_progressbar_green)
-//            line7.setImageResource(R.drawable.greenful_mirror)
-//            line8.visibility = View.VISIBLE
-//            room9.visibility = View.VISIBLE
-//        }
+          if (journeydataList[5].list[0] == "solved" && journeydataList[5].list[1] == "solved" && journeydataList[5].list[2] == "solved") {
+            room6.setBackgroundResource(R.drawable.bg_progressbar_green)
+            line5.setImageResource(R.drawable.greenful_mirror)
+        }
+          if (journeydataList[6].list[0] == "solved" && journeydataList[6].list[1] == "solved" && journeydataList[6].list[2] == "solved") {
+            room7.setBackgroundResource(R.drawable.bg_progressbar_green)
+            line6.setImageResource(R.drawable.greenful_mirror)
+        }
+          if (journeydataList[7].list[0] == "solved" && journeydataList[7].list[1] == "solved" && journeydataList[7].list[2] == "solved") {
+            room8.setBackgroundResource(R.drawable.bg_progressbar_green)
+            line7.setImageResource(R.drawable.greenful_mirror)
+            line8.visibility = View.VISIBLE
+            room9.visibility = View.VISIBLE
+        }
 
 
 
         viewModel.getProfileDetails("Bearer $authToken")
 
         viewModel.profileResponse.observe(viewLifecycleOwner, {
+            progress.visibility = View.GONE
+            blackScreen.visibility = View.GONE
 
          if(it != null){
              sharedPreferences.setStars(it.data.starts)
