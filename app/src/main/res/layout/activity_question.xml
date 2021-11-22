@@ -85,7 +85,7 @@
         android:layout_width="171dp"
         android:layout_height="47dp"
         android:layout_marginTop="15dp"
-        android:background="@drawable/powerupqstn_bg"
+        android:background="@color/answer_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear">
 
@@ -244,6 +244,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_question_below" />
 
+    <ImageView
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:background="@color/background"
+        android:layout_height="match_parent"/>
 
     <!--    <eightbitlab.com.blurview.BlurView-->
     <!--        android:id="@+id/blurBackground"-->
@@ -256,6 +262,21 @@
     <!--        app:layout_constraintTop_toTopOf="parent">-->
 
     <!--    </eightbitlab.com.blurview.BlurView>-->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="40dp"
+        android:progress="50"
+        android:visibility="gone"
+        android:progressDrawable="@drawable/ic_progress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.516" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

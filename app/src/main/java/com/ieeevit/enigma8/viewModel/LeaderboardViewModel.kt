@@ -71,6 +71,7 @@ class LeaderboardViewModel: ViewModel() {
                             val gson = Gson()
                             val type = object : TypeToken<LeaderboardResponse>() {}.type
                             val errorResponse: LeaderboardResponse? = gson.fromJson(response.errorBody()!!.charStream(), type)
+
                             val new = errorResponse?.message
                             _eleaderboardResponse.value = new
 

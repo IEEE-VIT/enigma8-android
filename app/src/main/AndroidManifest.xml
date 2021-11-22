@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ieeevit.enigma8">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
 
     <application
@@ -44,11 +45,12 @@
         <activity android:name=".view.rooms.RoomsActvity"/>
         <activity android:name=".webactivity.HintwebActivity"/>
         <activity android:name=".view.story.StoryActivity"/>
+        <activity android:name=".view.timer.CountdownActivity"/>
         <activity android:name=".view.feedback.FeedbackActivity"/>
         <activity android:name=".view.privacy.PrivacyActivity"/>
         <activity android:name=".view.question.QuestionActivity"/>
         <activity android:name=".view.story.CharacterActivity"/>
-        <activity android:name=".view.timer.CountdownActivity"/>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".view.demoQuestion.DemoQuestionActivity"/>
         <activity android:name=".view.notification.ViewNotificationActivity"/>
         <activity android:name=".view.notification.NotificationActivity"/>

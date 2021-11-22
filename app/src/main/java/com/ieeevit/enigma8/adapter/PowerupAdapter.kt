@@ -19,6 +19,7 @@ import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.model.powerup.PowerupRequest
 import com.ieeevit.enigma8.model.powerup.Powerups
 import com.ieeevit.enigma8.utils.PrefManager
+import com.ieeevit.enigma8.view.powerup.PowerupActivity
 import com.ieeevit.enigma8.view.story.CharacterActivity
 import com.ieeevit.enigma8.view.story.StoryActivity
 import com.ieeevit.enigma8.viewModel.PowerUpViewModel
@@ -65,7 +66,7 @@ class PowerupAdapter(var context: Context, var dataList: List<Powerups>, val vie
             holder.itemView.setClickable(false)
         }
         holder.itemView.setOnClickListener {
-            val sendPowerupRequest = PowerupRequest(sharedPreferences.getRoomid().toString(),dataList[holder.adapterPosition]._id)
+
             Log.e("Powerupid","${dataList[holder.adapterPosition]._id}")
 
             val Dialogview = View.inflate(context, R.layout.confirm_powerup, null)
@@ -78,9 +79,9 @@ class PowerupAdapter(var context: Context, var dataList: List<Powerups>, val vie
             dialog.window!!.attributes = lp
             dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.show()
-           viewModel.sendPowerupDetails("Bearer ${authToken}",sendPowerupRequest)
-            sharedPreferences.setPowerupName(dataList[position].name)
-            sharedPreferences.setRoomid(sharedPreferences.getRoomid().toString())
+            val powerup_icon = Dialogview.findViewById<ImageView>(R.id.powerup_icon)
+            Picasso.get().load(Uri.parse(dataList[position].icon)).into(powerup_icon)
+
 
             Dialogview.findViewById<Button>(R.id.confirm_btn).setOnClickListener {
                 if(sharedPreferences.getRoomid() == sharedPreferences.getRoomOneid()) {
@@ -94,7 +95,10 @@ class PowerupAdapter(var context: Context, var dataList: List<Powerups>, val vie
                     context.startActivity(intent)
 
                 }
+                val sendPowerupRequest = PowerupRequest(sharedPreferences.getRoomid().toString(),dataList[holder.adapterPosition]._id)
+                viewModel.sendPowerupDetails("Bearer ${authToken}",sendPowerupRequest)
 
+                dialog.dismiss()
             }
             Dialogview.findViewById<ImageView>(R.id.close).setOnClickListener {
                 dialog.dismiss()
