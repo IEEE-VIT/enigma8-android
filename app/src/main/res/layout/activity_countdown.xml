@@ -6,243 +6,246 @@
     android:layout_height="match_parent"
     android:background="@color/black">
         <!--    tools:context=".view.main.CountdownActivity">-->
-    <TextView
-        android:id="@+id/text_begin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:fontFamily="@font/mulish_regular"
-        android:text="@string/countdownString"
-        android:textColor="#F4C067"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heading"
-        app:lineHeight="33sp" />
-
-    <TextView
-        android:id="@+id/text_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:fontFamily="@font/mulish_regular"
-        android:text="The Ultimate Cryptic Hunt Ends in"
-        android:textColor="#F4C067"
-        android:textSize="18dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heading"
-        app:lineHeight="33sp" />
-
-    <TextView
-        android:id="@+id/heading"
-        android:layout_width="310dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="5dp"
-        android:fontFamily="@font/cinzeldecorative_bold"
-        android:text="@string/enigma"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textColor="@color/light_yellow"
-        android:textSize="44dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countdown_top" />
-
-    <ImageView
-        android:id="@+id/countdown_top"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_countdown_top" />
-
-    <ImageView
-        android:id="@+id/countdown_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_countdown_bottom" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="6dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_begin">
-
         <TextView
-            android:id="@+id/days1"
-            style="@style/countdown"
-            android:background="@drawable/countdown_background"
-            android:fontFamily="@font/cinzel_bold"
-            android:gravity="center"
-            android:text="1" />
+            android:id="@+id/text_begin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/mulish_regular"
+            android:text="@string/countdownString"
+            android:textColor="#F4C067"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heading"
+            app:lineHeight="33sp" />
+
 
 
         <TextView
-            android:id="@+id/days2"
-            style="@style/countdown"
-            android:layout_marginLeft="6dp"
-            android:layout_weight="1"
-            android:background="@drawable/countdown_background"
-            android:fontFamily="@font/cinzel_bold"
-            android:gravity="center"
-            android:text="8"
-            app:lineHeight="49sp" />
+            android:id="@+id/text_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/mulish_regular"
+            android:text="The Ultimate Cryptic Hunt Ends in"
+            android:visibility="invisible"
+            android:textColor="#F4C067"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heading"
+            app:lineHeight="33sp" />
+
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/cinzeldecorative_bold"
+            android:text="@string/enigma"
+            android:textColor="@color/light_yellow"
+            android:textSize="44dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/countdown_top" />
+
+        <ImageView
+            android:id="@+id/countdown_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_countdown_top" />
+
+        <ImageView
+            android:id="@+id/countdown_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_countdown_bottom" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_begin">
+
+                <TextView
+                    android:id="@+id/days1"
+                    style="@style/countdown"
+                    android:background="@drawable/countdown_background"
+                    android:fontFamily="@font/cinzel_bold"
+                    android:gravity="center"
+                    android:text="1" />
+
+
+                <TextView
+                    android:id="@+id/days2"
+                    style="@style/countdown"
+                    android:layout_marginLeft="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/countdown_background"
+                    android:fontFamily="@font/cinzel_bold"
+                    android:gravity="center"
+                    android:text="8"
+                    app:lineHeight="49sp" />
+
+
+                <TextView
+                    android:id="@+id/hours1"
+                    style="@style/countdown"
+                    android:layout_marginLeft="14dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/countdown_background"
+                    android:fontFamily="@font/cinzel_bold"
+                    android:gravity="center"
+                    android:text="2"
+                    app:lineHeight="49sp" />
+
+                <TextView
+                    android:id="@+id/hours2"
+                    style="@style/countdown"
+                    android:layout_marginLeft="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/countdown_background"
+                    android:fontFamily="@font/cinzel_bold"
+                    android:gravity="center"
+                    android:text="0"
+                    app:lineHeight="49sp" />
+
+                <TextView
+                    android:id="@+id/minutes1"
+                    style="@style/countdown"
+                    android:layout_marginLeft="14dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/countdown_background"
+                    android:fontFamily="@font/cinzel_bold"
+                    android:gravity="center"
+                    android:text="4"
+                    app:lineHeight="49sp" />
+
+
+                <TextView
+                    android:id="@+id/minutes2"
+                    style="@style/countdown"
+                    android:layout_marginLeft="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/countdown_background"
+                    android:fontFamily="@font/cinzel_bold"
+                    android:gravity="center"
+                    android:text="3"
+                    app:lineHeight="49sp" />
+
+        </LinearLayout>
 
 
         <TextView
-            android:id="@+id/hours1"
-            style="@style/countdown"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/countdown_background"
-            android:fontFamily="@font/cinzel_bold"
-            android:gravity="center"
-            android:text="2"
-            app:lineHeight="49sp" />
+            android:id="@+id/hours"
+            android:layout_width="26dp"
+            android:layout_height="6dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/mulish_regular"
+            android:text="Hours"
+            android:textAlignment="center"
+            android:textColor="@color/light_yellow"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/days"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
 
         <TextView
-            android:id="@+id/hours2"
-            style="@style/countdown"
-            android:layout_marginLeft="6dp"
-            android:layout_weight="1"
-            android:background="@drawable/countdown_background"
-            android:fontFamily="@font/cinzel_bold"
-            android:gravity="center"
-            android:text="0"
-            app:lineHeight="49sp" />
+            android:id="@+id/days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="36dp"
+            android:fontFamily="@font/mulish_regular"
+            android:text="@string/days"
+            android:textColor="@color/light_yellow"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
 
         <TextView
-            android:id="@+id/minutes1"
-            style="@style/countdown"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/countdown_background"
-            android:fontFamily="@font/cinzel_bold"
-            android:gravity="center"
-            android:text="4"
-            app:lineHeight="49sp" />
-
+            android:id="@+id/minutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="36dp"
+            android:fontFamily="@font/mulish_regular"
+            android:text="Minutes"
+            android:layout_marginEnd="50dp"
+            android:textColor="@color/light_yellow"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/hours"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
 
         <TextView
-            android:id="@+id/minutes2"
-            style="@style/countdown"
-            android:layout_marginLeft="6dp"
-            android:layout_weight="1"
-            android:background="@drawable/countdown_background"
-            android:fontFamily="@font/cinzel_bold"
-            android:gravity="center"
-            android:text="3"
-            app:lineHeight="49sp" />
-
-    </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/days"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="56dp"
-        android:fontFamily="@font/mulish_regular"
-        android:text="@string/days"
-        android:textColor="@color/light_yellow"
-        android:textSize="21sp"
-        app:layout_constraintEnd_toStartOf="@+id/hours"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout1"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
-
-    <TextView
-        android:id="@+id/hours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="56dp"
-        android:fontFamily="@font/mulish_regular"
-        android:text="Hours"
-        android:textAlignment="center"
-        android:textColor="@color/light_yellow"
-        android:textSize="21sp"
-        app:layout_constraintEnd_toStartOf="@+id/minutes"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
-
-    <TextView
-        android:id="@+id/minutes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:fontFamily="@font/mulish_regular"
-        android:text="Minutes"
-        android:textColor="@color/light_yellow"
-        android:textSize="21sp"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout1"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
-
-    <TextView
-        android:id="@+id/Demo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="70dp"
-        android:background="@drawable/countdown_button_background"
-        android:fontFamily="@font/mulish_regular"
-        android:paddingStart="20dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="10dp"
-        android:text="Demo Question"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/countdown_brown"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hours"
-        app:strokeColor="@color/enigmaColor" />
-
-    <TextView
-        android:id="@+id/playNow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="70dp"
-        android:background="@drawable/countdown_button_background"
-        android:fontFamily="@font/mulish_regular"
-        android:paddingStart="20dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="20dp"
-        android:text="Play now"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/countdown_brown"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hours"
-        app:strokeColor="@color/enigmaColor" />
+            android:id="@+id/Demo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="71dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="70dp"
+            android:background="@drawable/countdown_button_background"
+            android:fontFamily="@font/mulish_regular"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:text="Demo Question"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/countdown_brown"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hours"
+            app:strokeColor="@color/enigmaColor" />
+        <TextView
+            android:id="@+id/playNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="71dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="70dp"
+            android:background="@drawable/countdown_button_background"
+            android:fontFamily="@font/mulish_regular"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:text="Play now"
+            android:visibility="invisible"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/countdown_brown"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hours"
+            app:strokeColor="@color/enigmaColor" />
         <ImageView
             android:id="@+id/overlay"
             android:layout_width="match_parent"

@@ -8,7 +8,9 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:id="@+id/Leader_card"
-    android:background="@android:color/transparent"
+    card_view:cardBackgroundColor="#1E1E1E"
+    card_view:cardCornerRadius="0dp"
+    card_view:contentPadding="0dp"
     android:foreground="?selectableItemBackground"
     android:clickable="true">
 
@@ -21,13 +23,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="#1E1E1E"
             android:foregroundGravity="left">
 
             <TextView
                 android:id="@+id/rankval"
                 android:textColor="@color/light_yellow"
                 android:layout_width="60dp"
-                android:layout_marginStart="5dp"
                 android:layout_height="match_parent"
                 android:text="Rank"
                 android:textAlignment="center"
@@ -41,7 +43,6 @@
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:text="Username"
-                android:paddingLeft="2dp"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="15dp">
@@ -54,7 +55,6 @@
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:text="Solved"
-
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="15dp"
@@ -67,7 +67,6 @@
                 android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:text="Score"
-                android:layout_marginStart="-5dp"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="15dp"

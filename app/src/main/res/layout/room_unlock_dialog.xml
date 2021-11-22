@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/relative"
-        android:translationZ="70dp"
+        android:translationZ="50dp"
         app:srcCompat="@drawable/ic_close" />
 
 

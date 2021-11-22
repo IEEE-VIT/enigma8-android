@@ -136,23 +136,23 @@ class FeedbackActivity:AppCompatActivity() {
                 emailid = "Not a vit student"
             }
 
-            val feedbackRequest = FeedbackRequest(value,reg,emailid,rate,description,improve)
-            viewModel.sendFeedbackDetails("Bearer ${authCode.toString()}",feedbackRequest)
-            viewModel.FeedbackResponse.observe(this,{
-                if(it.success == true) {
-                    Toast.makeText(applicationContext,"Feedback Submitted",Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this,NotificationActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-                else if(!it.success) {
-                    Toast.makeText(applicationContext,"You Already Submitted the feedback",Toast.LENGTH_SHORT).show()
-                }
+               val feedbackRequest = FeedbackRequest(value,reg,emailid,rate,description,improve)
+                viewModel.sendFeedbackDetails("Bearer ${authCode.toString()}",feedbackRequest)
+                viewModel.FeedbackResponse.observe(this,{
+                    if(it.success == true) {
+                        Toast.makeText(applicationContext,"Feedback Submitted",Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this,NotificationActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                    else if(!it.success) {
+                        Toast.makeText(applicationContext,"You Already Submitted the feedback",Toast.LENGTH_SHORT).show()
+                    }
 
-                if(it!=null) {
-                    Log.e("Feedback","$it")
-                }
-            })
+                    if(it!=null) {
+                        Log.e("Feedback","$it")
+                    }
+                })
 
 
 

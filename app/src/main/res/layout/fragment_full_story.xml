@@ -7,13 +7,12 @@
     android:background="@drawable/story_bg">
 
 
-
     <ImageView
         android:id="@+id/character1_torch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_question_unlocked" />
@@ -22,14 +21,13 @@
         android:id="@+id/character1_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:textSize="22sp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="19dp"
         android:fontFamily="@font/cinzel_bold"
         android:text="JONES"
         android:textColor="@color/light_yellow"
         app:layout_constraintStart_toEndOf="@+id/character1_torch"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/character2_name"
@@ -37,7 +35,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:textSize="22sp"
         android:fontFamily="@font/cinzel_bold"
         android:text="ALI"
         android:textColor="@color/light_yellow"
@@ -50,7 +47,7 @@
         android:id="@+id/character2_torch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -65,7 +62,6 @@
         android:layout_height="0dp"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="5dp"
-        android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

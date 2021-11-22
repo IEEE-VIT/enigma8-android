@@ -147,7 +147,7 @@ class PrefManager(val context: Context) {
     }
 
 
-    //    fun setUserStatus(text: Boolean) {
+//    fun setUserStatus(text: Boolean) {
 //        editor.putBoolean(userNameExist, text)
 //        editor.apply()
 //    }
@@ -311,3 +311,4 @@ class PrefManager(val context: Context) {
     }
 
 }
+

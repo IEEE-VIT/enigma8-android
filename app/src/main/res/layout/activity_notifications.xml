@@ -147,7 +147,6 @@
             app:layout_constraintTop_toBottomOf="@+id/nothing_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ImageView
         android:id="@+id/overlay"
         android:layout_width="match_parent"
@@ -170,7 +169,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.516" />
-
 
 
 
