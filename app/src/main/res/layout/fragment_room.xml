@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/roombg">
+    android:background="@drawable/allrooms_final2">
 
     <TextView
         android:id="@+id/heading"
@@ -14,7 +14,7 @@
         android:fontFamily="@font/cinzel_bold"
         android:text="Rooms"
         android:textColor="@color/light_yellow"
-        android:textSize="30dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,21 +26,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:text=":"
+        android:paddingHorizontal="4dp"
         android:fontFamily="@font/mulish_regular"
+        android:text=":"
         android:textColor="@color/notification_time"
         android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/star_counter"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/star_counter"
-        android:layout_width="13dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="21dp"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/mulish_regular"
+        android:paddingHorizontal="5dp"
         android:text="2"
         android:textColor="@color/notification_time"
         android:textSize="25dp"
@@ -52,12 +53,8 @@
         android:layout_width="15dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
-
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.103"
         app:srcCompat="@drawable/ic_key" />
 
     <TextView
@@ -103,21 +100,21 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <!--    <ImageView-->
-<!--        android:id="@+id/imageView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="400dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@drawable/ic_room_left" />-->
+    <!--        android:id="@+id/imageView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="400dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:srcCompat="@drawable/ic_room_left" />-->
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView9"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="400dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:srcCompat="@drawable/ic_room_right" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView9"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="400dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:srcCompat="@drawable/ic_room_right" />-->
     <ImageView
         android:id="@+id/overlay"
         android:layout_width="match_parent"
@@ -140,4 +137,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.516" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

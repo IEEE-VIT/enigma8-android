@@ -30,14 +30,13 @@ import okhttp3.logging.*
 
 val  logging : HttpLoggingInterceptor =  HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
 
-
 val clientSetup = OkHttpClient.Builder().addInterceptor(logging) // read timeout
         .build()
 
 
 
 
-val retrofit: Retrofit = Retrofit.Builder()
+val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(Constants.BASE_URL)
         .client(clientSetup)

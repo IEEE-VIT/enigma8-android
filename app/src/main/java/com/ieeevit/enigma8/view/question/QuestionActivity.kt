@@ -162,13 +162,14 @@ class QuestionActivity: AppCompatActivity() {
                     hint_txt.text = "Hint: " + it.data.hint
                     hint_txt.setVisibility(View.VISIBLE)
                     hint_btn.setClickable(false)
+                    hint_btn.setImageResource(R.drawable.ic_hint_used)
                     dialog.dismiss()
                 }
                 Log.e("Hint", "$it")
             })
 
             view.findViewById<ImageView>(R.id.close).setOnClickListener {
-                    dialog.dismiss()
+                dialog.dismiss()
             }
 
         }
@@ -278,7 +279,7 @@ class QuestionActivity: AppCompatActivity() {
                         dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
                         dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
                         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
-                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points and a key!"
+                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points\nand a key!"
                         dialog.show()
                         view.findViewById<ImageView>(R.id.close).setOnClickListener {
                             Log.e("GetQuestion", "${sharedPreferences.getRoomid()}")
@@ -338,7 +339,7 @@ class QuestionActivity: AppCompatActivity() {
                         dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
                         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
                         dialog.show()
-                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points and a key!"
+                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points\nand a key!"
                         view.findViewById<Button>(R.id.continue_room).setOnClickListener {
                             viewModel.getQuestionDetails(sharedPreferences.getRoomid().toString(), "Bearer ${authToken}")
                             dialog.dismiss()
@@ -405,7 +406,7 @@ class QuestionActivity: AppCompatActivity() {
                         dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
                         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
                         dialog.show()
-                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points and a key!"
+                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points\nand a key!"
                         view.findViewById<Button>(R.id.continue_room).setOnClickListener {
                             viewModel.getQuestionDetails(sharedPreferences.getRoomid().toString(), "Bearer ${authToken}")
                             dialog.dismiss()
@@ -469,7 +470,7 @@ class QuestionActivity: AppCompatActivity() {
                         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
 
                         dialog.show()
-                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points and a key!"
+                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points\nand a key!"
                         view.findViewById<ImageView>(R.id.close).setOnClickListener {
                             Log.e("GetQuestion", "${sharedPreferences.getRoomid()}")
                             viewModel.getQuestionDetails(sharedPreferences.getRoomid().toString(), "Bearer ${authToken}")
@@ -526,7 +527,7 @@ class QuestionActivity: AppCompatActivity() {
                     lp.dimAmount = 0.0f
                     dialog.window!!.attributes = lp
                     dialog.show()
-                    view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points and a key!"
+                    view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points\nand a key!"
                     view.findViewById<Button>(R.id.continue_room).setVisibility(View.GONE)
                     view.findViewById<Button>(R.id.another_room).setOnClickListener {
                         val intent = Intent(this, RoomsActvity::class.java)

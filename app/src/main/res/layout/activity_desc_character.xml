@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/character_intro_bg">
+    android:background="@drawable/character_intro_bg"
+    tools:context=".view.story.CharacterActivity">
 
     <LinearLayout
         android:id="@+id/linear"
@@ -21,16 +22,17 @@
         <ImageView
             android:id="@+id/back_btn"
             android:layout_width="25dp"
-            android:layout_height="30dp"
+            android:layout_height="25dp"
             android:layout_marginStart="20dp"
+            android:visibility="invisible"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/ic_arrow_left" />
 
         <TextView
-
             android:id="@+id/tabHeading"
-            android:layout_width="wrap_content"
+            android:layout_width="140sp"
+            android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="80dp"
             android:layout_marginVertical="10dp"
@@ -40,11 +42,11 @@
             android:textSize="26dp" />
 
         <ImageView
-            android:id="@+id/instruction"
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
+            android:visibility="invisible"
             android:layout_marginBottom="10dp"
             android:baselineAligned="false"
             android:src="@drawable/ic_info" />
@@ -81,7 +83,7 @@
         android:fontFamily="@font/cinzel_bold"
         android:text="NAME"
         android:textColor="@color/light_yellow"
-        android:textSize="15sp"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,10 +96,11 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/character_into_card"
         android:gravity="center"
-        android:paddingHorizontal="12dp"
+        android:padding="23dp"
         android:text="hello_description"
         android:textColor="#0FA3B1"
-        android:textSize="18sp"
+        android:fontFamily="@font/mulish_regular"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,14 +112,12 @@
         android:layout_height="55dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#FFCA61"
-        android:bottomLeftRadius="20dp"
-        android:bottomRightRadius="20dp"
         android:text="Continue"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:cornerRadius="10dp"
+        app:cornerRadius="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

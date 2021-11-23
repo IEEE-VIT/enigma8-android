@@ -1,6 +1,7 @@
 package com.ieeevit.enigma8.adapter
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -84,6 +85,17 @@ class RoomsAdapter(var context: Context, var dataList: List<RoomsOuter>, val vie
         Log.e("flag", "${data}")
         val authCode: String? = sharedPreferences.getAuthCode()
         sharedPreferences.getPowerupSetStatus()
+//        for(item in dataList.indices) {
+//            if (dataList[item].unlock == false) {
+//
+//                viewModel.checkResponse.observe(viewLifecycleOwner, {
+//                    roomUnlock.text = "New room unlocks in ${it.data.starsNeeded}"
+//                    viewModel.getStarNeed(it.data.starsNeeded)
+//                })
+//                break
+//            }
+//        }
+
 
 
         holder.itemView.setOnClickListener {
@@ -92,10 +104,60 @@ class RoomsAdapter(var context: Context, var dataList: List<RoomsOuter>, val vie
             sharedPreferences.setRoomid(dataList[position].roomid)
             sharedPreferences.setPowerup(dataList[position].powerupUsed)
             Log.e("ID", "${sharedPreferences.getRoomid()}")
-        }
 
+
+
+//            viewModel.getRoomUnlockDetails(dataList[position].roomid, authToken)
+//            viewModel.checkResponse.observe(lifecycleOwner,{
+////                if(it.data.unlock==false) {
+
+////                }
+////                else if(it.data.unlock == true) {
+////
+////                }
+//
+//            })
+
+//                current = position
+//                holder.itemView.setClickable(false)
+//                val view = View.inflate(context, R.layout.room_unlock_dialog, null)
+//                val builder = AlertDialog.Builder(context)
+//                builder.setView(view)
+//                val dialog = builder.create()
+//                val lp = dialog.window!!.attributes
+//                lp.dimAmount = 0.0f
+//                dialog.window!!.attributes = lp
+//                dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+//                dialog.getWindow()!!.setBackgroundDrawable( ColorDrawable(Color.TRANSPARENT));
+//                dialog.show()
+//                viewModel.checkstarNeed.observe(lifecycleOwner,{
+//                    val new = dataList[position].starLeft
+//                    view.findViewById<TextView>(R.id.room_unlock).text = "You need $new more"
+//
+//                })
+//                view.findViewById<ImageView>(R.id.close).setOnClickListener {
+//                    dialog.dismiss()
+//                }
+
+
+//                setStar(current)
+            }
+//            else if(data.unlock == true) {
+//                val intent = Intent(holder.itemView.context, QuestionActivity::class.java)
+//                var context = holder.itemView.context
+//                context.startActivity(intent)
+//            }
+//            else if(dataList[position].questionList[0]=="solved" && dataList[position].questionList[1]=="solved" && dataList[position].questionList[2]=="solved") {
+
+
+//            }
+//            else {
+
+//
+//            }
         viewModel.checkResponse.observe(lifecycleOwner, {
             if (it.data.status == "complete") {
+
                 val view = View.inflate(context, R.layout.room_done_dialog, null)
                 val builder = AlertDialog.Builder(context)
                 builder.setView(view)
@@ -110,18 +172,21 @@ class RoomsAdapter(var context: Context, var dataList: List<RoomsOuter>, val vie
                     dialog.dismiss()
                 }
 
-            } else if (it.data.status == "canUnlock") {
+            }
+            else if (it.data.status == "canUnlock") {
                 val intent = Intent(holder.itemView.context, PowerupActivity::class.java)
                 var context = holder.itemView.context
                 context.startActivity(intent)
 //                (context as Activity).finish()
 
-            } else if (it.data.status == "unlocked") {
+            }
+            else if(it.data.status == "unlocked") {
                 val intent = Intent(holder.itemView.context, QuestionActivity::class.java)
                 var context = holder.itemView.context
                 context.startActivity(intent)
 
-            } else if (it.data.status == "locked") {
+            }
+            else if (it.data.status == "locked") {
                 val view = View.inflate(context, R.layout.room_unlock_dialog, null)
                 val builder = AlertDialog.Builder(context)
                 builder.setView(view)
@@ -133,9 +198,11 @@ class RoomsAdapter(var context: Context, var dataList: List<RoomsOuter>, val vie
                 dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
                 dialog.show()
                 view.findViewById<TextView>(R.id.room_unlock).text = "You need ${it.data.starsNeeded} more"
-                val close = view.findViewById<ImageView>(R.id.close)
 
-                close.setOnClickListener(View.OnClickListener { dialog.dismiss() })
+
+                view.findViewById<ImageView>(R.id.close).setOnClickListener {
+                    dialog.dismiss()
+                }
 
             } else if (it.data.status == "complete") {
 
@@ -150,11 +217,9 @@ class RoomsAdapter(var context: Context, var dataList: List<RoomsOuter>, val vie
                 dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
                 dialog.show()
 
-                val close = view.findViewById<ImageView>(R.id.close)
-                close.setOnClickListener {
+                view.findViewById<ImageView>(R.id.close).setOnClickListener {
                     dialog.dismiss()
                 }
-
 
             }
         })

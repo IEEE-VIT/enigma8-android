@@ -9,6 +9,8 @@
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".view.rooms.RoomsActvity">
+
+
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
@@ -24,19 +26,20 @@
         <ImageView
             android:id="@+id/notification"
             android:layout_width="25dp"
-            android:layout_height="30dp"
+            android:layout_height="25dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/ic_bell_notification" />
 
         <TextView
             android:id="@+id/tabHeading"
-            android:layout_width="120dp"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginHorizontal="85dp"
+            android:layout_marginHorizontal="70dp"
             android:fontFamily="@font/cinzeldecorative_bold"
+            android:gravity="center"
             android:text="ENIGMA"
             android:textColor="@color/light_yellow"
             android:textSize="26dp" />
@@ -44,16 +47,14 @@
         <ImageView
             android:id="@+id/instruction"
             android:layout_width="25dp"
-            android:layout_height="30dp"
+            android:layout_height="25dp"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="25dp"
             android:layout_marginBottom="10dp"
             android:baselineAligned="false"
-            android:src="@drawable/ic_info"/>
+            android:src="@drawable/ic_info" />
 
 
     </LinearLayout>
-
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentFLcontainer"
@@ -78,5 +79,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentFLcontainer" />
-
 </RelativeLayout>

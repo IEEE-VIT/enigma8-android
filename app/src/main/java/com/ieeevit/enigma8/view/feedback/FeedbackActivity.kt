@@ -3,6 +3,8 @@ package com.ieeevit.enigma8.view.feedback
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.os.Bundle
@@ -54,6 +56,12 @@ class FeedbackActivity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feedback)
+        val heading : TextView = findViewById<TextView>(R.id.feedback)
+        val text1 : TextView = findViewById<TextView>(R.id.feedback_text)
+        val shader1 : Shader = LinearGradient(0f, 0f,0f,heading.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.4f,0.6f),Shader.TileMode.REPEAT)
+        val shader2 : Shader= LinearGradient(0f, 0f,0f,text1.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_blue), this.getColor(R.color.dark_blue)), floatArrayOf(0.4f,0.6f),Shader.TileMode.REPEAT)
+        heading.paint.shader = shader1
+        text1.paint.shader = shader2
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val netInfo = cm.activeNetworkInfo
         if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){

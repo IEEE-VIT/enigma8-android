@@ -240,9 +240,15 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
     <style name="countdown" parent="Widget.AppCompat.TextView">
-        <item name="android:layout_width">50dp</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">45dp</item>
         <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/light_yellow</item>
+    </style>
+    <style name="leaderboard_countdown" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">17dp</item>
+        <item name="android:layout_height">17dp</item>
+        <item name="android:textSize">14dp</item>
         <item name="android:textColor">@color/light_yellow</item>
     </style>
 

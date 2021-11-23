@@ -44,4 +44,5 @@
     <color name ="dialogbackground">#DEDCDC</color>
     <color name ="powerupdialogbackground">#AFA9A9</color>
     <color name = "red">#FF0000</color>
+    <color name = "bottom_selected">#3A3A3A</color>
 </resources>

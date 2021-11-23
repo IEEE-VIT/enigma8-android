@@ -42,15 +42,20 @@ class InstructionActivity : AppCompatActivity() {
         val insname = findViewById<TextView>(R.id.instruction_name)
         val painthead = headtext.paint
         val shader1 : Shader = LinearGradient(0f, 0f,0f,headtext.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),
-                Shader.TileMode.REPEAT)
+            Shader.TileMode.REPEAT)
         painthead.shader = shader1
-        val shader2 : Shader = LinearGradient(0f, 0f,0f,insname.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),
-                Shader.TileMode.REPEAT)
+        val shader2 : Shader = LinearGradient(0f, 0f,0f,insname.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_blue), this.getColor(R.color.dark_blue)), floatArrayOf(0.3f,0.7f),
+            Shader.TileMode.REPEAT)
         insname.paint.shader = shader2
+
+        val tabhead = findViewById<TextView>(R.id.tabHeading)
+        val shader3 : Shader = LinearGradient(0f, 0f,0f,tabhead.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),
+            Shader.TileMode.REPEAT)
+        tabhead.paint.shader = shader3
 
         // making the status bar transparent
         window.decorView.systemUiVisibility =
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 
         val indicatorLayout = findViewById<IndicatorLayout>(R.id.indicatorLayout)
         back = findViewById(R.id.back_btn)
@@ -123,8 +128,8 @@ class InstructionActivity : AppCompatActivity() {
                 else {
                     instructionname.text = "LET'S PLAY!"
                     icon_instruction.setImageResource(R.drawable.lets_play)
-                    rightArrow.visibility = View.VISIBLE
-                    leftArrow.visibility = View.INVISIBLE
+                    rightArrow.visibility = View.INVISIBLE
+                    leftArrow.visibility = View.VISIBLE
                     nxtBtn.visibility = View.VISIBLE
 
 
@@ -145,8 +150,9 @@ class InstructionActivity : AppCompatActivity() {
         }
         leftArrow.setOnClickListener{
             val position = vpIntroSlider.currentItem
-            if (position < fragmentList.lastIndex) {
+            if (position <= fragmentList.lastIndex) {
                 vpIntroSlider.currentItem = position - 1
+                Log.e("lol","$position")
             }
         }
 

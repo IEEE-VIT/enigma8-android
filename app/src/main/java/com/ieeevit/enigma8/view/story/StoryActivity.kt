@@ -91,18 +91,18 @@ class StoryActivity:AppCompatActivity() {
             Shader.TileMode.REPEAT)
         jones.paint.shader = shader2
         ali.paint.shader = shader2
-        back = findViewById(R.id.back_btn)
-        instruction = findViewById(R.id.instruction)
-        back.setOnClickListener {
-            val intent = Intent(this, RoomsActvity::class.java)
-            startActivity(intent)
-            finish()
-        }
-        instruction.setOnClickListener {
-            val intent = Intent(this, InstructionActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        back = findViewById(R.id.back_btn)
+//        instruction = findViewById(R.id.instruction)
+//        back.setOnClickListener {
+//            val intent = Intent(this, RoomsActvity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
+//        instruction.setOnClickListener {
+//            val intent = Intent(this, InstructionActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
         Log.e("tag","${sharedPreferences.getRoomid()}")
         Log.e("auth","${sharedPreferences.getAuthCode()}")

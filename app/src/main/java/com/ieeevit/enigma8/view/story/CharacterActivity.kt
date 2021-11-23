@@ -3,6 +3,8 @@ package com.ieeevit.enigma8.view.story
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
@@ -22,10 +24,9 @@ import com.ieeevit.enigma8.model.Full_Story
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.view.instruction.InstructionActivity
 import com.ieeevit.enigma8.view.rooms.RoomsActvity
+
 import com.ieeevit.enigma8.viewModel.FullStoryViewModel
-
-
-
+import org.w3c.dom.Text
 
 
 class CharacterActivity : AppCompatActivity() {
@@ -39,7 +40,7 @@ class CharacterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_desc_character)
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val netInfo = cm.activeNetworkInfo
-        if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){
+        if (netInfo == null || !netInfo.isConnected || !netInfo.isAvailable) {
             val view = View.inflate(this, R.layout.connection_error, null)
             val builder = android.app.AlertDialog.Builder(this)
             builder.setView(view)
@@ -57,8 +58,12 @@ class CharacterActivity : AppCompatActivity() {
         }
         sharedPreferences = PrefManager(this)
 
-
         var count = 0
+
+        val tabhead = findViewById<TextView>(R.id.tabHeading)
+        val shader1 : Shader = LinearGradient(0f, 0f,0f,tabhead.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f,0.7f),
+            Shader.TileMode.REPEAT)
+        tabhead.paint.shader = shader1
 
         var viewModel: FullStoryViewModel = ViewModelProvider(this).get(FullStoryViewModel::class.java)
         var dataList: MutableList<Full_Story> = mutableListOf()
@@ -69,53 +74,56 @@ class CharacterActivity : AppCompatActivity() {
         var desc = findViewById<TextView>(R.id.charac_card)
 
         val sharedPreferences: PrefManager = PrefManager(this)
-        back = findViewById(R.id.back_btn)
-        instruction = findViewById(R.id.instruction)
-        blackScreen  = findViewById(R.id.overlay)
+
+//        back = findViewById(R.id.back_btn)
+//        instruction = findViewById(R.id.instruction)
+        blackScreen = findViewById(R.id.overlay)
         progress = findViewById(R.id.progressBar)
         blackScreen.visibility = View.VISIBLE
         progress.visibility = View.VISIBLE
         val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
         anim.duration = 1000
         progress.startAnimation(anim)
-        back.setOnClickListener {
-            val intent = Intent(this, RoomsActvity::class.java)
-            startActivity(intent)
-            finish()
-        }
-        instruction.setOnClickListener {
-            val intent = Intent(this, InstructionActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        back.setOnClickListener {
+//            val intent = Intent(this, RoomsActvity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
+//        instruction.setOnClickListener {
+//            val intent = Intent(this, InstructionActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
         viewModel.getFullStoryDetails(
             sharedPreferences.getRoomid().toString(),
             "Bearer $authToken"
         )
         viewModel.fullstoryResponse.observe(this, {
+
             progress.visibility = View.GONE
             blackScreen.visibility = View.GONE
+
             dataList.clear()
             if (it != null) {
                 for (item in it.data.story) {
-                    if (item.roomNo == 0 ) {
+                    if (item.roomNo == 0) {
 
-                        dataList.add(Full_Story(item.roomNo,item.sender, item.message))
+                        dataList.add(Full_Story(item.roomNo, item.sender, item.message))
                     }
                 }
 
-                Log.e("dataList","$dataList")
+                Log.e("dataList", "$dataList")
 
 
             }
 
             name.text = dataList[0].sender
             desc.text = dataList[0].message
-            Log.e("mssg","$dataList")
+            Log.e("mssg", "$dataList")
 
             conti.setOnClickListener {
-                if (count == dataList.size-1) {
+                if (count == dataList.size - 1) {
                     val intent = Intent(this, StoryActivity::class.java)
                     startActivity(intent)
                 }
@@ -128,12 +136,9 @@ class CharacterActivity : AppCompatActivity() {
 
             }
 
-                Log.e("StoryResponse", "$it")
+            Log.e("StoryResponse", "$it")
 
         })
 
-
     }
-
-
 }
