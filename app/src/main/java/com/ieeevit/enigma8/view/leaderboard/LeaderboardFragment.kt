@@ -254,27 +254,28 @@ class LeaderboardFragment : Fragment() {
 
 
 
-            leaderboardView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    Log.e("page 1", "$page $totalPage")
+        leaderboardView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                Log.e("page 1", "$page $totalPage")
 
 
-                    Log.e("page 2", "$page $totalPage")
-                    if (page < totalPage) {
-                        page++
+                Log.e("page 2", "$page $totalPage")
+                if (page < totalPage) {
+                    page++
 
 
-                        Log.e("page inside if", "$page $totalPage")
+                    Log.e("page inside if", "$page $totalPage")
 
-                        val visibleItemCount = leaderboardView.layoutManager?.childCount
-                        val pastVisibleItem = 1
+                    val visibleItemCount = leaderboardView.layoutManager?.childCount
+                    val pastVisibleItem = 1
 //                          LinearLayoutManager(context).findFirstVisibleItemPosition()
 //                    val total = adapter.itemCount
 
-                        if (!isLoading) {
-                            if (visibleItemCount != null) {
-                                if (page <= totalPage) {
+                    if (!isLoading) {
+                        if (visibleItemCount != null) {
+                            if (page <= totalPage) {
 //                                        page++
+
                                     isLoading = true
 
 
@@ -297,15 +298,14 @@ class LeaderboardFragment : Fragment() {
 //
                                     }, 500)
                                 }
-                            }
 
+                            }
                         }
 
-                        super.onScrolled(recyclerView, dx, dy)
                     }
 
+                    super.onScrolled(recyclerView, dx, dy)
                 }
-            })
 
             search.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
                 override fun onQueryTextSubmit(query: String?): Boolean {
@@ -355,19 +355,19 @@ class LeaderboardFragment : Fragment() {
 
 
 
-                    return false
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?) :Boolean{
+                if (newText == ""){
+
+
                 }
-
-                override fun onQueryTextChange(newText: String?) :Boolean{
-                    if (newText == ""){
-
-
-                    }
-                    return false
-                }
+                return false
+            }
 
 
-            })
+        })
             //        cancelIcon.setColorFilter(getResources().getColor(R.color.light_yellow))
 //        textView.setTextColor(
 //            getResources().getColor(R.color.light_yellow))
@@ -408,7 +408,7 @@ class LeaderboardFragment : Fragment() {
 
     private fun startTimer(timeDifference: Long) {
 
-        val countdownTimer = object : CountDownTimer(timeDifference, 60000 ) {
+        val countdownTimer = object : CountDownTimer(timeDifference, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 days1.text = ((millisUntilFinished / (24 * 60 * 60 * 1000))/10).toString()
                 days2.text = ((millisUntilFinished / (24 * 60 * 60 * 1000))%10).toString()
@@ -430,3 +430,10 @@ class LeaderboardFragment : Fragment() {
 
     }
 }
+
+    //-----------------------------------------------------------------------------
+
+
+
+
+

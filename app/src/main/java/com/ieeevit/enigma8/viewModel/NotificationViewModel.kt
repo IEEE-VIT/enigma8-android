@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ieeevit.enigma8.api_service.Api
-import com.ieeevit.enigma8.model.feedback.FeedbackStatus
 import com.ieeevit.enigma8.model.notification.NotificationResponse
 import retrofit2.Call
 import retrofit2.Response
@@ -15,9 +14,6 @@ class NotificationViewModel:ViewModel() {
     private val _notifiactionStatus  = MutableLiveData<NotificationResponse>()
     val notificationStatus: LiveData<NotificationResponse>
         get() = _notifiactionStatus
-    private val _feedbackStatus = MutableLiveData<FeedbackStatus>()
-    val feedbackStatus: LiveData<FeedbackStatus>
-        get() = _feedbackStatus
 
 
 

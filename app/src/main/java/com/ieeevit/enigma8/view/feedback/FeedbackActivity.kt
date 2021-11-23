@@ -1,6 +1,5 @@
 package com.ieeevit.enigma8.view.feedback
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.LinearGradient
@@ -11,11 +10,9 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
 import android.view.View
-import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.ieeevit.enigma8.ProgressBarAnimation
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.model.feedback.FeedbackRequest
 import com.ieeevit.enigma8.utils.PrefManager
@@ -50,8 +47,6 @@ class FeedbackActivity:AppCompatActivity() {
     var improve:String=""
     private lateinit var back: ImageView
     private lateinit var instruction: ImageView
-    private lateinit var progress:ProgressBar
-    private lateinit var blackScreen:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,21 +84,31 @@ class FeedbackActivity:AppCompatActivity() {
         two = findViewById(R.id.two)
         three = findViewById(R.id.three)
         four = findViewById(R.id.four)
-        blackScreen = findViewById(R.id.overlay)
-        progress = findViewById(R.id.progressBar)
         five = findViewById(R.id.five)
         layout = findViewById(R.id.yes_layout)
         reg_no = findViewById(R.id.reg_no)
         mail_id = findViewById(R.id.mail_id)
         desc = findViewById(R.id.desc)
         suggestion = findViewById(R.id.suggestion)
+        mail_id.setOnClickListener {
+            emailid = mail_id.text.toString().trim()
+        }
+        desc.setOnClickListener {
+            description = desc.text.toString().trim()
+        }
+        suggestion.setOnClickListener {
+            improve = suggestion.text.toString().trim()
+        }
+        reg_no.setOnClickListener {
+            reg = reg_no.text.toString().trim()
+        }
         yes.setOnClickListener {
             layout.visibility = View.VISIBLE
-            value = true
+            value = yes.isChecked
         }
         no.setOnClickListener {
             layout.visibility = View.GONE
-            value = false
+            value = no.isChecked
         }
         one.setOnClickListener {
             rate = 1
@@ -132,7 +137,6 @@ class FeedbackActivity:AppCompatActivity() {
         }
 
         val authCode: String? = sharedPreferences.getAuthCode()
-
         submit_btn.setOnClickListener {
             emailid = mail_id.text.toString().trim()
             description = desc.text.toString().trim()

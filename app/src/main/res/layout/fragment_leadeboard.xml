@@ -108,7 +108,6 @@
 
     </LinearLayout>
 
-
     <TextView
         android:id="@+id/head_leaderboard"
         android:layout_width="190dp"
@@ -382,10 +381,67 @@
         android:background="@color/background"
         android:layout_height="match_parent"/>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Leaderboard_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:indeterminateTint="@color/light_yellow"
+                tools:layout_editor_absoluteX="18dp"
+                tools:layout_editor_absoluteY="113dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView8"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="50dp"-->
+<!--        android:src="@drawable/line_10"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/scrollView2"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/scrollView2"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cardView" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView10"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="200dp"-->
+<!--        android:src="@drawable/line_10"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/scrollView2"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/scrollView2"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cardView" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView11"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="265dp"-->
+<!--        android:src="@drawable/line_10"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/scrollView2"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/scrollView2"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cardView" />-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/UserRankView"
         android:layout_width="match_parent"
+
         android:layout_height="30dp"
         android:translationZ="40dp"
         android:layout_marginHorizontal="40dp"
@@ -394,10 +450,102 @@
         android:progressDrawable="@drawable/ic_progress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/leaderboard_usercard_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/user_rankvar"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Rank"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/light_yellow"
+                android:textSize="16sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/user_namevar"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Username"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/light_yellow"
+                android:textSize="16sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/user_solvedvar"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Solved"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/light_yellow"
+                android:textSize="16sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/user_scorevar"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Score"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/light_yellow"
+                android:textSize="16sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/user_Search"
+        android:layout_width="232dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/result_drawable"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:iconifiedByDefault="false"
+        app:searchHintIcon="@null"
+        app:searchIcon="@drawable/search_icon"
+        app:closeIcon="@drawable/ic_seacrh_closebtn"
+        android:theme="@style/AppSearchView"
+        app:defaultQueryHint=" "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintTop_toBottomOf="@+id/head_leaderboard" >
+
+    </androidx.appcompat.widget.SearchView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

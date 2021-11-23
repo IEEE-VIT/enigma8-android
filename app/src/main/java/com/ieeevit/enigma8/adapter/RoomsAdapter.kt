@@ -205,6 +205,7 @@ class RoomsAdapter(var context: Context, var dataList: List<RoomsOuter>, val vie
                 }
 
             } else if (it.data.status == "complete") {
+                holder.itemView.setClickable(false)
 
                 val view = View.inflate(context, R.layout.room_done_dialog, null)
                 val builder = AlertDialog.Builder(context)

@@ -10,14 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.ieeevit.enigma8.MainActivity
-import com.ieeevit.enigma8.ProgressBarAnimation
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.model.question.QustionStatus
 import com.ieeevit.enigma8.utils.PrefManager
@@ -34,8 +32,6 @@ class Profdashboard : Fragment() {
     private lateinit var ranktxt:TextView
     private lateinit var policy:ImageView
     private lateinit var mGoogleSignInClient: GoogleSignInClient
-    private lateinit var progress: ProgressBar
-    private lateinit var blackScreen:ImageView
 
 
     private val viewModel: ProfileViewModel by lazy {
@@ -56,13 +52,6 @@ class Profdashboard : Fragment() {
         val authToken = sharedPreferences.getAuthCode()
         val journeydataList : MutableList<QustionStatus> = sharedPreferences.getJourneyList()
         Log.e("Token","Bearer $authToken")
-        blackScreen  = root.findViewById(R.id.overlay)
-        progress = root.findViewById(R.id.progressBar)
-        blackScreen.visibility = View.VISIBLE
-        progress.visibility = View.VISIBLE
-        val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
-        anim.duration = 1000
-        progress.startAnimation(anim)
         val privacy_policy = root.findViewById<ImageView>(R.id.privacy_policy)
 
 

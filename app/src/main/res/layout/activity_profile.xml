@@ -64,55 +64,52 @@
         android:id="@+id/illustration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_profile_illustration" />
 
-
     <TextView
         android:id="@+id/setup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/cinzel_bold"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/cinzeldecorative_bold"
         android:text="SETUP YOUR PROFILE"
         android:textAlignment="center"
+        android:layout_marginStart="10dp"
         android:textColor="@color/light_yellow"
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/illustration" />
+
 
     <RelativeLayout
         android:id="@+id/relative"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setup">
-
         <EditText
             android:id="@+id/username"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginStart="32dp"
-            android:onClick="TextFieldClicked"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="32dp"
-            android:background="@drawable/ic_dropdown_rectangle"
-            android:fontFamily="@font/mulish_regular"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/result_drawable"
             android:paddingLeft="10dp"
-            android:textColor="@color/light_yellow" />
-
-
+            android:textColorHint="@color/light_yellow"
+            android:fontFamily="@font/mulish_regular"/>
         <TextView
             android:id="@+id/enter_username"
             android:layout_width="wrap_content"
@@ -120,6 +117,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="7dp"
             android:textStyle="bold"
+            android:visibility="invisible"
             android:textSize="15dp"
             android:textColor="@color/light_yellow"
             android:fontFamily="@font/mulish_regular"
@@ -226,7 +224,6 @@
 
 <!--    </RelativeLayout>-->
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
@@ -234,9 +231,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/ic_dropdown_rectangle"
         app:endIconMode="dropdown_menu"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_dropdown_rectangle"
         app:endIconTint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -260,6 +257,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <TextView
         android:id="@+id/notAvailable"
         android:layout_width="wrap_content"
@@ -277,8 +275,9 @@
         android:id="@+id/how_did_you"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/mulish_regular"
         android:gravity="top"
@@ -287,9 +286,8 @@
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relative" />
+        app:layout_constraintTop_toBottomOf="@+id/minimum_characters" />
 
     <TextView
         android:id="@+id/minimum_characters"
@@ -301,7 +299,7 @@
         android:text="*Minimum 8 characters"
         android:textColor="@color/notification_time"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/relative" />
+        app:layout_constraintTop_toBottomOf="@+id/relative" />
 
 
 

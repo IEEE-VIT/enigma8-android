@@ -72,7 +72,10 @@ class NotificationActivity:AppCompatActivity() {
 
         viewModel.getNotificationDetails("Bearer ${authCode.toString()}")
         viewModel.notificationStatus.observe(this,{
+<<<<<<< HEAD
             dataList.clear()
+=======
+>>>>>>> fc488030911fd9105d165b005cd7411d912e08db
             if(it!=null) {
                 Log.e("NotificationRespobsne","$it")
                 for(item in it.data.notifs) {
@@ -109,7 +112,7 @@ class NotificationActivity:AppCompatActivity() {
                     come.visibility = View.INVISIBLE
                 }
                 else {
-                    adapter = NotificationAdapter(this, dataList,viewModel,authCode)
+                    adapter = NotificationAdapter(this, dataList)
                     notificationView.layoutManager = LinearLayoutManager(this)
                     notificationView.adapter = adapter
                     adapter.notifyDataSetChanged()

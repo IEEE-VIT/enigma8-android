@@ -9,7 +9,6 @@ import com.ieeevit.enigma8.model.fcm.FcmRequest
 import com.ieeevit.enigma8.model.fcm.FcmResponse
 import com.ieeevit.enigma8.model.feedback.Feedback
 import com.ieeevit.enigma8.model.feedback.FeedbackRequest
-import com.ieeevit.enigma8.model.feedback.FeedbackStatus
 import com.ieeevit.enigma8.model.notification.NotificationResponse
 import com.ieeevit.enigma8.model.powerup.PowerUpResponse
 import com.ieeevit.enigma8.model.powerup.PowerupRequest
@@ -53,8 +52,6 @@ interface ApiClient {
 //    fun logOut(@Header("Authorization") authToken: String): Call<LogoutResponse>
     @GET(Constants.TIMER_URL)
     fun getEnigmaStatus(@Header("Authorization") authToken: String): Call<StatusResponse>
-    @GET(Constants.Feedback_Filled_URL)
-    fun getFeedbackStatus(@Header("Authorization") authToken: String): Call<FeedbackStatus>
 
     @POST(Constants.USER_URL)
     fun sendUserDetails(@Header("Authorization") authToken: String,@Body userRequest: UserRequest) : Call<User>

@@ -1,6 +1,5 @@
 package com.ieeevit.enigma8.view.story
 
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.LinearGradient
@@ -8,36 +7,26 @@ import android.graphics.Shader
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.view.WindowManager
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import com.ieeevit.enigma8.ProgressBarAnimation
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.model.Full_Story
 import com.ieeevit.enigma8.utils.PrefManager
-import com.ieeevit.enigma8.view.instruction.InstructionActivity
-import com.ieeevit.enigma8.view.rooms.RoomsActvity
-
 import com.ieeevit.enigma8.viewModel.FullStoryViewModel
 import org.w3c.dom.Text
 
 
 class CharacterActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: PrefManager
-    private lateinit var back: ImageView
-    private lateinit var instruction: ImageView
-    private lateinit var progress: ProgressBar
-    private lateinit var blackScreen:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_desc_character)
+
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val netInfo = cm.activeNetworkInfo
         if (netInfo == null || !netInfo.isConnected || !netInfo.isAvailable) {
