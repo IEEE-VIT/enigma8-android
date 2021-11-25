@@ -20,7 +20,7 @@
         <ImageView
             android:id="@+id/back_btn"
             android:layout_width="25dp"
-            android:layout_height="30dp"
+            android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
@@ -41,6 +41,7 @@
             android:id="@+id/instruction"
             android:layout_width="25dp"
             android:layout_height="30dp"
+            android:visibility="invisible"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
@@ -63,15 +64,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/mummy"-->
-<!--        android:layout_width="291dp"-->
-<!--        android:layout_height="326dp"-->
-<!--        android:layout_marginStart="48dp"-->
-<!--        android:layout_marginTop="96dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/heading_notification"-->
-<!--        app:srcCompat="@drawable/mummy" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/mummy"-->
+    <!--        android:layout_width="291dp"-->
+    <!--        android:layout_height="326dp"-->
+    <!--        android:layout_marginStart="48dp"-->
+    <!--        android:layout_marginTop="96dp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/heading_notification"-->
+    <!--        app:srcCompat="@drawable/mummy" />-->
 
     <TextView
         android:id="@+id/notification"
@@ -121,6 +122,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.516" />
+
 
 
 

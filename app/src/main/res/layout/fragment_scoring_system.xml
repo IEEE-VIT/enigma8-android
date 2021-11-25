@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:background="@android:color/transparent">
 
 
     <ImageView
         android:id="@+id/point1"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point1"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -24,7 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
+        android:fontFamily="@font/mulish_regular"
         android:text="Upon solving a question, a player shall receive\na particular amount of points relative to the\ncompetition the earlier you solve a question,\nthe higher your score will be."
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.227"
         app:layout_constraintStart_toEndOf="@+id/point1"
@@ -32,12 +33,11 @@
 
     <ImageView
         android:id="@+id/point2"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="62dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/point1"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point2"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -45,21 +45,21 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="19dp"
         android:text="These points determine your position\n on the leaderboard."
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintHorizontal_bias="0.148"
         app:layout_constraintStart_toEndOf="@+id/point2"
         app:layout_constraintTop_toBottomOf="@+id/instruction_point1" />
 
     <ImageView
         android:id="@+id/point3"
-        android:layout_width="32dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="42dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/point2"
+        app:layout_constraintTop_toTopOf="@+id/instruction_point3"
         app:srcCompat="@drawable/ic_point_new" />
 
     <TextView
@@ -67,10 +67,11 @@
         style="@style/Instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:text="Upon using a hint, X points will be deducted\nfrom the score earned on solving that\nparticular question."
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toEndOf="@+id/point3"
         app:layout_constraintTop_toBottomOf="@+id/instruction_point2" />
 

@@ -7,7 +7,7 @@
     android:focusableInTouchMode="true"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/background">
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,42 +15,35 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/back_btn"
             android:layout_width="25dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
             android:visibility="invisible"
-            android:src="@drawable/ic_bell_notification" />
+            android:layout_margin="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_arrow_left" />
 
-        <TextView
+        <ImageView
             android:id="@+id/tabHeading"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/cinzeldecorative_bold"
-            android:text="ENIGMA"
-            android:layout_marginHorizontal="80dp"
-            android:textColor="@color/light_yellow"
-            android:textSize="26dp" />
+            android:layout_width="110dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_enigma"/>
 
         <ImageView
+            android:id="@+id/instruction"
             android:layout_width="25dp"
             android:layout_height="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
             android:visibility="invisible"
-            android:layout_marginBottom="10dp"
-            android:baselineAligned="false"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
             android:src="@drawable/ic_info"/>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/background"
@@ -129,107 +122,9 @@
 
 
 
-
-
-
-
-    <!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:id="@+id/textInputLayout"-->
-<!--        style="@style/mySpinnerItemStyle"-->
-<!--        android:layout_width="310dp"-->
-<!--        app:boxBackgroundMode="filled"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginStart="32dp"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:layout_marginEnd="32dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/how_did_you">-->
-
-<!--        <AutoCompleteTextView-->
-<!--            android:id="@+id/option"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@android:color/transparent"-->
-<!--            android:text="-Select-"-->
-<!--            android:inputType="none"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textAlignment="gravity"-->
-<!--            tools:ignore="HardcodedText" />-->
-
-<!--    </com.google.android.material.textfield.TextInputLayout>-->
-<!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:id="@+id/textInputLayout"-->
-<!--        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="32dp"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:layout_marginEnd="32dp"-->
-<!--        android:background="#00000000"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/how_did_you">-->
-
-<!--        <AutoCompleteTextView-->
-<!--            android:id="@+id/option"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="#00000000"-->
-<!--            android:inputType="none"-->
-<!--            android:text="Social Media"-->
-<!--            android:textAlignment="gravity"-->
-<!--            tools:ignore="HardcodedText" />-->
-
-<!--    </com.google.android.material.textfield.TextInputLayout>-->
-
-
-<!--    <RelativeLayout-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginStart="40dp"-->
-<!--        android:layout_marginTop="56dp"-->
-<!--        android:layout_marginEnd="40dp"-->
-<!--        android:layout_weight=".28"-->
-<!--        android:background="@drawable/ic_dropdown_rectangle"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/how_did_you">-->
-
-<!--        <Spinner-->
-<!--            android:id="@+id/spinner2"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_centerVertical="true"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginLeft="5dp"-->
-<!--            android:background="@android:color/transparent"-->
-<!--            android:gravity="center"-->
-<!--            android:spinnerMode="dropdown" />-->
-
-
-
-<!--        <TextView-->
-<!--            android:id="@+id/option"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:textSize="15dp"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:layout_marginBottom="5dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:text="-Select-"/>-->
-
-
-<!--    </RelativeLayout>-->
-
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -245,20 +140,44 @@
         app:layout_constraintTop_toBottomOf="@+id/how_did_you"
         app:layout_constraintVertical_bias="0.0">
 
-                        <AutoCompleteTextView
-                            android:id="@+id/option"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:dropDownHeight="200dp"
-                            android:background="@drawable/dropdown_back"
-                            android:backgroundTint="@android:color/transparent"
-                            android:inputType="none"
-                            android:padding="10dp"
-                            android:text="-Select-"
-                            android:textColor="@color/white"
-                            tools:ignore="HardcodedText" />
-
+        <AutoCompleteTextView
+            android:id="@+id/option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/spinnerItemStyle"
+            android:backgroundTint="@android:color/transparent"
+            android:inputType="none"
+            android:padding="10dp"
+            android:text="-Select-"
+            android:textColor="@color/white"
+            tools:ignore="HardcodedText" />
     </com.google.android.material.textfield.TextInputLayout>
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/dropdownAutoCompleteTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingBottom="8dp"-->
+<!--        android:paddingTop="8dp">-->
+
+<!--    </RelativeLayout>-->
+
+<!--    <Spinner-->
+<!--        android:id="@+id/textInputLayout"-->
+
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:background="@drawable/ic_dropdown_rectangle"-->
+<!--        app:endIconMode="dropdown_menu"-->
+<!--        app:endIconTint="@color/white"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/submit"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/how_did_you"-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
 
     <TextView
         android:id="@+id/notAvailable"
@@ -323,18 +242,36 @@
         android:id="@+id/submit"
         android:layout_width="150dp"
         android:layout_height="55dp"
-        android:layout_marginStart="120dp"
         android:layout_marginBottom="32dp"
         android:backgroundTint="#0FA3B1"
         android:fontFamily="@font/mulish_regular"
         android:text="Submit"
         android:textAllCaps="false"
+
         android:textColor="@color/black"
+        android:gravity="center"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+<!--    <AutoCompleteTextView-->
+<!--        android:id="@+id/autoTextViewState"-->
+<!--        android:layout_width="144dp"-->
+<!--        android:layout_height="34dp"-->
+<!--        android:dropDownAnchor="@+id/dropdownAutoCompleteTextView"-->
+<!--        android:dropDownHeight="200dp"-->
+<!--        android:hint="Colorado"-->
+<!--        android:imeOptions="actionNext"-->
+<!--        android:inputType="textEmailAddress|textCapWords"-->
+<!--        android:maxLength="15"-->
+<!--        android:nextFocusDown="@+id/editZipCode"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/submit"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.475"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/how_did_you" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

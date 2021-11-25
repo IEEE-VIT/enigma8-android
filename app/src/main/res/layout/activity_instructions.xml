@@ -5,59 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black">
-
     <ImageView
         android:id="@+id/instructions_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/instructions_background" />
+        android:layout_marginTop="40dp"
+        android:src="@drawable/instructionsbg"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-    <LinearLayout
+
+    <RelativeLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:background="@drawable/toolbar_background"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent">
+
 
         <ImageView
             android:id="@+id/back_btn"
             android:layout_width="25dp"
+            android:layout_margin="10dp"
+            android:layout_alignParentStart="true"
             android:layout_height="30dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="10dp"
+            android:visibility="invisible"
             android:src="@drawable/ic_arrow_left" />
 
-        <TextView
+        <ImageView
             android:id="@+id/tabHeading"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="85dp"
-            android:fontFamily="@font/cinzeldecorative_bold"
-            android:text="ENIGMA"
-            android:textColor="@color/light_yellow"
-            android:textSize="26dp" />
+            android:layout_width="110dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_enigma"/>
 
         <ImageView
             android:id="@+id/instruction"
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:visibility="invisible"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="10dp"
-            android:baselineAligned="false"
-            android:src="@drawable/ic_info" />
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_info"/>
 
 
-    </LinearLayout>
-
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/heading_instructions"
@@ -76,10 +70,7 @@
         android:id="@+id/arrow_left"
         android:layout_width="26dp"
         android:layout_height="21dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="3dp"
-        app:layout_constraintBottom_toTopOf="@+id/vpIntroSlider"
+        app:layout_constraintBottom_toTopOf="@id/scrollView"
         app:layout_constraintEnd_toStartOf="@+id/instruction_name"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_arrow_left" />
@@ -88,10 +79,7 @@
         android:id="@+id/arrow_right"
         android:layout_width="26dp"
         android:layout_height="21dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="3dp"
-        app:layout_constraintBottom_toTopOf="@+id/vpIntroSlider"
+        app:layout_constraintBottom_toTopOf="@id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/instruction_name"
         app:srcCompat="@drawable/ic_arrow_right" />
@@ -100,45 +88,56 @@
         android:id="@+id/instruction_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/cinzel_bold"
+        android:gravity="center"
         android:text="GAME MECHANICS"
+        android:textAlignment="center"
         android:textColor="@color/light_blue"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toStartOf="@+id/arrow_right"
-
-        app:layout_constraintHorizontal_bias="0.536"
-        app:layout_constraintStart_toEndOf="@+id/arrow_left"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_instruction" />
 
     <ImageView
         android:id="@+id/icon_instruction"
         android:layout_width="72dp"
         android:layout_height="66dp"
-        android:layout_marginStart="148dp"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heading_instructions"
         app:srcCompat="@drawable/game_mechanics" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vpIntroSlider"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@+id/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instruction_name"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/instruction_name">
 
-    </androidx.viewpager2.widget.ViewPager2>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vpIntroSlider"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instruction_name"
+            app:layout_constraintVertical_bias="0.0">
+
+        </androidx.viewpager2.widget.ViewPager2>
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
         android:backgroundTint="#0FA3B1"
         android:fontFamily="@font/mulish_regular"
         android:text="Next"
@@ -149,7 +148,6 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.ieeevit.enigma8.view.IndicatorLayout
@@ -165,5 +163,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vpIntroSlider" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

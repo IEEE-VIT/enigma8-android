@@ -1,6 +1,5 @@
 package com.ieeevit.enigma8.view.notification
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -13,21 +12,19 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ieeevit.enigma8.ProgressBarAnimation
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.adapter.NotificationAdapter
 import com.ieeevit.enigma8.model.notification.Notification
 import com.ieeevit.enigma8.utils.PrefManager
-import com.ieeevit.enigma8.view.feedback.FeedbackActivity
 import com.ieeevit.enigma8.view.instruction.InstructionActivity
 import com.ieeevit.enigma8.view.rooms.RoomsActvity
 import com.ieeevit.enigma8.viewModel.NotificationViewModel
@@ -48,15 +45,12 @@ class NotificationActivity:AppCompatActivity() {
     private lateinit var tabHeading:TextView
     private lateinit var back: ImageView
     private lateinit var instruction: ImageView
-    private lateinit var progress: ProgressBar
-    private lateinit var blackScreen:ImageView
 
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notifications)
-        val heading : TextView = findViewById(R.id.heading_notification)
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val netInfo = cm.activeNetworkInfo
         if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){
@@ -70,18 +64,17 @@ class NotificationActivity:AppCompatActivity() {
             dialog.window!!.attributes = lp
             dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.show()
+            dialog.setCancelable(false)
+            dialog.setCanceledOnTouchOutside(false)
             view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
                 recreate()
 
             })
         }
-        tabHeading = findViewById(R.id.tabHeading)
+        val heading : TextView = findViewById(R.id.heading_notification)
 //        text1 = findViewById(R.id.nothing_text)
         val shader1 : Shader= LinearGradient(0f, 0f,0f,heading.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.4f,0.6f), Shader.TileMode.REPEAT)
         heading.paint.shader = shader1
-        val shader2 : Shader = LinearGradient(0f, 0f, 0f,tabHeading.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.4f, 0.6f), Shader.TileMode.REPEAT)
-//        text1.paint.shader = shader1
-        tabHeading.paint.shader = shader2
         viewModel = ViewModelProvider(this).get(NotificationViewModel::class.java)
         sharedPreference = PrefManager(this)
         come = findViewById(R.id.notificationCome)
@@ -90,29 +83,18 @@ class NotificationActivity:AppCompatActivity() {
         val authCode: String? = sharedPreference.getAuthCode()
         back = findViewById(R.id.back_btn)
         instruction = findViewById(R.id.instruction)
-        blackScreen = findViewById(R.id.overlay)
-        progress = findViewById(R.id.progressBar)
-        blackScreen.visibility = View.VISIBLE
-        progress.visibility = View.VISIBLE
-        val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
-        anim.duration = 1000
-        progress.startAnimation(anim)
         back.setOnClickListener {
             val intent = Intent(this, RoomsActvity::class.java)
             startActivity(intent)
-            finish()
         }
         instruction.setOnClickListener {
             val intent = Intent(this, InstructionActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
         viewModel.getNotificationDetails("Bearer ${authCode.toString()}")
         viewModel.notificationStatus.observe(this,{
             dataList.clear()
-            progress.visibility = View.GONE
-            blackScreen.visibility = View.GONE
             if(it!=null) {
                 Log.e("NotificationRespobsne","$it")
                 for(item in it.data.notifs) {
@@ -162,9 +144,6 @@ class NotificationActivity:AppCompatActivity() {
 
         })
 
-
-
     }
-
 
 }

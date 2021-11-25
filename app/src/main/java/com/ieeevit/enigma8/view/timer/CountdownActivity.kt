@@ -1,12 +1,17 @@
 package com.ieeevit.enigma8.view.timer
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Shader
+import android.graphics.drawable.ColorDrawable
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -52,12 +57,33 @@ class   CountdownActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_countdown)
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = cm.activeNetworkInfo
+        if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){
+            val view = View.inflate(this, R.layout.connection_error, null)
+            val builder = android.app.AlertDialog.Builder(this)
+            builder.setView(view)
+            val dialog = builder.create()
+            val lp = dialog.window!!.attributes
+            lp.dimAmount = 0.0f
+            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+            dialog.window!!.attributes = lp
+            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+            dialog.show()
+            dialog.setCancelable(false)
+            dialog.setCanceledOnTouchOutside(false)
+            view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
+                recreate()
+
+            })
+        }
         sharedPreference = PrefManager(this)
         val authToken = sharedPreference.getAuthCode()
         viewModel = ViewModelProvider(this).get(CountdownViewModel::class.java)
         demo = findViewById(R.id.Demo)
         heading = findViewById(R.id.heading)
         days1 = findViewById(R.id.days1)
+
         hours1 = findViewById(R.id.hours1)
         minutes1 = findViewById(R.id.minutes1)
         days2 = findViewById(R.id.days2)
@@ -113,6 +139,7 @@ class   CountdownActivity : AppCompatActivity() {
                 if (it.data.date > 0 && it.data.enigmaStarted == false) {
                     play.visibility = View.INVISIBLE
                     demo.visibility = View.VISIBLE
+                    text.text = "The Ultimate Cryptic Hunt Begins in"
                     sharedPreference.setEnigmaStatus(it.data.enigmaStarted)
                     currentTime = currentCalendar.timeInMillis
                     eventStartTime = currentTime + (it.data.date) * 1000.toLong()
@@ -128,6 +155,7 @@ class   CountdownActivity : AppCompatActivity() {
                     demo.visibility = View.INVISIBLE
                     currentTime = currentCalendar.timeInMillis
                     eventStartTime = currentTime + (it.data.date) * 1000.toLong()
+                    text.text = "The Ultimate Cryptic Hunt Ends in"
 
                     Log.e("eventstart", eventStartTime.toString())
                     Log.e("current", currentTime.toString())
@@ -172,7 +200,7 @@ class   CountdownActivity : AppCompatActivity() {
 //        })
 
 
-        }
+    }
     private fun init() {
 
         currentCalendar = Calendar.getInstance(TimeZone.getDefault())
@@ -208,6 +236,3 @@ class   CountdownActivity : AppCompatActivity() {
 
 
 }
-
-
-

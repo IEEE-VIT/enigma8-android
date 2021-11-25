@@ -14,10 +14,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -27,6 +26,9 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.view.profile.ProfileActivity
 import com.ieeevit.enigma8.view.rooms.RoomsActvity
+import com.ieeevit.enigma8.view.timer.CountdownActivity
+import com.ieeevit.enigma8.viewModel.CountdownViewModel
+import com.ieeevit.enigma8.viewModel.ProfileViewModel
 import com.ieeevit.enigma8.viewModel.SignUpViewModel
 
 
@@ -35,8 +37,14 @@ class MainActivity :AppCompatActivity() {
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private val RC_SIGN_IN = 0
     private lateinit var sharedPreference: PrefManager
-    private lateinit var g_button: Button
+    private lateinit var g_button: ConstraintLayout
+    private lateinit var s_button: Button
     private lateinit var viewModel: SignUpViewModel
+    private lateinit var text_change:TextView
+
+    private lateinit var pViewModel:ProfileViewModel
+    private lateinit var cViewModel: CountdownViewModel
+    private lateinit var icon:ImageView
 
 
 
@@ -47,6 +55,7 @@ class MainActivity :AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val netInfo = cm.activeNetworkInfo
+        cViewModel = ViewModelProvider(this).get(CountdownViewModel::class.java)
         if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){
             val view = View.inflate(this, R.layout.connection_error, null)
             val builder = AlertDialog.Builder(this)
@@ -64,7 +73,9 @@ class MainActivity :AppCompatActivity() {
         })
         }
         g_button = findViewById(R.id.google)
+        icon =findViewById(R.id.icon_google)
         sharedPreference = PrefManager(this)
+
         FirebaseApp.initializeApp(applicationContext)
 
         val text1 : TextView = findViewById(R.id.heading)
@@ -73,11 +84,17 @@ class MainActivity :AppCompatActivity() {
         val paint1 = text1.paint
         val shader1 : Shader = LinearGradient(0f, 0f, 0f, text1.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.3f, 0.7f), Shader.TileMode.REPEAT)
         paint1.shader = shader1
+        text_change = findViewById(R.id.text_change)
 
 
 
         viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
+        pViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         mGoogleSignInClient = GoogleSignIn.getClient(this, viewModel.gso)
+        if(sharedPreference.getCount() == 1) {
+            text_change.text = "Start The Cryptic Hunt"
+            icon.visibility = View.GONE
+        }
 
 
         g_button.setOnClickListener {
@@ -87,17 +104,27 @@ class MainActivity :AppCompatActivity() {
             viewModel.authCode.observe(this, {
                 if (it != null) {
                     sharedPreference.setAuthCode(it.data.JWT)
-
+                    cViewModel.getEnigmaStatus("Bearer ${it.data.JWT}")
                     if (it.data.isNew) {
-                        sharedPreference.setCount(1)
                         val intent = Intent(this, ProfileActivity::class.java)
                         startActivity(intent)
                         finish()
 
                     } else {
-                        val intent = Intent(this, RoomsActvity::class.java)
-                        startActivity(intent)
-                        finish()
+                        sharedPreference.setCount(1)
+                        cViewModel.enigmaStatus.observe(this,{
+                            if(it.data.enigmaStarted == true) {
+                                val intent = Intent(this,RoomsActvity::class.java)
+                                startActivity(intent)
+                                finish()
+                            }
+                            else if(it.data.enigmaStarted == false) {
+                                val intent = Intent(this,CountdownActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            }
+                        })
+
                     }
                 }
             })
@@ -139,7 +166,6 @@ class MainActivity :AppCompatActivity() {
 
                 Log.e("token", "${it.idToken}")
                 viewModel.getAuthCode(it.idToken.toString())
-                sharedPreference.setisNew(1)
 
             }.addOnFailureListener{
                 Toast.makeText(this, "Sign In Failed", Toast.LENGTH_LONG).show()

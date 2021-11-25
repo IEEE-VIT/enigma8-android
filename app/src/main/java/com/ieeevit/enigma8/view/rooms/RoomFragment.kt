@@ -1,12 +1,16 @@
 package com.ieeevit.enigma8.view.rooms
 
+import android.content.Intent
+import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Shader
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -14,14 +18,23 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.ieeevit.enigma8.ProgressBarAnimation
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.adapter.RoomsAdapter
+import com.ieeevit.enigma8.api_service.Api
 import com.ieeevit.enigma8.model.question.QuestionList
 import com.ieeevit.enigma8.model.question.QustionStatus
+import com.ieeevit.enigma8.model.room.CheckResponse
 import com.ieeevit.enigma8.model.room.RoomsOuter
 import com.ieeevit.enigma8.utils.PrefManager
+import com.ieeevit.enigma8.view.powerup.PowerupActivity
+import com.ieeevit.enigma8.view.question.QuestionActivity
 import com.ieeevit.enigma8.viewModel.RoomViewModel
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RoomFragment : Fragment() {
     private lateinit var sharedPreferences: PrefManager
@@ -119,29 +132,144 @@ class RoomFragment : Fragment() {
 //                sharedPreferences.setRoomList(roomsDataList)
 //                Log.e("RoomList", "${sharedPreferences.getRoomList()}")
 
-                adapter = RoomsAdapter(requireContext(), dataList,viewModel,"Bearer ${authToken.toString()}",viewLifecycleOwner)
+                adapter = RoomsAdapter(requireContext(), dataList,"Bearer ${authToken.toString()}",viewLifecycleOwner, object: RoomsAdapter.OnRoomClickListner {
+                    override fun onRoomClick(id: String) {
+                        checkIfRoomUnlocked(id,"Bearer ${authToken.toString()}")
+                    }
+
+                })
                 roomView.layoutManager = GridLayoutManager(context, 2)
                 roomView.adapter = adapter
                 adapter.notifyDataSetChanged()
                 sharedPreferences.setJourneyList(journeyList)
                 sharedPreferences.setQuestionList(questionList)
 
-
             }
-
-
         })
 
 
 
-
-
+//        viewModel.checkResponse.observe(viewLifecycleOwner, {
+//            if (it.data.status == "complete") {
+//                val view = View.inflate(requireContext(), R.layout.room_done_dialog, null)
+//                val builder = android.app.AlertDialog.Builder(requireContext())
+//                builder.setView(view)
+//                val dialog = builder.create()
+//                val lp = dialog.window!!.attributes
+//                lp.dimAmount = 0.1f
+//                dialog.window!!.attributes = lp
+//                dialog.show()
+//                dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+//                dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+//                view.findViewById<ImageView>(R.id.close).setOnClickListener {
+//                    dialog.dismiss()
+//                }
+//            }
+//            else if (it.data.status == "canUnlock") {
+//                val intent = Intent(requireContext(), PowerupActivity::class.java)
+//                startActivity(intent)
+//            }
+//            else if(it.data.status == "unlocked") {
+//                val intent = Intent(requireContext(), QuestionActivity::class.java)
+//                startActivity(intent)
+//            }
+//            else if (it.data.status == "locked") {
+//                val view = View.inflate(requireContext(), R.layout.room_unlock_dialog, null)
+//                val builder = android.app.AlertDialog.Builder(requireContext())
+//                builder.setView(view)
+//                val dialog = builder.create()
+//                val lp = dialog.window!!.attributes
+//                lp.dimAmount = 0.1f
+//                dialog.window!!.attributes = lp
+//                dialog.show()
+//                view.findViewById<TextView>(R.id.room_unlock).text = "You need ${it.data.starsNeeded} more"
+//                dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+//                dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+//
+//                view.findViewById<ImageView>(R.id.close).setOnClickListener {
+//                    dialog.dismiss()
+//                }
+//
+//            }
+//        })
 
         return root
     }
 
 
+    fun checkIfRoomUnlocked(roomid: String, authToken: String) {
+        Api.retrofitService.getRoomUnlockDeatils(roomid,authToken)
+                .enqueue(object : Callback<CheckResponse> {
+                    override fun onResponse(
+                            call: Call<CheckResponse>,
+                            response: Response<CheckResponse>
+                    ) {
+                        if (response.body() != null) {
+                            val it = response.body()
+                            if (it!!.data.status == "complete") {
+                                val view = View.inflate(requireContext(), R.layout.room_done_dialog, null)
+                                val builder = android.app.AlertDialog.Builder(requireContext())
+                                builder.setView(view)
+                                val dialog = builder.create()
+                                val lp = dialog.window!!.attributes
+                                lp.dimAmount = 0.1f
+                                dialog.window!!.attributes = lp
+                                dialog.show()
+                                dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+                                dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+                                view.findViewById<ImageView>(R.id.close).setOnClickListener {
+                                    dialog.dismiss()
+                                }
+                            }
+                            else if (it.data.status == "canUnlock") {
+                                val intent = Intent(requireContext(), PowerupActivity::class.java)
+                                startActivity(intent)
+                            }
+                            else if(it.data.status == "unlocked") {
+                                val intent = Intent(requireContext(), QuestionActivity::class.java)
+                                startActivity(intent)
+                            }
+                            else if (it.data.status == "locked") {
+                                val view = View.inflate(requireContext(), R.layout.room_unlock_dialog, null)
+                                val builder = android.app.AlertDialog.Builder(requireContext())
+                                builder.setView(view)
+                                val dialog = builder.create()
+                                val lp = dialog.window!!.attributes
+                                lp.dimAmount = 0.1f
+                                dialog.window!!.attributes = lp
+                                dialog.show()
+                                view.findViewById<TextView>(R.id.room_unlock).text = "You need ${it.data.starsNeeded} more"
+                                dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+                                dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
 
+                                view.findViewById<ImageView>(R.id.close).setOnClickListener {
+                                    dialog.dismiss()
+                                }
+
+                            }
+
+
+                        }
+                        if(!response.isSuccessful) {
+                            val gson = Gson()
+                            val type = object : TypeToken<CheckResponse>() {}.type
+                            val errorResponse: CheckResponse? = gson.fromJson(response.errorBody()!!.charStream(), type)
+                            val new = errorResponse?.data
+                            Log.e("Response Error","$errorResponse")
+                        }
+                        Log.e("Response",response.body().toString())
+                        Log.e("Send","Success")
+                        Log.e("Response","$response")
+
+                    }
+
+                    override fun onFailure(call: Call<CheckResponse>, t: Throwable) {
+                        Log.e("SendFail","Fail")
+                    }
+
+                })
+
+    }
 
     fun roomTorch(text: String):Int {
         if(text=="unlocked") {

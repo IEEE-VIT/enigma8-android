@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent">
-    <LinearLayout
+
+
+
+
+    <RelativeLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,108 +18,115 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/back_btn"
             android:layout_width="25dp"
+            android:layout_margin="10dp"
+            android:layout_alignParentStart="true"
             android:layout_height="30dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
             android:src="@drawable/ic_arrow_left" />
 
-        <TextView
+        <ImageView
             android:id="@+id/tabHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="80dp"
-            android:layout_marginVertical="10dp"
-            android:fontFamily="@font/cinzeldecorative_bold"
-            android:text="ENIGMA"
-            android:textColor="@color/light_yellow"
-            android:textSize="26dp" />
+            android:layout_width="110dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_enigma"/>
 
         <ImageView
             android:id="@+id/instruction"
             android:layout_width="25dp"
             android:layout_height="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
-            android:baselineAligned="false"
+            android:visibility="invisible"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
             android:src="@drawable/ic_info"/>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
-    <TextView
-        android:id="@+id/privacy_policy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/cinzeldecorative_bold"
-        android:text="Privacy Policy"
-        android:textColor="@color/light_yellow"
-        android:textSize="28dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lock" />
-
-    <ImageView
-        android:id="@+id/lock"
-        android:layout_width="59dp"
-        android:layout_height="54dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear"
-        app:srcCompat="@drawable/ic_privacy" />
-
-    <TextView
-        android:id="@+id/privacy_text"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:fontFamily="@font/mulish_regular"
-        android:text="Your privacy is important to us. It is IEEE-VIT\'s\npolicy to respect your
-privacy regarding any\ninformation we may collect from you through\nour app, ENIGMA.\n\n\nWe only ask for personal information when we\ntruly need it to provide a
-service to you.\nWe collect it by fair and lawful means, with your\nknowledge
-and consent. We also let you know\nwhy we’re collecting it and how it will be used.\nWe only retain collected information for as long\nas necessary to provide you with your requested\nservice. What data we store, we’ll protect
-within commercially acceptable means to prevent loss\nand theft, as well as unauthorised access,\ndisclosure, copying, use or modification.
-\n\n\nWe don’t share any personally identifying\ninformation publicly or with
-thirdparties,\nexcept when required to by law.\n\n\nOur app may link to external sites that are not\noperated by us. Please be
-aware that we have\nno control over the content and practices of\nthese sites, and cannot accept responsibility or\nliability for their respective
-privacy policies.\n\n\nYou are free to refuse our request for your\npersonal information, with the
-understanding\nthat we may be unable to provide you with\nsome of your
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollview33"
+        app:layout_constraintTop_toBottomOf="@id/linear"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:id="@+id/scrollview43"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/privacy_policy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/cinzeldecorative_bold"
+                android:text="Privacy Policy"
+                android:textColor="@color/light_yellow"
+                android:textSize="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lock" />
+
+            <ImageView
+                android:id="@+id/lock"
+                android:layout_width="59dp"
+                android:layout_height="54dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_privacy" />
+
+            <TextView
+                android:id="@+id/privacy_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Your privacy is important to us. It is IEEE-VIT\'s\npolicy to respect your
+privacy regarding any information we may collect from you through\nour app, ENIGMA.\n\n\nWe only ask for personal information when wetruly need it to provide a
+service to you.We collect it by fair and lawful means, with your knowledge
+and consent. We also let you know why we’re collecting it and how it will be used.We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect
+within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.
+\n\n\nWe don’t share any personally identifying information publicly or with
+thirdparties,except when required to by law.\n\n\nOur app may link to external sites that are not operated by us. Please be
+aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective
+privacy policies.\n\n\nYou are free to refuse our request for your personal information, with the
+understanding that we may be unable to provide you with some of your
 desired services.
 \n\n\nYour continued use of our app will be regarded as acceptance of our
 practices around privacy and personal information. If you have any
 questions about how we handle user data and personal information, feel
 free to contact us at contact@ieeevit.org"
-        android:textColor="@color/privacy_text"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privacy_policy" />
+                android:textAlignment="center"
+                android:textColor="@color/privacy_text"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privacy_policy" />
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_logo"
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_logo"
+                android:layout_marginBottom="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privacy_text"
+                app:layout_constraintVertical_bias="0.0" />
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privacy_text"
-        app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>

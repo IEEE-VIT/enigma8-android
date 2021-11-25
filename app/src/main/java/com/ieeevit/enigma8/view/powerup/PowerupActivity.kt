@@ -9,17 +9,16 @@ import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ieeevit.enigma8.ProgressBarAnimation
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.adapter.PowerupAdapter
 import com.ieeevit.enigma8.model.powerup.Powerups
@@ -38,8 +37,6 @@ class PowerupActivity : AppCompatActivity(){
     private lateinit var back:ImageView
     private lateinit var instruction:ImageView
     private var unused : Int = 0
-    private lateinit var progress: ProgressBar
-    private lateinit var blackScreen:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +54,8 @@ class PowerupActivity : AppCompatActivity(){
             dialog.window!!.attributes = lp
             dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.show()
+            dialog.setCancelable(false)
+            dialog.setCanceledOnTouchOutside(false)
             view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
                 recreate()
 
@@ -67,20 +66,11 @@ class PowerupActivity : AppCompatActivity(){
         back.setOnClickListener {
             val intent = Intent(this,RoomsActvity::class.java)
             startActivity(intent)
-            finish()
         }
         instruction.setOnClickListener {
             val intent = Intent(this,InstructionActivity::class.java)
             startActivity(intent)
-            finish()
         }
-        blackScreen = findViewById(R.id.overlay)
-        progress = findViewById(R.id.progressBar)
-        blackScreen.visibility = View.VISIBLE
-        progress.visibility = View.VISIBLE
-        val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
-        anim.duration = 1000
-        progress.startAnimation(anim)
 
 
         val powruptxt = findViewById<TextView>(R.id.powerup_txt)
@@ -97,8 +87,7 @@ class PowerupActivity : AppCompatActivity(){
 
         var dataList: MutableList<Powerups> = mutableListOf()
         viewModel.powerupStatus.observe(this, {
-            progress.visibility = View.GONE
-            blackScreen.visibility = View.GONE
+            dataList.clear()
             if (it != null) {
                 for (item in it.data.powerups) {
 
@@ -125,25 +114,30 @@ class PowerupActivity : AppCompatActivity(){
             Log.e("Response", "$it")
         })
         viewModel.sPowerupResponse.observe(this,{
-            if(it!=null) {
-                if(it.success) {
-                    if(sharedPreferences.getRoomid() == sharedPreferences.getRoomOneid()) {
-                        val intent = Intent(this, CharacterActivity::class.java)
-                        startActivity(intent)
-                    }
-                    else {
-                        val intent = Intent(this, StoryActivity::class.java)
-                        startActivity(intent)
+            if (sharedPreferences.getRoomid() == sharedPreferences.getRoomOneid()) {
 
-                    }
+                val intent = Intent(this, CharacterActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else if(sharedPreferences.getRoomid() != sharedPreferences.getRoomOneid()) {
 
-                }
-
+                val intent = Intent(this, StoryActivity::class.java)
+                startActivity(intent)
+                finish()
 
             }
 
-
         })
+
+
+
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            finish()
+        }
+        return true
     }
 
 

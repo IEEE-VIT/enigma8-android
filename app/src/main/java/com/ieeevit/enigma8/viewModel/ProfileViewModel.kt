@@ -24,6 +24,10 @@ class ProfileViewModel:ViewModel() {
     private val _roomStatus  = MutableLiveData<RoomResponse>()
     val roomStatus: LiveData<RoomResponse>
         get() = _roomStatus
+    private val _pError  = MutableLiveData<Boolean>()
+    val pError: LiveData<Boolean>
+        get() = _pError
+
 
     private val clientId: String =
         "485828193401-acfdftfgnbsvpk6du4m4ogqjs62dbvc5.apps.googleusercontent.com"
@@ -50,8 +54,8 @@ class ProfileViewModel:ViewModel() {
                         val gson = Gson()
                         val type = object : TypeToken<ProfileResponse>() {}.type
                         val errorResponse: ProfileResponse? = gson.fromJson(response.errorBody()!!.charStream(), type)
-                        val new = errorResponse?.data
-                        Log.e("Response Error","$errorResponse")
+                        val new = errorResponse?.success
+                        _pError.value = new
                     }
                     Log.e("Response",response.body().toString())
                     Log.e("Send","Success")

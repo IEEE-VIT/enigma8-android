@@ -58,6 +58,8 @@ class StoryActivity:AppCompatActivity() {
             dialog.window!!.attributes = lp
             dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.show()
+            dialog.setCancelable(false)
+            dialog.setCanceledOnTouchOutside(false)
             view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
                 recreate()
 
@@ -91,18 +93,18 @@ class StoryActivity:AppCompatActivity() {
             Shader.TileMode.REPEAT)
         jones.paint.shader = shader2
         ali.paint.shader = shader2
-        back = findViewById(R.id.back_btn)
-        instruction = findViewById(R.id.instruction)
-        back.setOnClickListener {
-            val intent = Intent(this, RoomsActvity::class.java)
-            startActivity(intent)
-            finish()
-        }
-        instruction.setOnClickListener {
-            val intent = Intent(this, InstructionActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        back = findViewById(R.id.back_btn)
+//        instruction = findViewById(R.id.instruction)
+//        back.setOnClickListener {
+//            val intent = Intent(this, RoomsActvity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
+//        instruction.setOnClickListener {
+//            val intent = Intent(this, InstructionActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
         Log.e("tag","${sharedPreferences.getRoomid()}")
         Log.e("auth","${sharedPreferences.getAuthCode()}")
@@ -115,7 +117,9 @@ class StoryActivity:AppCompatActivity() {
             blackScreen.visibility = View.GONE
             if(it!=null) {
                 for(item in it.data.story) {
-                    dataList.add(Story(item.roomNo,item.sender,item.message))
+                    if(item.roomNo !=0 ) {
+                        dataList.add(Story(item.roomNo,item.sender,item.message))
+                    }
                 }
                 DataList.add(Story(dataList[0].roomNo,dataList[0].sender,dataList[0].message))
                 adapter = StoryAdapter(this, DataList)

@@ -28,6 +28,8 @@ class ViewNotificationActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.notifications_view)
+        back = findViewById(R.id.back_btn)
+        instruction = findViewById(R.id.instruction)
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val netInfo = cm.activeNetworkInfo
         if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){
@@ -41,22 +43,20 @@ class ViewNotificationActivity: AppCompatActivity() {
             dialog.window!!.attributes = lp
             dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.show()
+            dialog.setCancelable(false)
+            dialog.setCanceledOnTouchOutside(false)
             view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
                 recreate()
 
             })
         }
-        back = findViewById(R.id.back_btn)
-        instruction = findViewById(R.id.instruction)
         back.setOnClickListener {
             val intent = Intent(this, NotificationActivity::class.java)
             startActivity(intent)
-            finish()
         }
         instruction.setOnClickListener {
             val intent = Intent(this, InstructionActivity::class.java)
             startActivity(intent)
-            finish()
         }
         notification = findViewById(R.id.notification)
         tabHeading = findViewById(R.id.tabHeading)

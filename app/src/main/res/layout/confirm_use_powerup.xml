@@ -49,7 +49,7 @@
                     android:fontFamily="@font/mulish_regular"
                     android:textAlignment="center"
                     android:text="This powerup can be used only once\nin this room. Are you sure you want to\nuse it for this question?"
-                    android:textColor="#309AC9"
+                    android:textColor="@color/notification_time"
                     android:textSize="15dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"

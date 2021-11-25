@@ -10,32 +10,30 @@
         android:id="@+id/linearLayout1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/head_leaderboard"
-        app:layout_constraintTop_toBottomOf="@id/linear">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/days1"
-            style="@style/countdown_leaderboard"
+            style="@style/leaderboard_countdown"
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="1" />
+            />
 
 
         <TextView
             android:id="@+id/days2"
-            style="@style/countdown_leaderboard"
+            style="@style/leaderboard_countdown"
             android:layout_marginLeft="3dp"
             android:layout_weight="1"
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="8"
+
             app:lineHeight="49sp" />
 
         <TextView
@@ -53,24 +51,22 @@
 
         <TextView
             android:id="@+id/hours1"
-            style="@style/countdown_leaderboard"
+            style="@style/leaderboard_countdown"
             android:layout_marginLeft="3dp"
             android:layout_weight="1"
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="2"
             app:lineHeight="49sp" />
 
         <TextView
             android:id="@+id/hours2"
-            style="@style/countdown_leaderboard"
+            style="@style/leaderboard_countdown"
             android:layout_marginLeft="3dp"
             android:layout_weight="1"
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="0"
             app:lineHeight="49sp" />
 
         <TextView
@@ -87,25 +83,23 @@
 
         <TextView
             android:id="@+id/minutes1"
-            style="@style/countdown_leaderboard"
+            style="@style/leaderboard_countdown"
             android:layout_marginLeft="3dp"
             android:layout_weight="1"
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="4"
             app:lineHeight="49sp" />
 
 
         <TextView
             android:id="@+id/minutes2"
-            style="@style/countdown_leaderboard"
+            style="@style/leaderboard_countdown"
             android:layout_marginLeft="3dp"
             android:layout_weight="1"
             android:background="@drawable/leaderboardcountdown_background"
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
-            android:text="3"
             app:lineHeight="49sp" />
 
     </LinearLayout>
@@ -113,16 +107,17 @@
 
     <TextView
         android:id="@+id/head_leaderboard"
-        android:layout_width="180dp"
+        android:layout_width="190dp"
         android:layout_height="30dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/cinzel_decorative_bold"
-        android:text="LeaderBoard"
+        android:background="@color/background"
+        android:fontFamily="@font/cinzel_bold"
+        android:text="Leaderboard"
         android:textColor="@color/light_yellow"
-        android:textSize="20sp"
+        android:textSize="23sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -139,19 +134,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/rectangle_733" />
+            android:src="@drawable/ic_leaderboard_tableheader_bg" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:backgroundTint="@android:color/transparent"
             android:padding="5dp">
 
+
+
             <TextView
+                android:id="@+id/ranktable"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Rank"
+                android:backgroundTint="@android:color/transparent"
+                android:layout_marginStart="0dp"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -159,11 +160,16 @@
 
             </TextView>
 
+
+
             <TextView
-                android:layout_width="150dp"
+                android:id="@+id/usernametable"
+                android:layout_width="140dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Username"
+                android:backgroundTint="@android:color/transparent"
+                android:layout_marginStart="0dp"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -172,10 +178,13 @@
             </TextView>
 
             <TextView
+                android:id="@+id/solvedtable"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
                 android:fontFamily="@font/mulish_regular"
-                android:text="Solved"
+                android:text="Score"
+                android:backgroundTint="@android:color/transparent"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -184,10 +193,13 @@
             </TextView>
 
             <TextView
-                android:layout_width="90dp"
+                android:id="@+id/scoretable"
+                android:layout_width="80dp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
                 android:fontFamily="@font/mulish_regular"
-                android:text="Score"
+                android:text="Solved"
+                android:backgroundTint="@android:color/transparent"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -197,13 +209,24 @@
 
         </LinearLayout>
 
-
     </androidx.cardview.widget.CardView>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="347dp"
+        android:layout_height="506dp"
+        android:background="#121212"
+        app:layout_constraintBottom_toTopOf="@+id/UserRankView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="342dp"
-        android:layout_height="558dp"
+        android:layout_width="347dp"
+        android:layout_height="506dp"
+        android:background="@drawable/leaderboard_bg"
         app:layout_constraintBottom_toTopOf="@+id/UserRankView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
@@ -220,49 +243,22 @@
                 android:id="@+id/Leaderboard_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#1E1E1E">
+                android:backgroundTint="@android:color/transparent">
 
             </androidx.recyclerview.widget.RecyclerView>
+
+
 
         </LinearLayout>
     </ScrollView>
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:src="@drawable/line_10"
-        app:layout_constraintStart_toEndOf="@+id/scrollView2"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:src="@drawable/line_10"
-        app:layout_constraintStart_toEndOf="@+id/scrollView2"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="265dp"
-        android:src="@drawable/line_10"
-        app:layout_constraintStart_toEndOf="@+id/scrollView2"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/UserRankView"
-        android:layout_width="353dp"
-        android:layout_height="37dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         app:cardBackgroundColor="#B8B8B8"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -272,11 +268,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/result_drawable" />
+            android:src="@drawable/leaderboard_usercard_bg" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:padding="5dp">
 
@@ -286,6 +282,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Rank"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -299,19 +296,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Username"
-                android:textAlignment="center"
-                android:textColor="@color/light_yellow"
-                android:textSize="16sp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <TextView
-                android:id="@+id/user_solvedvar"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/mulish_regular"
-                android:text="Solved"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -321,10 +306,25 @@
 
             <TextView
                 android:id="@+id/user_scorevar"
-                android:layout_width="90dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/mulish_regular"
                 android:text="Score"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/light_yellow"
+                android:textSize="16sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/user_solvedvar"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Solved"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="16sp"
@@ -343,23 +343,25 @@
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="5dp"
-        android:background="@drawable/result_drawable"
-        android:clickable="true"
+        android:background="@drawable/searchview_bg"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:iconifiedByDefault="false"
-        android:searchHintIcon="@color/background"
-        android:searchIcon="@drawable/search_icon"
+        app:iconifiedByDefault="false"
+        app:searchHintIcon="@null"
+        app:searchIcon="@drawable/search_icon"
+        app:closeIcon="@drawable/ic_seacrh_closebtn"
         android:theme="@style/AppSearchView"
-        app:defaultQueryHint="Search by username"
+        app:defaultQueryHint=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/head_leaderboard" >
 
     </androidx.appcompat.widget.SearchView>
+
     <ImageView
         android:id="@+id/overlay"
         android:layout_width="match_parent"
         android:visibility="gone"
+        android:translationZ="10dp"
         android:background="@color/background"
         android:layout_height="match_parent"/>
 
@@ -368,6 +370,7 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:translationZ="40dp"
         android:layout_marginHorizontal="40dp"
         android:progress="50"
         android:visibility="gone"

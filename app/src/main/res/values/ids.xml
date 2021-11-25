@@ -8,4 +8,6 @@
     <item name="zeroNotification" type="id" />
     <item name="option" type="id" />
     <item name="room_unlock" type="id" />
+    <item name="LinearLLL" type="id" />
+    <item name="textt" type="id" />
 </resources>

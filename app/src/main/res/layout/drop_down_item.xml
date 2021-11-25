@@ -7,7 +7,4 @@
     android:textColor="@color/white"
     android:fontFamily="@font/roboto"
     android:textSize="18dp"
-    android:layout_weight="400"
-
-
-/>
+    android:layout_weight="400" />

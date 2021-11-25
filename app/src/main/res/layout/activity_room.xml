@@ -9,7 +9,9 @@
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".view.rooms.RoomsActvity">
-    <LinearLayout
+
+
+    <RelativeLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,43 +19,34 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/notification"
             android:layout_width="25dp"
+            android:layout_margin="10dp"
+            android:layout_alignParentStart="true"
             android:layout_height="30dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="10dp"
             android:src="@drawable/ic_bell_notification" />
 
-        <TextView
+        <ImageView
             android:id="@+id/tabHeading"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="85dp"
-            android:fontFamily="@font/cinzeldecorative_bold"
-            android:text="ENIGMA"
-            android:textColor="@color/light_yellow"
-            android:textSize="26dp" />
+            android:layout_width="110dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_enigma"/>
 
         <ImageView
             android:id="@+id/instruction"
             android:layout_width="25dp"
             android:layout_height="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="10dp"
-            android:baselineAligned="false"
+            android:visibility="visible"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
             android:src="@drawable/ic_info"/>
 
 
-    </LinearLayout>
-
+    </RelativeLayout>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentFLcontainer"
@@ -63,6 +56,8 @@
         android:layout_below="@+id/linear"
         android:layout_alignParentStart="true"
 
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="-1dp"
         android:orientation="vertical">
 
     </androidx.fragment.app.FragmentContainerView>
@@ -78,5 +73,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentFLcontainer" />
-
 </RelativeLayout>

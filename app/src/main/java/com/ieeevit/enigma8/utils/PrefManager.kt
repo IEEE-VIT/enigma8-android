@@ -22,6 +22,7 @@ class PrefManager(val context: Context) {
     private val gameStarted: String = "IsGameStarted"
     private val fcmToken:String = "FcmToken"
     private val powerupName:String = "powerupname"
+    private val Error:String = "Error"
     private val xP = "xP"
     private val editor: SharedPreferences.Editor = sharedPref.edit()
     private val loggedIN = "IsLoggedIn"
@@ -49,11 +50,17 @@ class PrefManager(val context: Context) {
         editor.putInt(backIndicator,text)
         editor.commit()
     }
+    fun setError(text:Boolean) {
+        editor.putBoolean(Error,text)
+        editor.commit()
+    }
     fun getBackIndicator ():Int {
         return  sharedPref.getInt(backIndicator,0)
 
     }
-
+    fun getError () :Boolean {
+        return sharedPref.getBoolean(Error,false)
+    }
 
     fun setQuestionList(list:MutableList<QuestionList>){
         val gson = Gson()
@@ -147,7 +154,7 @@ class PrefManager(val context: Context) {
     }
 
 
-//    fun setUserStatus(text: Boolean) {
+    //    fun setUserStatus(text: Boolean) {
 //        editor.putBoolean(userNameExist, text)
 //        editor.apply()
 //    }
@@ -273,8 +280,8 @@ class PrefManager(val context: Context) {
         editor.putBoolean(enigmaStatus, text)
         editor.commit()
     }
-    fun setisNew(text: Int) {
-        editor.putInt(isNew,text)
+    fun setisNew(text: Boolean) {
+        editor.putBoolean(isNew,text)
         editor.commit()
     }
 
@@ -303,12 +310,11 @@ class PrefManager(val context: Context) {
     fun getCount(): Int {
         return sharedPref.getInt(count,0)
     }
-    fun getisNew():Int {
-        return sharedPref.getInt(isNew,0)
+    fun getisNew():Boolean {
+        return sharedPref.getBoolean(isNew,false)
     }
     fun getIndicator():Int {
         return sharedPref.getInt(onBoardingincdicator,0)
     }
 
 }
-

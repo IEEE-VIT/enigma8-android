@@ -5,6 +5,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        config {
+            storeFile file('D:\\ENIGMA\\Enigma8.jks')
+            storePassword 'ieeevit1024'
+            keyAlias 'key8'
+            keyPassword 'ieeevit1024'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
@@ -12,10 +20,11 @@ android {
         applicationId "com.ieeevit.enigma8"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 4
-        versionName "1.4.0"
+        versionCode 10
+        versionName "1.10.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
     }
 
 

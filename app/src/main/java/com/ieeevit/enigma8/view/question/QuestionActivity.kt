@@ -14,6 +14,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
@@ -62,6 +63,8 @@ class QuestionActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
+
+
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val netInfo = cm.activeNetworkInfo
         if(netInfo == null || !netInfo.isConnected || !netInfo.isAvailable){
@@ -75,11 +78,14 @@ class QuestionActivity: AppCompatActivity() {
             dialog.window!!.attributes = lp
             dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.show()
+            dialog.setCancelable(false)
+            dialog.setCanceledOnTouchOutside(false)
             view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
                 recreate()
 
             })
         }
+
 
         powerupIcon = findViewById(R.id.powerup_icon)
         sharedPreferences = PrefManager(this)
@@ -89,7 +95,7 @@ class QuestionActivity: AppCompatActivity() {
         powerup = findViewById(R.id.powerup_name)
         simpleVideoView = findViewById<View>(R.id.simpleVideoView) as VideoView
         submit_btn = findViewById(R.id.submit_btn)
-        tabHeading = findViewById(R.id.tabHeading)
+
         question_no = findViewById(R.id.question_no)
         roomNo = findViewById(R.id.room_no)
         answerField = findViewById(R.id.Answerfield)
@@ -104,9 +110,7 @@ class QuestionActivity: AppCompatActivity() {
         anim.duration = 1000
         progress.startAnimation(anim)
 //        background = findViewById(R.id.blurBackground)
-        val shader2 : Shader = LinearGradient(0f, 0f, 0f, tabHeading.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.4f, 0.6f), Shader.TileMode.REPEAT)
-//        text1.paint.shader = shader1
-        tabHeading.paint.shader = shader2
+
         val shader1 : Shader = LinearGradient(0f, 0f, 0f, roomNo.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.4f, 0.6f), Shader.TileMode.REPEAT)
 //        text1.paint.shader = shader1
         roomNo.paint.shader = shader1
@@ -119,7 +123,7 @@ class QuestionActivity: AppCompatActivity() {
         val questionList:List<QuestionList> = sharedPreferences.getQuestionList()
         answerField.setOnClickListener {
             wrong.visibility = View.INVISIBLE
-            answerField.setText("")
+
         }
 
         simpleVideoView!!.setMediaController(mediaControls)
@@ -139,9 +143,7 @@ class QuestionActivity: AppCompatActivity() {
         }
 
 
-
         hint_btn.setOnClickListener {
-
             val view = View.inflate(this, R.layout.confirm_use_hint, null)
             val builder = AlertDialog.Builder(this)
             builder.setView(view)
@@ -149,32 +151,37 @@ class QuestionActivity: AppCompatActivity() {
             val lp = dialog.window!!.attributes
             lp.dimAmount = 0.0f
             dialog.window!!.attributes = lp
-            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.show()
+            dialog.setCancelable(false)
+            dialog.setCanceledOnTouchOutside(false)
+            view.findViewById<ImageView>(R.id.close).setOnClickListener {
+                dialog.dismiss()
+            }
 
             view.findViewById<Button>(R.id.confirm_btn).setOnClickListener {
                 viewModel.getHintDetails(sharedPreferences.getRoomid().toString(), "Bearer ${authToken.toString()}")
-            }
-            viewModel.hintResponse.observe(this, {
-                if (it != null) {
-                    hint_txt.text = "Hint: " + it.data.hint
-                    hint_txt.setVisibility(View.VISIBLE)
-                    hint_btn.setClickable(false)
-                    dialog.dismiss()
-                }
-                Log.e("Hint", "$it")
-            })
+                viewModel.hintResponse.observe(this, {
+                    if (it != null) {
+                        hint_txt.text = "Hint: " + it.data.hint
+                        hint_txt.setVisibility(View.VISIBLE)
+                        hint_btn.setImageResource(R.drawable.ic_hint_used)
+                        dialog.dismiss()
+                    }
+                    Log.e("Hint", "$it")
+                })
 
-            view.findViewById<ImageView>(R.id.close).setOnClickListener {
-                    dialog.dismiss()
+
             }
+
 
         }
         Log.e("RoomIDCurrent", "${sharedPreferences.getRoomid()}")
         viewModel.getQuestionDetails(sharedPreferences.getRoomid().toString(), "Bearer ${authToken.toString()}")
         viewModel.questionResponse.observe(this, {
+            hint_btn.setImageResource(R.drawable.ic_hint)
+            answerField.setText("")
             progress.visibility = View.GONE
             blackScreen.visibility = View.GONE
             if (it != null) {
@@ -261,6 +268,8 @@ class QuestionActivity: AppCompatActivity() {
                 dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
 
                 dialog.show()
+                dialog.setCancelable(false)
+                dialog.setCanceledOnTouchOutside(false)
                 view.findViewById<ImageView>(R.id.close).setOnClickListener {
                     dialog.dismiss()
                 }
@@ -278,14 +287,18 @@ class QuestionActivity: AppCompatActivity() {
                         dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
                         dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
                         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
-                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points and a key!"
+                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points\nand a key!"
                         dialog.show()
+                        dialog.setCancelable(false)
+                        dialog.setCanceledOnTouchOutside(false)
                         view.findViewById<ImageView>(R.id.close).setOnClickListener {
                             Log.e("GetQuestion", "${sharedPreferences.getRoomid()}")
                             viewModel.getQuestionDetails(sharedPreferences.getRoomid().toString(), "Bearer ${authToken}")
                             dialog.dismiss()
                         }
                         viewModel.questionResponse.observe(this, {
+                            hint_btn.setImageResource(R.drawable.ic_hint)
+                            answerField.setText("")
                             progress.visibility = View.GONE
                             blackScreen.visibility = View.GONE
                             if (it != null) {
@@ -338,13 +351,17 @@ class QuestionActivity: AppCompatActivity() {
                         dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
                         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
                         dialog.show()
-                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points and a key!"
+                        dialog.setCancelable(false)
+                        dialog.setCanceledOnTouchOutside(false)
+                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points\nand a key!"
                         view.findViewById<Button>(R.id.continue_room).setOnClickListener {
                             viewModel.getQuestionDetails(sharedPreferences.getRoomid().toString(), "Bearer ${authToken}")
                             dialog.dismiss()
                         }
 
                         viewModel.questionResponse.observe(this, {
+                            hint_btn.setImageResource(R.drawable.ic_hint)
+                            answerField.setText("")
                             progress.visibility = View.GONE
                             blackScreen.visibility = View.GONE
                             if (it != null) {
@@ -405,12 +422,16 @@ class QuestionActivity: AppCompatActivity() {
                         dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
                         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
                         dialog.show()
-                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points and a key!"
+                        dialog.setCancelable(false)
+                        dialog.setCanceledOnTouchOutside(false)
+                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points\nand a key!"
                         view.findViewById<Button>(R.id.continue_room).setOnClickListener {
                             viewModel.getQuestionDetails(sharedPreferences.getRoomid().toString(), "Bearer ${authToken}")
                             dialog.dismiss()
                         }
                         viewModel.questionResponse.observe(this, {
+                            hint_btn.setImageResource(R.drawable.ic_hint)
+                            answerField.setText("")
                             progress.visibility = View.GONE
                             blackScreen.visibility = View.GONE
                             if (it != null) {
@@ -469,13 +490,17 @@ class QuestionActivity: AppCompatActivity() {
                         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
 
                         dialog.show()
-                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points and a key!"
+                        dialog.setCancelable(false)
+                        dialog.setCanceledOnTouchOutside(false)
+                        view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points\nand a key!"
                         view.findViewById<ImageView>(R.id.close).setOnClickListener {
                             Log.e("GetQuestion", "${sharedPreferences.getRoomid()}")
                             viewModel.getQuestionDetails(sharedPreferences.getRoomid().toString(), "Bearer ${authToken}")
                             dialog.dismiss()
                         }
                         viewModel.questionResponse.observe(this, {
+                            hint_btn.setImageResource(R.drawable.ic_hint)
+                            answerField.setText("")
                             progress.visibility = View.GONE
                             blackScreen.visibility = View.GONE
                             if (it != null) {
@@ -526,7 +551,9 @@ class QuestionActivity: AppCompatActivity() {
                     lp.dimAmount = 0.0f
                     dialog.window!!.attributes = lp
                     dialog.show()
-                    view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points and a key!"
+                    dialog.setCancelable(false)
+                    dialog.setCanceledOnTouchOutside(false)
+                    view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points\nand a key!"
                     view.findViewById<Button>(R.id.continue_room).setVisibility(View.GONE)
                     view.findViewById<Button>(R.id.another_room).setOnClickListener {
                         val intent = Intent(this, RoomsActvity::class.java)
@@ -541,6 +568,16 @@ class QuestionActivity: AppCompatActivity() {
             showDialog(it.data.powerUp, it.data)
         })
     }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            val intent = Intent(this,RoomsActvity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        return true
+    }
+
     fun showDialog(i: PowerUp, its: UsePowerupData) {
 
         val view = View.inflate(this, R.layout.use_powerup, null)
@@ -553,6 +590,8 @@ class QuestionActivity: AppCompatActivity() {
         lp.dimAmount = 0.0f
         dialog.window!!.attributes = lp
         dialog.show()
+        dialog.setCancelable(false)
+        dialog.setCanceledOnTouchOutside(false)
         val icon = view.findViewById<ImageView>(R.id.powerup_icon)
         Picasso.get().load(Uri.parse(i.icon)).into(icon)
         val powerup_txt = view.findViewById<TextView>(R.id.powerup_txt)
@@ -622,6 +661,7 @@ class QuestionActivity: AppCompatActivity() {
         }
         return "ix"
     }
+
 
 
 }

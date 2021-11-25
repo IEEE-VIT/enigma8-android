@@ -22,6 +22,7 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.ieeevit.enigma8.MainActivity
 import com.ieeevit.enigma8.R
+import com.ieeevit.enigma8.view.rooms.RoomsActvity
 import java.util.Calendar.getInstance
 
 class MyFirebaseMessagingService:FirebaseMessagingService() {
@@ -82,7 +83,7 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
 
 
     private fun sendNotification(messageBody: String) {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, RoomsActvity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT)
@@ -90,8 +91,8 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
         val channelId = getString(R.string.default_notification_channel_id)
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle(getString(R.string.fcm_message))
+                .setSmallIcon(R.drawable.enigma_logo)
+                .setContentTitle("Enigma8")
                 .setContentText(messageBody)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)

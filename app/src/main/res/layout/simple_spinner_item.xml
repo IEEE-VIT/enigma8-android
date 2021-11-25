@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textSize="30dp"
-    android:text = "-Select"
-    android:ellipsize="marquee"
+    android:text = "-Select-"
+    android:textColor="@color/light_yellow"
     android:singleLine="true" >
 
 </TextView>

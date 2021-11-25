@@ -9,11 +9,12 @@
     <application
         android:allowBackup="true"
         android:largeHeap="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Enigma8">
+        android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_launcher_foreground" />
@@ -22,8 +23,8 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/design_default_color_on_primary" />
-        <activity android:name=".view.splashscreen.SplashScreen">
-
+        <activity android:name=".view.splashscreen.SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,29 +35,46 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-
-
                 <data android:scheme="https"
-                    android:host="github.com" />
+                    android:host="enigma.ieeevit.org"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.onboarding.OnboardingActivity"/>
-        <activity android:name=".view.profile.ProfileActivity"/>
-        <activity android:name=".view.rooms.RoomsActvity"/>
-        <activity android:name=".webactivity.HintwebActivity"/>
-        <activity android:name=".view.story.StoryActivity"/>
-        <activity android:name=".view.timer.CountdownActivity"/>
-        <activity android:name=".view.feedback.FeedbackActivity"/>
-        <activity android:name=".view.privacy.PrivacyActivity"/>
-        <activity android:name=".view.question.QuestionActivity"/>
-        <activity android:name=".view.story.CharacterActivity"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".view.demoQuestion.DemoQuestionActivity"/>
-        <activity android:name=".view.notification.ViewNotificationActivity"/>
-        <activity android:name=".view.notification.NotificationActivity"/>
-        <activity android:name=".webactivity.WebActivity"/>
-        <activity android:name=".view.powerup.PowerupActivity"/>
-        <activity android:name=".view.instruction.InstructionActivity"/>
+        <activity android:name=".view.onboarding.OnboardingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.profile.ProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.rooms.RoomsActvity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".webactivity.HintwebActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.story.StoryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.feedback.FeedbackActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.privacy.PrivacyActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.question.QuestionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.story.CharacterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.timer.CountdownActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.instruction.RoomInstruction"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.demoQuestion.DemoQuestionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.notification.ViewNotificationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.notification.NotificationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".webactivity.WebActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.powerup.PowerupActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.instruction.InstructionActivity"
+            android:screenOrientation="portrait"/>
         <service
             android:name=".fcm.MyFirebaseMessagingService"
 

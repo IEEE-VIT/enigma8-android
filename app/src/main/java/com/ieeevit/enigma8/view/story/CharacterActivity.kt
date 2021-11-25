@@ -3,6 +3,8 @@ package com.ieeevit.enigma8.view.story
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
@@ -22,10 +24,9 @@ import com.ieeevit.enigma8.model.Full_Story
 import com.ieeevit.enigma8.utils.PrefManager
 import com.ieeevit.enigma8.view.instruction.InstructionActivity
 import com.ieeevit.enigma8.view.rooms.RoomsActvity
+
 import com.ieeevit.enigma8.viewModel.FullStoryViewModel
-
-
-
+import org.w3c.dom.Text
 
 
 class CharacterActivity : AppCompatActivity() {
@@ -50,6 +51,8 @@ class CharacterActivity : AppCompatActivity() {
             dialog.window!!.attributes = lp
             dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.show()
+            dialog.setCancelable(false)
+            dialog.setCanceledOnTouchOutside(false)
             view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {
                 recreate()
 
@@ -57,8 +60,8 @@ class CharacterActivity : AppCompatActivity() {
         }
         sharedPreferences = PrefManager(this)
 
-
         var count = 0
+
 
         var viewModel: FullStoryViewModel = ViewModelProvider(this).get(FullStoryViewModel::class.java)
         var dataList: MutableList<Full_Story> = mutableListOf()
@@ -69,55 +72,59 @@ class CharacterActivity : AppCompatActivity() {
         var desc = findViewById<TextView>(R.id.charac_card)
 
         val sharedPreferences: PrefManager = PrefManager(this)
-        back = findViewById(R.id.back_btn)
-        instruction = findViewById(R.id.instruction)
-        blackScreen  = findViewById(R.id.overlay)
+
+//        back = findViewById(R.id.back_btn)
+//        instruction = findViewById(R.id.instruction)
+        blackScreen = findViewById(R.id.overlay)
         progress = findViewById(R.id.progressBar)
         blackScreen.visibility = View.VISIBLE
         progress.visibility = View.VISIBLE
         val anim = ProgressBarAnimation(progress, 0.toFloat(), 100.toFloat())
         anim.duration = 1000
         progress.startAnimation(anim)
-        back.setOnClickListener {
-            val intent = Intent(this, RoomsActvity::class.java)
-            startActivity(intent)
-            finish()
-        }
-        instruction.setOnClickListener {
-            val intent = Intent(this, InstructionActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        back.setOnClickListener {
+//            val intent = Intent(this, RoomsActvity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
+//        instruction.setOnClickListener {
+//            val intent = Intent(this, InstructionActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
         viewModel.getFullStoryDetails(
             sharedPreferences.getRoomid().toString(),
             "Bearer $authToken"
         )
         viewModel.fullstoryResponse.observe(this, {
+
             progress.visibility = View.GONE
             blackScreen.visibility = View.GONE
+
             dataList.clear()
             if (it != null) {
                 for (item in it.data.story) {
-                    if (item.roomNo == 0 ) {
+                    if (item.roomNo == 0) {
 
-                        dataList.add(Full_Story(item.roomNo,item.sender, item.message))
+                        dataList.add(Full_Story(item.roomNo, item.sender, item.message))
                     }
                 }
 
-                Log.e("dataList","$dataList")
+                Log.e("dataList", "$dataList")
 
 
             }
 
             name.text = dataList[0].sender
             desc.text = dataList[0].message
-            Log.e("mssg","$dataList")
+            Log.e("mssg", "$dataList")
 
             conti.setOnClickListener {
-                if (count == dataList.size-1) {
+                if (count == dataList.size - 1) {
                     val intent = Intent(this, StoryActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
                 count++
 
@@ -128,12 +135,9 @@ class CharacterActivity : AppCompatActivity() {
 
             }
 
-                Log.e("StoryResponse", "$it")
+            Log.e("StoryResponse", "$it")
 
         })
 
-
     }
-
-
 }

@@ -19,6 +19,7 @@
     </style>
     <style name="AppSearchView" parent="Widget.AppCompat.SearchView">
         <!--  Text Size  -->
+        <item name="android:clickable">true</item>
         <item name="android:textSize">20dp</item>
         <!--  Query Text Color  -->
         <item name="android:textColorPrimary">@color/light_yellow</item>
@@ -195,12 +196,24 @@
 
     <style name="mySpinnerItemStyle" parent="Widget.AppCompat.TextView.SpinnerItem">
         <item name="android:textColor">@color/white</item>
-        <item name="rippleColor">@color/editTextBackground</item>
+        <item name="android:dropDownWidth">100dp</item>
+        <item name="rippleColor">@color/background</item>
         <item name="endIconDrawable">@drawable/ic_end</item>
+        <item name="android:popupBackground">@android:color/transparent</item>
         <item name="android:background">@drawable/result_drawable</item>
     </style>
 
+
     <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">
+        <item name="android:background">@drawable/ic_dropdown_rectangle</item>
+        <item name="android:dropDownWidth">235dp</item>
+        <item name="android:dropDownHeight">200dp</item>
+        <item name="android:dropDownHorizontalOffset">32dp</item>
+        <item name="android:dropDownVerticalOffset">30dp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:popupBackground">@color/background</item>
+
+
     </style>
     <style name="enter_usern" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">18sp</item>
@@ -240,9 +253,15 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
     <style name="countdown" parent="Widget.AppCompat.TextView">
-        <item name="android:layout_width">50dp</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">45dp</item>
         <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/light_yellow</item>
+    </style>
+    <style name="leaderboard_countdown" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">17dp</item>
+        <item name="android:layout_height">17dp</item>
+        <item name="android:textSize">14dp</item>
         <item name="android:textColor">@color/light_yellow</item>
     </style>
 
