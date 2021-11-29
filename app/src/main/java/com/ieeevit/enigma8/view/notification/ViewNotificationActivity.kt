@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -39,9 +40,8 @@ class ViewNotificationActivity: AppCompatActivity() {
             val dialog = builder.create()
             val lp = dialog.window!!.attributes
             lp.dimAmount = 0.0f
-            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+            dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
             dialog.window!!.attributes = lp
-            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.show()
             dialog.setCancelable(false)
             dialog.setCanceledOnTouchOutside(false)
@@ -58,6 +58,7 @@ class ViewNotificationActivity: AppCompatActivity() {
             val intent = Intent(this, InstructionActivity::class.java)
             startActivity(intent)
         }
+
         notification = findViewById(R.id.notification)
         tabHeading = findViewById(R.id.tabHeading)
         val shader1 : Shader = LinearGradient(0f, 0f, 0f,notification.lineHeight.toFloat(), intArrayOf(this.getColor(R.color.light_yellow), this.getColor(R.color.dark_yellow)), floatArrayOf(0.4f, 0.6f), Shader.TileMode.REPEAT)
@@ -73,6 +74,14 @@ class ViewNotificationActivity: AppCompatActivity() {
         val gotTime  = intent.getStringExtra("time")
         time.text = "As a bonus , we have extended the time by $gotTime"
 
+    }
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            val intent = Intent(this,NotificationActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        return true
     }
 
 }

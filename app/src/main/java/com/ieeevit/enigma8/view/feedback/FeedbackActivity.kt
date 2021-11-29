@@ -71,9 +71,8 @@ class FeedbackActivity:AppCompatActivity() {
             val dialog = builder.create()
             val lp = dialog.window!!.attributes
             lp.dimAmount = 0.0f
-            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+            dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
             dialog.window!!.attributes = lp
-            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.show()
 
             view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {

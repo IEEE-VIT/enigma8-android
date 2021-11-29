@@ -168,7 +168,7 @@ class MainActivity :AppCompatActivity() {
                 viewModel.getAuthCode(it.idToken.toString())
 
             }.addOnFailureListener{
-                Toast.makeText(this, "Sign In Failed", Toast.LENGTH_LONG).show()
+//                Toast.makeText(this, "Sign In Failed", Toast.LENGTH_LONG).show()
                 Log.e("fail", "Failed")
 
             }

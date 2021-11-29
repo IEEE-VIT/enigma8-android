@@ -50,6 +50,7 @@ class QuestionActivity: AppCompatActivity() {
     lateinit var tabHeading : TextView
     lateinit var answerField:EditText
     private lateinit var back:ImageView
+
     private lateinit var instruction:ImageView
     //    lateinit var background:BlurView
     var count = 0
@@ -74,9 +75,9 @@ class QuestionActivity: AppCompatActivity() {
             val dialog = builder.create()
             val lp = dialog.window!!.attributes
             lp.dimAmount = 0.0f
-            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+            dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
             dialog.window!!.attributes = lp
-            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+
             dialog.show()
             dialog.setCancelable(false)
             dialog.setCanceledOnTouchOutside(false)
@@ -151,8 +152,8 @@ class QuestionActivity: AppCompatActivity() {
             val lp = dialog.window!!.attributes
             lp.dimAmount = 0.0f
             dialog.window!!.attributes = lp
-            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
-            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+            dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+
             dialog.show()
             dialog.setCancelable(false)
             dialog.setCanceledOnTouchOutside(false)
@@ -263,9 +264,7 @@ class QuestionActivity: AppCompatActivity() {
                 val lp = dialog.window!!.attributes
                 lp.dimAmount = 0.0f
                 dialog.window!!.attributes = lp
-                dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-                dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-                dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+                dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
 
                 dialog.show()
                 dialog.setCancelable(false)
@@ -284,9 +283,8 @@ class QuestionActivity: AppCompatActivity() {
                         val lp = dialog.window!!.attributes
                         lp.dimAmount = 0.0f
                         dialog.window!!.attributes = lp
-                        dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-                        dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-                        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+
+                        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
                         view.findViewById<TextView>(R.id.earn_key).text = "You’ve earned ${it.data.scoreEarned} points\nand a key!"
                         dialog.show()
                         dialog.setCancelable(false)
@@ -348,8 +346,8 @@ class QuestionActivity: AppCompatActivity() {
                         val lp = dialog.window!!.attributes
                         lp.dimAmount = 0.0f
                         dialog.window!!.attributes = lp
-                        dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-                        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+
+                        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
                         dialog.show()
                         dialog.setCancelable(false)
                         dialog.setCanceledOnTouchOutside(false)
@@ -419,8 +417,8 @@ class QuestionActivity: AppCompatActivity() {
                         val lp = dialog.window!!.attributes
                         lp.dimAmount = 0.0f
                         dialog.window!!.attributes = lp
-                        dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-                        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+
+                        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
                         dialog.show()
                         dialog.setCancelable(false)
                         dialog.setCanceledOnTouchOutside(false)
@@ -485,9 +483,8 @@ class QuestionActivity: AppCompatActivity() {
                         val lp = dialog.window!!.attributes
                         lp.dimAmount = 0.0f
                         dialog.window!!.attributes = lp
-                        dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-                        dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-                        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+
+                        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
 
                         dialog.show()
                         dialog.setCancelable(false)
@@ -545,8 +542,8 @@ class QuestionActivity: AppCompatActivity() {
                     builder.setView(view)
                     Log.e("3rd", "true")
                     var dialog = builder.create()
-                    dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-                    dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+//                    dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+                    dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
                     val lp = dialog.window!!.attributes
                     lp.dimAmount = 0.0f
                     dialog.window!!.attributes = lp
@@ -584,8 +581,8 @@ class QuestionActivity: AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setView(view)
         var dialog = builder.create()
-        dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+//        dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         val lp = dialog.window!!.attributes
         lp.dimAmount = 0.0f
         dialog.window!!.attributes = lp

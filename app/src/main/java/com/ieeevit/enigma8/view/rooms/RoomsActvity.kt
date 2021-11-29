@@ -50,11 +50,13 @@ class RoomsActvity:AppCompatActivity() {
             builder.setView(view)
             val dialog = builder.create()
             val lp = dialog.window!!.attributes
-            lp.dimAmount = 0.0f
-            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+            lp.dimAmount = 0.1f
             dialog.window!!.attributes = lp
-            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.show()
+            dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+
+//            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+
             dialog.setCancelable(false)
             dialog.setCanceledOnTouchOutside(false)
             view.findViewById<Button>(R.id.try_again).setOnClickListener(View.OnClickListener {

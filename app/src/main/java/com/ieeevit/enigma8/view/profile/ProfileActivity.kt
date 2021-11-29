@@ -11,6 +11,7 @@ import android.net.ConnectivityManager
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.view.View.OnFocusChangeListener
 import android.view.WindowManager
@@ -19,10 +20,12 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.ieeevit.enigma8.MainActivity
 import com.ieeevit.enigma8.R
 import com.ieeevit.enigma8.model.fcm.FcmRequest
 import com.ieeevit.enigma8.model.profile.UserRequest
 import com.ieeevit.enigma8.utils.PrefManager
+import com.ieeevit.enigma8.view.notification.NotificationActivity
 import com.ieeevit.enigma8.view.rooms.RoomsActvity
 import com.ieeevit.enigma8.view.timer.CountdownActivity
 import com.ieeevit.enigma8.viewModel.ProfileSetupViewModel
@@ -210,6 +213,14 @@ class ProfileActivity:AppCompatActivity() {
     fun hideKeyboard(view: View) {
         val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        return true
     }
 
 }
