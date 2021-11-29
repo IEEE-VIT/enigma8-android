@@ -131,11 +131,10 @@
 
     <ImageView
         android:id="@+id/powerups_image"
-        android:layout_width="220dp"
-        android:layout_height="164dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="221dp"
+        android:layout_height="162dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction_point5"
         app:srcCompat="@drawable/group_1990" />

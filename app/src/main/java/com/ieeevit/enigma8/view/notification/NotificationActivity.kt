@@ -10,6 +10,7 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -60,9 +61,8 @@ class NotificationActivity:AppCompatActivity() {
             val dialog = builder.create()
             val lp = dialog.window!!.attributes
             lp.dimAmount = 0.0f
-            dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+            dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
             dialog.window!!.attributes = lp
-            dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
             dialog.show()
             dialog.setCancelable(false)
             dialog.setCanceledOnTouchOutside(false)
@@ -105,6 +105,7 @@ class NotificationActivity:AppCompatActivity() {
                             .atOffset(ZoneOffset.UTC)
                             .toLocalTime()
                     val notificationDate = Date(item.timestamp.toLong()).date
+                    Log.e("notificationdate","$notificationDate")
                     val date  = dateNow.date
                     if(date == notificationDate) {
                         val hourOfDay: Int = timeOfDay.hour
@@ -112,7 +113,6 @@ class NotificationActivity:AppCompatActivity() {
                         val minutesDifference = ((hours*60+minutes)-(hourOfDay*60+MinuteOfDay))
                         if(minutesDifference<60) {
                             dataList.add(Notification(item._id,item.text,item.type,item.metadata, "$minutesDifference min(s) ago"))
-
                         }
                         else  {
                             dataList.add(Notification(item._id,item.text,item.type,item.metadata,(minutesDifference/60).toString()+" hour(s) ago"))
@@ -144,6 +144,14 @@ class NotificationActivity:AppCompatActivity() {
 
         })
 
+    }
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            val intent = Intent(this,RoomsActvity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        return true
     }
 
 }

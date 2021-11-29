@@ -84,10 +84,10 @@ class PowerupAdapter(var context: Context, var dataList: List<Powerups>, val vie
                 val lp = dialog.window!!.attributes
                 lp.dimAmount = 0.0f
                 dialog.window!!.attributes = lp
-                dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+
                 dialog.show()
                 dialog.setCancelable(false)
-                dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+                dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
                 dialog.setCanceledOnTouchOutside(false)
                 sharedPreferences.setPowerupName(dataList[position].name)
                 sharedPreferences.setRoomid(sharedPreferences.getRoomid().toString())

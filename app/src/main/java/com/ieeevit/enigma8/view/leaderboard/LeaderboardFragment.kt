@@ -94,7 +94,6 @@ class LeaderboardFragment : Fragment() {
         days2 = root.findViewById(R.id.days2)
         hours2 = root.findViewById(R.id.hours2)
         minutes2 = root.findViewById(R.id.minutes2)
-        val progressBar = root.findViewById<ProgressBar>(R.id.progressBar)
         init()
         viewModel.getEnigmaStatus("Token $authToken")
 
@@ -209,8 +208,11 @@ class LeaderboardFragment : Fragment() {
             if (it != null) {
                 userRank.text = it.data?.userRank?.rank.toString()
                 userName.text = it.data?.userRank?.username.toString()
+
+
                 userSolved.text = it.data?.userRank?.questionsSolved.toString()
-                userScore.text = it.data?.userRank?.score.toString()
+                val score = (it.data?.userRank?.score!!).toInt()
+                userScore.text = score.toString()
 
                 sharedPreferences.setUsername(userName.text.toString())
 
@@ -223,15 +225,7 @@ class LeaderboardFragment : Fragment() {
                 for (item in it.data!!.leaderboard) {
                     if (item !in dataList  ) {
                         Log.e("hih","$datam")
-                        datam.add(
-                                Leaderboard(
-                                        item.username,
-                                        item.score,
-                                        item.questionsSolved,
-                                        item.rank
-                                )
-                        )
-
+                        datam.add(Leaderboard(item.username, item.score, item.questionsSolved, item.rank))
                     }
                 }
 
@@ -252,63 +246,7 @@ class LeaderboardFragment : Fragment() {
             Log.e("Response","$it")
 
 
-//    ----------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
-//            leaderboardView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-//                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-//                    Log.e("page 1", "$page $totalPage")
-//
-//
-//                    Log.e("page 2", "$page $totalPage")
-//                    if (page < totalPage) {
-//                        page++
-//
-//
-//                        Log.e("page inside if", "$page $totalPage")
-//
-//                        val visibleItemCount = leaderboardView.layoutManager?.childCount
-//                        val pastVisibleItem = 1
-////                          LinearLayoutManager(context).findFirstVisibleItemPosition()
-////                    val total = adapter.itemCount
-//
-//                        if (!isLoading) {
-//                            if (visibleItemCount != null) {
-//                                if (page <= totalPage) {
-////                                        page++
-//                                    isLoading = true
-//
-//
-//                                    viewModel.getLeaderboardDetails(
-//                                        page,
-//                                        10,
-//                                        "Bearer $authToken",
-//                                        null
-//                                    )
-//
-//                                    Handler().postDelayed({
-//                                        if (::adapter.isInitialized) {
-//                                            adapter.notifyDataSetChanged()
-//                                        } else {
-//                                            adapter =
-//                                                LeaderboardAdapter(requireContext(), dataList)
-//                                            leaderboardView.adapter = adapter
-//                                        }
-//                                        isLoading = false
-////
-//                                    }, 500)
-//                                }
-//                            }
-//
-//                        }
-//
-//                        super.onScrolled(recyclerView, dx, dy)
-//                    }
-//
-//                }
-//            })
 
             search.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
                 override fun onQueryTextSubmit(query: String?): Boolean {
@@ -322,39 +260,6 @@ class LeaderboardFragment : Fragment() {
                     )
 
 
-//                 var newList: MutableList<Leaderboard> = mutableListOf()
-//            viewModel.leaderboardResponse.observe(viewLifecycleOwner, {
-//
-//
-//
-//                    for (item in it.data!!.leaderboard) {
-//                        Log.e("item", "$item")
-//                        Log.e("que1","$query")
-//                        if (query != null) {
-//                            Log.e("que2","$query")
-//                            if (query in item.username && item !in newList) {
-//                                newList.add(
-//                                    Leaderboard(
-//                                        item.username,
-//                                        item.score,
-//                                        item.questionsSolved,
-//                                        item.rank
-//                                    )
-//                                )
-//
-//                            }
-//                        }
-//                    }
-//                Log.e("newList","$newList")
-//
-//                dataList = newList
-//                Log.e("datalist3","$dataList")
-//                    adapter = LeaderboardAdapter(requireContext(), dataList)
-//                    leaderboardView.layoutManager = LinearLayoutManager(context)
-//                    leaderboardView.adapter = adapter
-//                    adapter.notifyDataSetChanged()
-//
-//            })
 
 
 

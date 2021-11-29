@@ -38,22 +38,22 @@
 
             <TextView
                 android:id="@+id/usernameval"
-                android:layout_width="150dp"
+                android:layout_width="140dp"
                 android:layout_height="match_parent"
                 android:text="Username"
-                android:paddingLeft="2dp"
                 android:textAlignment="center"
+                android:paddingLeft="2dp"
                 android:textColor="@color/light_yellow"
-                android:textSize="15dp">
+                android:textSize="12dp">
 
             </TextView>
 
             <TextView
                 android:id="@+id/scoreval"
-                android:layout_width="90dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:text="Score"
-                android:layout_marginStart="-5dp"
+                android:layout_marginStart="0dp"
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="15dp"
@@ -64,10 +64,9 @@
 
             <TextView
                 android:id="@+id/solvedval"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:text="Solved"
-
                 android:textAlignment="center"
                 android:textColor="@color/light_yellow"
                 android:textSize="15dp"

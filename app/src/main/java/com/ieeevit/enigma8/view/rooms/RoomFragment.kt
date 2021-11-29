@@ -215,8 +215,8 @@ class RoomFragment : Fragment() {
                                 lp.dimAmount = 0.1f
                                 dialog.window!!.attributes = lp
                                 dialog.show()
-                                dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-                                dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+//                                dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+                                dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
                                 view.findViewById<ImageView>(R.id.close).setOnClickListener {
                                     dialog.dismiss()
                                 }
@@ -239,8 +239,8 @@ class RoomFragment : Fragment() {
                                 dialog.window!!.attributes = lp
                                 dialog.show()
                                 view.findViewById<TextView>(R.id.room_unlock).text = "You need ${it.data.starsNeeded} more"
-                                dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
-                                dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+//                                dialog.window!!.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+                                dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
 
                                 view.findViewById<ImageView>(R.id.close).setOnClickListener {
                                     dialog.dismiss()

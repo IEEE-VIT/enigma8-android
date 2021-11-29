@@ -9,10 +9,10 @@
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
+        android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -34,7 +34,7 @@
             android:fontFamily="@font/cinzel_bold"
             android:gravity="center"
 
-            app:lineHeight="49sp" />
+            app:lineHeight="55sp" />
 
         <TextView
             android:id="@+id/semicolon1"
@@ -225,7 +225,7 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="347dp"
-        android:layout_height="506dp"
+        android:layout_height="0dp"
         android:background="@drawable/leaderboard_bg"
         app:layout_constraintBottom_toTopOf="@+id/UserRankView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -255,10 +255,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/UserRankView"
-        android:layout_width="match_parent"
+        android:layout_width="347dp"
         android:layout_height="45dp"
         app:cardBackgroundColor="#B8B8B8"
         app:cardCornerRadius="0dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -360,7 +361,7 @@
     <ImageView
         android:id="@+id/overlay"
         android:layout_width="match_parent"
-        android:visibility="gone"
+        android:visibility="invisible"
         android:translationZ="10dp"
         android:background="@color/background"
         android:layout_height="match_parent"/>
@@ -373,7 +374,7 @@
         android:translationZ="40dp"
         android:layout_marginHorizontal="40dp"
         android:progress="50"
-        android:visibility="gone"
+        android:visibility="invisible"
         android:progressDrawable="@drawable/ic_progress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
