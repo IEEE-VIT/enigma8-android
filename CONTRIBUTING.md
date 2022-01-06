@@ -5,21 +5,33 @@ This document contains certain rules and guidelines that developers are expected
 ---
 ## 1. Commit Messages
 
-* Use the `-m` flag only for minor changes. The message following the `-m` flag must be of the below format : 
-  > `<Verb in present tense> <Action>`
-  
-  :white_check_mark: __Examples of valid messages:__
-  * Added serialisers.py for users app
-  * Updated utils/validator.js file
-  * Changed functionality of authentication process
-  
-  :x: __Examples of invalid messages:__
-  * Idk why this is not working
-  * Only ui bug fixes left
-  * All changes done, ready for production :))
-  
-* Before opening a PR, make sure you squash all your commits into one single commit using `git rebase` (squash). Instead of having 50 commits that describe 1 feature implementation, there must be one commit that describes everything that has been done so far. You can read up about it [here](https://www.internalpointers.com/post/squash-commits-into-one-git).
-> NOTE: While squashing your commits to write a new one, do not make use of `-m` flag. In this case, a vim editor window shall open. Write a title for the commit within 50-70 characters, leave a line and add an understandable description.
+- Use the `-m` flag only for minor changes. The message following the `-m` flag must be of the below format :
+
+  > `<Verb>: <Action>`
+
+  Verbs oftenly used are
+
+  - add
+  - feat
+  - fix
+  - refactor
+
+  ✅ **Examples of valid messages:**
+
+  - add: serialisers.py for users app
+  - feat: validation
+  - fix: functionality of authentication process
+  - refactor: remove unwanted comments from src/auth.ts
+
+  ❌ **Examples of invalid messages:**
+
+  - Idk why this is not working
+  - Only ui bug fixes left
+  - All changes done, ready for production :)))
+
+- Before opening a PR, make sure you squash all your commits into one single commit using `git rebase` (squash). Instead of having 50 commits that describe 1 feature implementation, there must be one commit that describes everything that has been done so far. You can read up about it [here](https://www.internalpointers.com/post/squash-commits-into-one-git).
+  > NOTE: While squashing your commits to write a new one, do not make use of `-m` flag. In this case, a vim editor window shall open. Write a title for the commit within 50-70 characters, leave a line and add an understandable description.
+
 
 ## 2. Issues
 * Issues __MUST__ be opened any time any of the following events occur : 
