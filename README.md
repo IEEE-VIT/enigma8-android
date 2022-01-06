@@ -30,28 +30,8 @@ To get started:
 
 To start contributing, check out [`CONTRIBUTING.md`](https://github.com/IEEE-VIT/enigma8-android/blob/master/CONTRIBUTING.md) . New contributors are always welcome to support this project.
 
-## Contributors ✨
+## License
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-	<tr>
-		<td align="center">
-			<a href="https://github.com/Jatin887"><img src="https://avatars.githubusercontent.com/Jatin887" width="100px;" alt=""/><br /><sub><b>Jatin</b></sub></a><br /> <a href="https://github.com/IEEE-VIT/enigma8_android/commits?author=Jatin887" title="Code"> 💻 </a>
-		</td>
-        <td align="center">
-			<a href="https://github.com/jazxii"><img src="https://avatars.githubusercontent.com/jazxii" width="100px;" alt=""/><br /><sub><b>Jassim M</b></sub></a><br /><a href="https://github.com/IEEE-VIT/enigma8_android/commits?author=jazxii" title="Code"> 💻 </a>
-		</td>
-    </td>
-        <td align="center">
-			<a href="https://github.com/Archita01"><img src="https://avatars.githubusercontent.com/Archita01" width="100px;" alt=""/><br /><sub><b>Archita Todi</b></sub></a><br /><a href="https://github.com/IEEE-VIT/enigma8_android/commits?author=Archita01" title="Code"> 💻 </a>
-		</td>
-	</tr>
-</table>
-
-<br />
+This project is licensed under [MIT](https://github.com/IEEE-VIT/enigma8-android/blob/master/LICENSE).
 
 <p align="center">Made with ❤ by IEEE-VIT</p>
