@@ -1,5 +1,5 @@
 
-<p align="center"><img src="https://github.com/IEEE-VIT/enigma8-android/blob/master/app/src/main/res/drawable-v24/Splash%20screen.svg"/></p>
+<p align="center"><img src="https://github.com/IEEE-VIT/enigma8-android/blob/master/app/src/main/res/drawable/Android.png"/></p>
 
 <br/>
 
